@@ -1,7 +1,7 @@
 const tabs = [
   ["tracker", "Challenges"],
   ["games", "Exclusive Pokémon"],
-  ["trades", "Trades"],
+  ["trades", "Trades & Gifts"],
   ["ribbons", "Ribbons"],
   ["moves", "Moves"],
   ["progress", "Progress"],
