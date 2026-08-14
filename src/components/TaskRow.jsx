@@ -11,6 +11,8 @@ const gameIcons = {
   oras: [6, "omega-ruby.png", "alpha-sapphire.png"],
   sm: [7, "sun.png", "moon.png"],
   usum: [7, "ultra-sun.png", "ultra-moon.png"],
+  colosseum: [3, "colosseum.png"],
+  "dream-radar": [5, "dream-radar.png"],
 };
 
 export function TaskRow({ task, completed, toggle }) {
