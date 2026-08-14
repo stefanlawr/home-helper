@@ -9,6 +9,7 @@ const DATA_FILES = {
 async function loadJson(path, optional = false) {
   const response = await fetch(`${import.meta.env.BASE_URL}${path}`)
   if (!response.ok) {
+    // Only auxiliary catalogs may be absent; required catalogs must fail loudly.
     if (optional) return {}
     throw new Error(`Unable to load ${path} (${response.status})`)
   }

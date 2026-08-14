@@ -7,7 +7,6 @@
 .task-list,
 .game-group,
 .ribbon-group,
-.move-table,
 .stat {
   position: relative;
   background: var(--gba-cream);
@@ -284,35 +283,6 @@ select:focus {
   color: var(--gray-green);
   text-decoration: line-through;
 }
-.sprite {
-  height: 42px;
-  object-fit: contain;
-  width: 42px;
-  image-rendering: pixelated;
-}
-.enrichment {
-  color: var(--gba-blue);
-  max-width: 170px;
-}
-.enrichment-slot {
-  display: block;
-  height: 42px;
-  width: 42px;
-}
-.enrich-button {
-  background: var(--gba-blue-soft);
-  border: 1px solid var(--gba-navy);
-  color: var(--gba-navy);
-  font-size: 9px;
-  font-weight: 700;
-  padding: 4px 7px;
-  text-transform: uppercase;
-}
-.enrich-button:hover {
-  background: var(--gba-blue);
-  color: var(--gba-cream);
-}
-
 /* ---- Game group panels --------------------------------------------------- */
 .game-title {
   align-items: center;
@@ -374,21 +344,7 @@ select:focus {
   border-left: 3px solid var(--emerald);
   padding-left: 8px;
 }
-.text-button {
-  background: none;
-  border: 0;
-  color: var(--gba-red);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 0;
-  text-transform: uppercase;
-}
-.text-button:hover {
-  text-decoration: underline;
-}
-
 /* ---- Moves table ----------------------------------------------------------- */
-.move-header,
 .move-row {
   display: grid;
   gap: 16px;
@@ -396,15 +352,6 @@ select:focus {
   padding: 13px 16px;
   text-align: left;
   width: 100%;
-}
-.move-header {
-  color: var(--gba-navy);
-  background: var(--gba-cream-alt);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  border-bottom: 2px solid var(--gba-navy);
 }
 .move-row {
   background: none;
@@ -637,11 +584,6 @@ select:focus {
     align-items: end;
     flex-direction: column;
   }
-  .sprite {
-    height: 32px;
-    width: 32px;
-  }
-  .move-header,
   .move-row {
     grid-template-columns: minmax(130px, 2fr) 70px 70px;
     padding-inline: 10px;

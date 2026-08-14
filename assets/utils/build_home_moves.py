@@ -25,9 +25,7 @@ def generation_for_game_label(label: str) -> int | None:
         return 3
     if any(game in normalized for game in ("diamond/pearl", "platinum", "heartgold/soulsilver")):
         return 4
-    if any(game in normalized for game in ("black/white", "black 2/white 2")):
-        return 5
-    if any(game in normalized for game in ("black/white", "black2/white2")):
+    if any(game in normalized for game in ("black/white", "black 2/white 2", "black2/white2")):
         return 5
     if any(game in normalized for game in ("x/y", "o.ruby/a.sapphire")):
         return 6

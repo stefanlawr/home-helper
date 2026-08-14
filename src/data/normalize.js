@@ -28,6 +28,34 @@ function hasPreAndPostGen7Game(challenge) {
   return generations.some((generation) => generation < 7) && generations.some((generation) => generation > 7)
 }
 
+function indexTasks(tasks) {
+  const bySource = {}
+  const byGame = {}
+  for (const task of tasks) {
+    const sourceTasks = bySource[task.source] || []
+    sourceTasks.push(task)
+    bySource[task.source] = sourceTasks
+    for (const code of task.games) {
+      const gameTasks = byGame[code] || []
+      gameTasks.push(task)
+      byGame[code] = gameTasks
+    }
+  }
+  return { bySource, byGame }
+}
+
+function indexMoves(moves) {
+  const byGame = {}
+  for (const move of moves) {
+    for (const code of move.games) {
+      const gameMoves = byGame[code] || []
+      gameMoves.push(move)
+      byGame[code] = gameMoves
+    }
+  }
+  return { byGame }
+}
+
 export function normalizeData(data) {
   const games = data.challenges.games || {}
   const tasks = (data.challenges.challenges || [])
@@ -108,11 +136,15 @@ export function normalizeData(data) {
     .filter((move) => move.removedIn)
 
   const ribbonGroups = data.ribbons.ribbon_groups || []
+  const taskIndex = indexTasks(tasks)
+  const moveIndex = indexMoves(moveCatalog)
 
   return {
     games,
     tasks,
     moveCatalog,
+    taskIndex,
+    moveIndex,
     ribbonGroups,
     globalTargets: data.exclusives.global_targets || {},
   }
