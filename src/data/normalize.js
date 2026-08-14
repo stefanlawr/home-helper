@@ -107,10 +107,7 @@ export function normalizeData(data) {
     }))
     .filter((move) => move.removedIn)
 
-  const ribbonGroups = (data.ribbons.ribbon_groups || []).map((group) => ({
-    ...group,
-    linkedTaskIds: tasks.filter((task) => task.category === 'ribbon' && group.ribbons.some((ribbon) => task.name.toLocaleLowerCase().includes(ribbon.name.toLocaleLowerCase()))).map((task) => task.id),
-  }))
+  const ribbonGroups = data.ribbons.ribbon_groups || []
 
   return {
     games,

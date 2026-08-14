@@ -205,7 +205,7 @@ function Progress({ tasks, completed, games }) {
   );
 }
 
-function RibbonView({ groups, tasks, onTaskLink }) {
+function RibbonView({ groups }) {
   return (
     <section class="reference-view">
       <header class="section-heading">
@@ -222,7 +222,7 @@ function RibbonView({ groups, tasks, onTaskLink }) {
             <span class="tag">
               Gen {group.origin_generation} · {group.category}
             </span>
-            <h3>{group.id.replaceAll("_", " ")}</h3>
+            <h3>{group.title || group.id.replaceAll("_", " ")}</h3>
             <p>{group.acquisition}</p>
             <small>{group.transfer_behavior.replaceAll("_", " ")}</small>
           </div>
@@ -237,14 +237,6 @@ function RibbonView({ groups, tasks, onTaskLink }) {
               </li>
             ))}
           </ul>
-          {group.linkedTaskIds.length > 0 && (
-            <button
-              class="text-button"
-              onClick={() => onTaskLink(group.linkedTaskIds[0])}
-            >
-              View linked challenge target ({group.linkedTaskIds.length})
-            </button>
-          )}
         </article>
       ))}
     </section>
@@ -471,11 +463,6 @@ export function App() {
     [model, query, selectedGames, generation],
   );
   const countdown = useCountdown(SHUTDOWN_TIME);
-  const linkToTask = (id) => {
-    setView("tracker");
-    setQuery(model.tasks.find((task) => task.id === id)?.name || "");
-  };
-
   if (error)
     return (
       <main class="shell">
@@ -611,8 +598,6 @@ export function App() {
       {view === "ribbons" && (
         <RibbonView
           groups={model.ribbonGroups}
-          tasks={model.tasks}
-          onTaskLink={linkToTask}
         />
       )}
       {view === "moves" && (

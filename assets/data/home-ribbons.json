@@ -1,21 +1,22 @@
 {
   "schema_version": "1.1",
   "game_catalog": "home-challenges.json#/games",
-  "description": "Normalized catalog of Pokemon Ribbons, including their origin generation, origin games, acquisition requirements, transfer behavior, and HOME title where applicable.",
+  "description": "Normalized catalog of Pokemon Ribbons listed as obtainable in the Smogon Ribbon Master Guide, including their origin generation, origin games, acquisition requirements, transfer behavior, and HOME title where applicable.",
   "source": {
-    "primary": "https://bulbapedia.bulbagarden.net/wiki/List_of_Ribbons_in_the_games",
+    "primary": "https://www.smogon.com/ingame/guides/ribbon_master_guide",
     "retrieved": "2026-08-14",
-    "source_total": 115,
-    "note": "The source total includes nine deprecated Ribbon data slots. Ribbons are grouped only when every member shares the same origin and acquisition pattern. The source's stated per-generation subtotals count the gold Contest Memory and Battle Memory visual variants separately, which makes those subtotals add to 117 rather than its stated total of 115."
+    "source_total": 87,
+    "note": "Aligned with the obtainable ribbons listed in the Smogon Ribbon Master Guide. Ribbons are grouped only when every member shares the same origin and acquisition pattern; Contest Memory and Battle Memory visual variants remain nested under their base ribbon entries."
   },
   "scope": {
-    "included": "Core-series Ribbons, transferable GameCube side-series Ribbons, event Ribbons, and deprecated Ribbon data slots listed by Bulbapedia.",
-    "excluded": "Pokemon HOME challenges, Marks, and spin-off-only Ribbons without a documented transfer path to Pokemon HOME.",
+    "included": "Obtainable Generation III through Generation VIII Ribbons listed in the Smogon Ribbon Master Guide, including transferable GameCube side-series Ribbons.",
+    "excluded": "Generation V event ribbons, Generation IX ribbons, deprecated Ribbon data slots, unavailable event distributions, Pokemon HOME challenges, Marks, and spin-off-only Ribbons without a documented transfer path to Pokemon HOME.",
     "memory_conversion": "Generation III and IV Contest and Battle Tower Ribbons are individually retained through Generation V, then collapse into a Contest Memory Ribbon or Battle Memory Ribbon when transferred to Generation VI."
   },
   "ribbon_groups": [
     {
       "id": "gen3_league",
+      "title": "Hoenn and Kanto League",
       "category": "league",
       "origin_generation": 3,
       "origin_games": ["rse", "frlg"],
@@ -25,6 +26,7 @@
     },
     {
       "id": "gen3_hoenn_contests",
+      "title": "Hoenn Contests",
       "category": "contest",
       "origin_generation": 3,
       "origin_games": ["rse"],
@@ -40,6 +42,7 @@
     },
     {
       "id": "gen3_battle_tower",
+      "title": "Hoenn Battle Tower",
       "category": "battle_tower",
       "origin_generation": 3,
       "origin_games": ["rse"],
@@ -52,6 +55,7 @@
     },
     {
       "id": "gen3_memorial",
+      "title": "Hoenn Memorial Ribbons",
       "category": "memorial",
       "origin_generation": 3,
       "origin_games": ["rse"],
@@ -62,29 +66,20 @@
       ]
     },
     {
-      "id": "gen3_gamecube_and_festa",
+      "id": "gen3_gamecube",
+      "title": "GameCube Ribbons",
       "category": "gift",
       "origin_generation": 3,
-      "origin_games": ["colosseum", "xd", "festa"],
+      "origin_games": ["colosseum", "xd"],
       "transfer_behavior": "preserved",
       "ribbons": [
         {"id": "national_ribbon", "name": "National Ribbon", "requirement": "Purify a Shadow Pokemon in Pokemon Colosseum or Pokemon XD: Gale of Darkness.", "home_title": "the Triumphant"},
-        {"id": "earth_ribbon", "name": "Earth Ribbon", "requirement": "Win 100 consecutive Mt. Battle matches with the Pokemon in the party.", "home_title": "the 100x Victorious"},
-        {"id": "country_ribbon", "name": "Country Ribbon", "requirement": "Win a Pokemon League tournament at Pokemon Festa 2004, 2005, or 2007.", "availability": "event_ended", "home_title": "the Victor"},
-        {"id": "world_ribbon", "name": "World Ribbon", "requirement": "Win a Pokemon League tournament at Pokemon Festa 2004 or 2005.", "availability": "event_ended", "home_title": "the World Conqueror"}
+        {"id": "earth_ribbon", "name": "Earth Ribbon", "requirement": "Win 100 consecutive Mt. Battle matches with the Pokemon in the party.", "home_title": "the 100x Victorious"}
       ]
     },
     {
-      "id": "gen3_deprecated",
-      "category": "deprecated",
-      "origin_generation": 3,
-      "origin_games": ["event"],
-      "acquisition": "These obsolete data slots were replaced by later Ribbon types and are not independently obtainable in current games.",
-      "transfer_behavior": "replaced_by_later_ribbon_data",
-      "ribbons": [{"id": "marine_ribbon", "name": "Marine Ribbon", "replaced_by": "Battle Champion Ribbon"}, {"id": "land_ribbon", "name": "Land Ribbon", "replaced_by": "Regional Champion Ribbon"}, {"id": "sky_ribbon", "name": "Sky Ribbon", "replaced_by": "National Champion Ribbon"}]
-    },
-    {
       "id": "gen4_league",
+      "title": "Sinnoh League",
       "category": "league",
       "origin_generation": 4,
       "origin_games": ["dppt", "bdsp"],
@@ -94,6 +89,7 @@
     },
     {
       "id": "gen4_sinnoh_contests",
+      "title": "Sinnoh Super Contests",
       "category": "contest",
       "origin_generation": 4,
       "origin_games": ["dppt"],
@@ -109,6 +105,7 @@
     },
     {
       "id": "gen4_battle_tower",
+      "title": "Sinnoh and Johto Battle Frontier",
       "category": "battle_tower",
       "origin_generation": 4,
       "origin_games": ["dppt", "hgss"],
@@ -124,6 +121,7 @@
     },
     {
       "id": "gen4_memorial",
+      "title": "Daily, Purchase, and Memorial Ribbons",
       "category": "memorial",
       "origin_generation": 4,
       "origin_games": ["dppt", "hgss", "bdsp"],
@@ -131,33 +129,12 @@
       "ribbons": [
         {"id": "alert_ribbon", "name": "Alert Ribbon", "requirement": "Receive on Monday."}, {"id": "shock_ribbon", "name": "Shock Ribbon", "requirement": "Receive on Tuesday."}, {"id": "downcast_ribbon", "name": "Downcast Ribbon", "requirement": "Receive on Wednesday."}, {"id": "careless_ribbon", "name": "Careless Ribbon", "requirement": "Receive on Thursday."}, {"id": "relax_ribbon", "name": "Relax Ribbon", "requirement": "Receive on Friday."}, {"id": "snooze_ribbon", "name": "Snooze Ribbon", "requirement": "Receive on Saturday."}, {"id": "smile_ribbon", "name": "Smile Ribbon", "requirement": "Receive on Sunday."},
         {"id": "gorgeous_ribbon", "name": "Gorgeous Ribbon", "requirement": "Purchase for 10,000 Poke Dollars."}, {"id": "royal_ribbon", "name": "Royal Ribbon", "requirement": "Purchase for 100,000 Poke Dollars after obtaining the Gorgeous Ribbon."}, {"id": "gorgeous_royal_ribbon", "name": "Gorgeous Royal Ribbon", "requirement": "Purchase for 999,999 Poke Dollars after obtaining the Royal Ribbon."},
-        {"id": "footprint_ribbon", "name": "Footprint Ribbon", "requirement": "Meet Dr. Footstep's eligibility condition; this varies by game.", "home_title": "the Strutter"}, {"id": "record_ribbon", "name": "Record Ribbon", "availability": "never_distributed", "home_title": "the Record Holder"}, {"id": "legend_ribbon", "name": "Legend Ribbon", "requirement": "Defeat Red at Mt. Silver with the Pokemon in the party.", "home_title": "the Living Legend"}
-      ]
-    },
-    {
-      "id": "gen4_event_and_deprecated",
-      "category": "gift_or_deprecated",
-      "origin_generation": 4,
-      "origin_games": ["event"],
-      "transfer_behavior": "preserved_or_replaced_by_later_ribbon_data",
-      "ribbons": [
-        {"id": "classic_ribbon", "name": "Classic Ribbon", "requirement": "Received with eligible event Pokemon."}, {"id": "premier_ribbon", "name": "Premier Ribbon", "requirement": "Received with eligible holiday event Pokemon."},
-        {"id": "history_ribbon", "name": "History Ribbon", "deprecated": true, "replaced_by": "Event Ribbon"}, {"id": "green_ribbon", "name": "Green Ribbon", "deprecated": true, "replaced_by": "Birthday Ribbon"}, {"id": "blue_ribbon", "name": "Blue Ribbon", "deprecated": true, "replaced_by": "Special Ribbon"}, {"id": "festival_ribbon", "name": "Festival Ribbon", "deprecated": true, "replaced_by": "Souvenir Ribbon"}, {"id": "carnival_ribbon", "name": "Carnival Ribbon", "deprecated": true, "replaced_by": "Wishing Ribbon"}, {"id": "red_ribbon", "name": "Red Ribbon", "deprecated": true, "replaced_by": "World Champion Ribbon"}
-      ]
-    },
-    {
-      "id": "gen5_event",
-      "category": "gift",
-      "origin_generation": 5,
-      "origin_games": ["bw", "b2w2", "event"],
-      "acquisition": "Received with an eligible event Pokemon, unless a more specific requirement is given.",
-      "transfer_behavior": "preserved",
-      "ribbons": [
-        {"id": "event_ribbon", "name": "Event Ribbon", "requirement": "Participate in a special Pokemon event."}, {"id": "birthday_ribbon", "name": "Birthday Ribbon", "requirement": "Receive an eligible birthday event Pokemon."}, {"id": "special_ribbon", "name": "Special Ribbon"}, {"id": "souvenir_ribbon", "name": "Souvenir Ribbon"}, {"id": "wishing_ribbon", "name": "Wishing Ribbon"}, {"id": "battle_champion_ribbon", "name": "Battle Champion Ribbon", "requirement": "Receive from an eligible battle-competition champion distribution."}, {"id": "regional_champion_ribbon", "name": "Regional Champion Ribbon", "availability": "never_officially_distributed"}, {"id": "national_champion_ribbon", "name": "National Champion Ribbon", "availability": "never_officially_distributed"}, {"id": "world_champion_ribbon", "name": "World Champion Ribbon", "requirement": "Receive from an eligible World Championships champion distribution."}
+        {"id": "footprint_ribbon", "name": "Footprint Ribbon", "requirement": "Meet Dr. Footstep's eligibility condition; this varies by game.", "home_title": "the Strutter"}, {"id": "legend_ribbon", "name": "Legend Ribbon", "requirement": "Defeat Red at Mt. Silver with the Pokemon in the party.", "home_title": "the Living Legend"}
       ]
     },
     {
       "id": "gen6_league_and_contest",
+      "title": "Kalos and Hoenn Contests",
       "category": "league_or_contest",
       "origin_generation": 6,
       "origin_games": ["xy", "oras"],
@@ -169,6 +146,7 @@
     },
     {
       "id": "gen6_memory_battle_and_memorial",
+      "title": "Memory, Maison, Friendship, and Training",
       "category": "memory_battle_or_memorial",
       "origin_generation": 6,
       "origin_games": ["xy", "oras"],
@@ -182,6 +160,7 @@
     },
     {
       "id": "gen7_league_and_battle",
+      "title": "Alola League and Battle Facilities",
       "category": "league_or_battle",
       "origin_generation": 7,
       "origin_games": ["sm", "usum"],
@@ -192,28 +171,19 @@
     },
     {
       "id": "gen8_ribbons",
+      "title": "Galar Ribbons",
       "category": "league_contest_battle_or_memorial",
       "origin_generation": 8,
       "origin_games": ["swsh", "bdsp", "pla"],
       "transfer_behavior": "preserved",
       "ribbons": [
-        {"id": "galar_champion_ribbon", "name": "Galar Champion Ribbon", "requirement": "Become Galar Champion and enter the Hall of Fame.", "home_title": "the Galar Champion"}, {"id": "twinkling_star_ribbon", "name": "Twinkling Star Ribbon", "requirement": "Win a Master Rank Brilliant or Shining Contest after obtaining the Contest Star Ribbon.", "home_title": "the Twinkling Star"}, {"id": "tower_master_ribbon", "name": "Tower Master Ribbon", "requirement": "Defeat Leon at MAX Rank in Sword/Shield or Palmer at Master Class Rank 10 in Brilliant Diamond/Shining Pearl.", "home_title": "the Tower Master"}, {"id": "master_rank_ribbon", "name": "Master Rank Ribbon", "requirement": "Win a Ranked Battle while in Master Ball Tier after reaching MAX Rank in the season.", "home_title": "the Rank Master"}, {"id": "hisui_ribbon", "name": "Hisui Ribbon", "requirement": "Prepare the Pokemon at Dagero's photo studio in Jubilife Village.", "home_title": "of the Distant Past"}
-      ]
-    },
-    {
-      "id": "gen9_ribbons",
-      "category": "league_or_memorial",
-      "origin_generation": 9,
-      "origin_games": ["sv"],
-      "transfer_behavior": "preserved",
-      "ribbons": [
-        {"id": "paldea_champion_ribbon", "name": "Paldea Champion Ribbon", "requirement": "Become a Paldea Champion or win the Academy Ace Tournament.", "home_title": "the Paldea Champion"}, {"id": "once_in_a_lifetime_ribbon", "name": "Once-in-a-Lifetime Ribbon", "requirement": "Intended to be found very rarely on a Pokemon received in Surprise Trade.", "availability": "unverified_legitimate_obtainment", "home_title": "the One-in-a-Million"}, {"id": "partner_ribbon", "name": "Partner Ribbon", "requirement": "Receive an eligible League Club Room special-coach trade Pokemon or certain event Pokemon.", "home_title": "<Trainer>'s"}
+        {"id": "galar_champion_ribbon", "name": "Galar Champion Ribbon", "requirement": "Become Galar Champion and enter the Hall of Fame.", "home_title": "the Galar Champion"}, {"id": "tower_master_ribbon", "name": "Tower Master Ribbon", "requirement": "Defeat Leon at MAX Rank in Sword/Shield or Palmer at Master Class Rank 10 in Brilliant Diamond/Shining Pearl.", "home_title": "the Tower Master"}, {"id": "master_rank_ribbon", "name": "Master Rank Ribbon", "requirement": "Win a Ranked Battle while in Master Ball Tier after reaching MAX Rank in the season.", "home_title": "the Rank Master"}
       ]
     }
   ],
   "validation": {
-    "expected_ribbon_count": 115,
-    "count_includes_deprecated": 9,
-    "origin_generation_counts": {"3": 32, "4": 48, "5": 9, "6": 14, "7": 4, "8": 5, "9": 3}
+    "expected_ribbon_count": 87,
+    "count_includes_deprecated": 0,
+    "origin_generation_counts": {"3": 27, "4": 39, "6": 14, "7": 4, "8": 3}
   }
 }
