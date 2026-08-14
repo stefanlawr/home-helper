@@ -1,5 +1,6 @@
 {
   "games": {
+    "any": "Any compatible game",
     "home": "Pokémon HOME",
     "za": "Pokémon Legends: Z-A",
     "sv": "Pokémon Scarlet & Violet",
@@ -17,11 +18,23 @@
     "dppt": "Pokémon Diamond, Pearl & Platinum",
     "rse": "Pokémon Ruby, Sapphire & Emerald",
     "frlg": "Pokémon FireRed & LeafGreen",
-    "gsc": "Pokémon Gold & Silver",
-    "rby": "Pokémon Red, Blue & Yellow",
+    "gsc": "Pokémon Gold, Silver & Crystal",
+    "rby": "Pokémon Red, Green, Blue & Yellow",
     "go": "Pokémon GO",
     "bank": "Pokémon Bank",
-    "transporter": "Poké Transporter"
+    "transporter": "Poké Transporter",
+    "colosseum": "Pokémon Colosseum",
+    "xd": "Pokémon XD: Gale of Darkness",
+    "box": "Pokémon Box: Ruby & Sapphire",
+    "channel": "Pokémon Channel",
+    "colosseum-jp-ereader": "Pokémon Colosseum (Japanese version/e-Reader content)",
+    "colosseum-jp-bonus-disc": "Pokémon Colosseum Japanese Bonus Disc",
+    "colosseum-us-bonus-disc": "Pokémon Colosseum English Bonus Disc",
+    "ranch": "My Pokémon Ranch",
+    "battle-revolution": "Pokémon Battle Revolution",
+    "dream-radar": "Pokémon Dream Radar",
+    "festa": "Pokémon Festa",
+    "event": "Pokémon event distributions"
   },
 
   "challenges": [
@@ -641,7 +654,7 @@
       "id": "register-rotom-6",
       "name": "Register 6 forms of Rotom!",
       "category": "forms",
-      "games": ["dppt", "platinum", "bdsp"]
+      "games": ["dppt", "bdsp"]
     },
     {
       "id": "register-minior-7",

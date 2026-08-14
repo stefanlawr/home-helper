@@ -1,0 +1,811 @@
+{
+  "schema_version": "1.1",
+  "game_catalog": "home-challenges.json#/games",
+  "description": "Normalized Pokémon Bank-era exclusivity and preservation data extracted from the Pokémon Bank Exclusives Masterpost and its spin-off-games comment.",
+  "source": {
+    "masterpost": "https://www.reddit.com/r/PokemonHome/comments/1apiuee/pok%C3%A9mon_bank_exclusives_masterpost/",
+    "spin_off_comment": "https://www.reddit.com/r/PokemonHome/comments/1apiuee/pok%C3%A9mon_bank_exclusives_masterpost/n4tni5u/",
+    "masterpost_updated": "2026-08-13"
+  },
+  "scope": {
+    "definition": "Information that is relevant to preserving Pokémon, moves, abilities, ribbons, ball combinations, forms, challenges, gifts, or other collectible properties that depend on pre-Switch games and may be lost or become substantially harder to obtain after Pokémon Bank shuts down.",
+    "spin_off_policy": "Includes legitimate side/spin-off methods explicitly listed by the linked comment; excludes DNS-exploit-only old event distribution services as stated by that commenter."
+  },
+  "games": [
+    {
+      "id": "gen1_vc_rby",
+      "generation": 1,
+      "games": ["rby"],
+      "platform": "Nintendo 3DS Virtual Console",
+      "categories": {
+        "origin_mark": "Game Boy",
+        "home_challenges": ["Venusaur", "Blastoise", "Charizard", "Pikachu"],
+        "notable_shinies": ["Mew"],
+        "moves": [
+          "Barrage",
+          "Barrier",
+          "Bide",
+          "Bone Club",
+          "Clamp",
+          "Comet Punch",
+          "Constrict",
+          "Dizzy Punch",
+          "Double Slap",
+          "Dragon Rage",
+          "Egg Bomb",
+          "Hyper Fang",
+          "Jump Kick",
+          "Karate Chop",
+          "Meditate",
+          "Mirror Move",
+          "Psywave",
+          "Rage",
+          "Razor Wind",
+          "Rolling Kick",
+          "Sharpen",
+          "Sonic Boom",
+          "Spike Cannon",
+          "Twineedle"
+        ],
+        "abilities": [
+          "Hidden Abilities are assigned to Pokémon transferred through the VC"
+        ],
+        "ribbons": [],
+        "ball_properties": ["Poké Ball data is not preserved"],
+        "special": [
+          "Mew on the VC requires glitches, injection, or hacking and is not a legitimate ordinary in-game acquisition.",
+          "The listed Gen 1 moves can be obtained on Switch through Let's Go, Pikachu!/Eevee! and transferred to HOME, but are removed from other Switch games."
+        ]
+      },
+      "tags": ["bank_transfer", "origin_mark", "virtual_console", "gen1"]
+    },
+    {
+      "id": "gen2_vc_gsc",
+      "generation": 2,
+      "games": ["gsc"],
+      "platform": "Nintendo 3DS Virtual Console",
+      "categories": {
+        "origin_mark": "Game Boy",
+        "home_challenges": ["Ho-Oh", "Lugia", "Suicune"],
+        "notable_shinies": ["Celebi"],
+        "moves": [
+          "Feint Attack",
+          "Foresight",
+          "Frustration",
+          "Magnitude",
+          "Nightmare",
+          "Pursuit",
+          "Return",
+          "Spider Web"
+        ],
+        "abilities": [
+          "Hidden Abilities are assigned to Pokémon transferred through the VC"
+        ],
+        "ribbons": [],
+        "ball_properties": ["Poké Ball data is not preserved"],
+        "special": [
+          "Crystal provides a legitimate shiny Celebi route unavailable through ordinary VC Gold/Silver gameplay."
+        ]
+      },
+      "tags": ["bank_transfer", "origin_mark", "virtual_console", "gen2"]
+    },
+    {
+      "id": "gen3_rse",
+      "generation": 3,
+      "games": ["rse"],
+      "platform": "Game Boy Advance",
+      "categories": {
+        "origin_mark": "None",
+        "home_challenges": ["Groudon", "Kyogre", "Rayquaza"],
+        "notable_shinies": ["Mew", "Deoxys", "Jirachi"],
+        "notable_gifts": [
+          "One Johto starter for completing the Hoenn Pokédex in Emerald"
+        ],
+        "moves": [
+          "Assist",
+          "Camouflage",
+          "Grass Whistle",
+          "Mud Sport",
+          "Needle Arm",
+          "Odor Sleuth",
+          "Psycho Boost",
+          "Refresh",
+          "Secret Power",
+          "Signal Beam",
+          "Sky Uppercut",
+          "Smelling Salts",
+          "Snatch",
+          "Water Sport"
+        ],
+        "abilities": [],
+        "ribbons": [
+          "Champion Ribbon",
+          "Cool Ribbon",
+          "Beauty Ribbon",
+          "Cute Ribbon",
+          "Smart Ribbon",
+          "Tough Ribbon",
+          "Super Contest variants",
+          "Hyper Contest variants",
+          "Master Contest variants",
+          "Winning Ribbon",
+          "Victory Ribbon",
+          "Artist Ribbon"
+        ],
+        "ball_properties": [
+          "Shiny Mew can legitimately originate from Japanese Emerald and can have a non-Poké Ball/non-Cherish Ball origin"
+        ],
+        "special": [
+          "Emerald contains the in-game Deoxys event route.",
+          "Japanese Emerald is the legitimate source for shiny Mew.",
+          "Deoxys from Emerald can be shiny hunted outside Pokémon GO.",
+          "Shiny Jirachi can be obtained through the Pokémon Colosseum Bonus Disc (US) or Pokémon Channel (EU) routes."
+        ]
+      },
+      "tags": ["bank_transfer", "gen3", "g3_ribbon"]
+    },
+    {
+      "id": "gen3_frlg",
+      "generation": 3,
+      "games": ["frlg"],
+      "platform": "Game Boy Advance",
+      "categories": {
+        "origin_mark": "None",
+        "home_challenges": ["Venusaur", "Charizard"],
+        "notable_shinies": ["Deoxys"],
+        "moves": [
+          "Assist",
+          "Camouflage",
+          "Grass Whistle",
+          "Mud Sport",
+          "Needle Arm",
+          "Odor Sleuth",
+          "Psycho Boost",
+          "Refresh",
+          "Secret Power",
+          "Signal Beam",
+          "Sky Uppercut",
+          "Smelling Salts",
+          "Snatch",
+          "Water Sport"
+        ],
+        "abilities": [],
+        "ribbons": ["Champion Ribbon"],
+        "ball_properties": ["Apriballs were not available in this generation"],
+        "special": [
+          "FRLG provides a legitimate shiny Deoxys route outside Pokémon GO."
+        ]
+      },
+      "tags": ["bank_transfer", "gen3", "g3_ribbon"]
+    },
+    {
+      "id": "gen3_colosseum_gales",
+      "generation": 3,
+      "games": ["colosseum", "xd"],
+      "platform": "Nintendo GameCube",
+      "categories": {
+        "origin_mark": "None",
+        "notable_shinies": [
+          "Shadow Pokémon can be shiny hunted in Colosseum",
+          "Non-Shadow Pokémon can be shiny hunted in Gale of Darkness",
+          "Japanese e-Reader-exclusive Shadow Togepi",
+          "Japanese e-Reader-exclusive Shadow Mareep",
+          "Japanese e-Reader-exclusive Shadow Scizor",
+          "Wishmaker Jirachi via English Bonus Disc"
+        ],
+        "notable_gifts": [
+          "Mt. Battle Ho-Oh after purifying all Shadow Pokémon and completing a 100-win streak in Colosseum",
+          "Ageto Celebi via Japanese Colosseum Bonus Disc",
+          "Colosseum Pikachu via Japanese Colosseum Bonus Disc",
+          "Wishmaker Jirachi via English Colosseum Bonus Disc",
+          "Johto starter rewards with Blast Burn, Hydro Cannon, or Frenzy Plant after Mt. Battle 100-win streaks"
+        ],
+        "ribbons": ["National Ribbon", "Earth Ribbon"],
+        "special": [
+          "This is a major Gen 3 side-game source of unusual legal Pokémon, shiny hunting opportunities, gifts, and ribbons."
+        ]
+      },
+      "tags": ["bank_transfer", "spin_off", "gen3", "gamecube"]
+    },
+    {
+      "id": "gen3_pokemon_box",
+      "generation": 3,
+      "games": ["box"],
+      "platform": "Nintendo GameCube",
+      "categories": {
+        "special_eggs": [
+          {
+            "pokemon": "Swablu",
+            "method": "Pokémon Box reward egg",
+            "special_move": "False Swipe"
+          },
+          {
+            "pokemon": "Zigzagoon",
+            "method": "Pokémon Box reward egg",
+            "special_move": "Extreme Speed",
+            "requirement": "100 Pokémon deposited"
+          },
+          {
+            "pokemon": "Skitty",
+            "method": "Pokémon Box reward egg",
+            "special_move": "Pay Day",
+            "requirement": "500 Pokémon deposited"
+          },
+          {
+            "pokemon": "Pichu",
+            "method": "Pokémon Box reward egg",
+            "special_move": "Surf",
+            "requirement": "1499 Pokémon deposited"
+          }
+        ],
+        "special": ["These eggs use the Pokémon Box hatcher OT."]
+      },
+      "tags": ["bank_transfer", "spin_off", "gen3", "gamecube", "special_eggs"]
+    },
+    {
+      "id": "gen3_pokemon_channel",
+      "generation": 3,
+      "games": ["channel"],
+      "platform": "Nintendo GameCube",
+      "categories": {
+        "notable_gifts": ["CHANNEL Jirachi", "WISHMKR Jirachi"],
+        "special": [
+          "Jirachi obtained through Pokémon Channel can be transferred through the Gen 3 chain."
+        ]
+      },
+      "tags": ["bank_transfer", "spin_off", "gen3", "gamecube", "jirachi"]
+    },
+    {
+      "id": "gen3_jp_colosseum",
+      "generation": 3,
+      "games": ["colosseum-jp-ereader"],
+      "platform": "Nintendo GameCube",
+      "categories": {
+        "notable_shinies": ["Shadow Togepi", "Shadow Mareep", "Shadow Scizor"],
+        "special": [
+          "Requires 20 Japanese Trainer Double Battle e-Reader cards and clearing the associated trainer difficulties to unlock the additional Shadow encounters."
+        ]
+      },
+      "tags": [
+        "bank_transfer",
+        "spin_off",
+        "gen3",
+        "gamecube",
+        "japan",
+        "ereader"
+      ]
+    },
+    {
+      "id": "gen3_jp_colosseum_bonus_disc",
+      "generation": 3,
+      "games": ["colosseum-jp-bonus-disc"],
+      "platform": "Nintendo GameCube",
+      "categories": {
+        "notable_gifts": ["Colosseum Pikachu", "Ageto Celebi"]
+      },
+      "tags": [
+        "bank_transfer",
+        "spin_off",
+        "gen3",
+        "gamecube",
+        "japan",
+        "bonus_disc"
+      ]
+    },
+    {
+      "id": "gen3_us_colosseum_bonus_disc",
+      "generation": 3,
+      "games": ["colosseum-us-bonus-disc"],
+      "platform": "Nintendo GameCube",
+      "categories": {
+        "notable_gifts": ["Wishmaker Jirachi"]
+      },
+      "tags": [
+        "bank_transfer",
+        "spin_off",
+        "gen3",
+        "gamecube",
+        "bonus_disc",
+        "jirachi"
+      ]
+    },
+    {
+      "id": "gen4_dpp",
+      "generation": 4,
+      "games": ["dppt"],
+      "platform": "Nintendo DS",
+      "categories": {
+        "origin_mark": "None",
+        "home_challenges": [
+          "Turtwig",
+          "Piplup",
+          "Chimchar",
+          "Dialga",
+          "Palkia",
+          "Giratina"
+        ],
+        "notable_shinies": ["Manaphy", "Shaymin", "Darkrai"],
+        "notable_gifts": [
+          "Level 1 Regigigas in Platinum by importing/injecting the Regi trio from Gen 3",
+          "English-language event Pokémon via preserved event distributions/DNS methods"
+        ],
+        "spin_off_connections": [
+          "My Pokémon Ranch can provide unique Hayley trade Pokémon, including Mew and Phione; Phione in a Cherish Ball is particularly notable.",
+          "Pokémon Battle Revolution can provide PKTOPIA OT Pikachu with Surf and, via codes, PKTOPIA OT Electivire and Magmortar."
+        ],
+        "moves": [
+          "Captivate",
+          "Embargo",
+          "Heal Order",
+          "Lucky Chant",
+          "Magnet Bomb",
+          "Me First",
+          "Miracle Eye",
+          "Mirror Shot",
+          "Natural Gift",
+          "Punishment",
+          "Trump Card",
+          "Wake-Up Slap",
+          "Wring Out"
+        ],
+        "abilities": [],
+        "ribbons": [
+          "Sinnoh Champion Ribbon",
+          "Cool Ribbon",
+          "Beauty Ribbon",
+          "Cute Ribbon",
+          "Smart Ribbon",
+          "Tough Ribbon",
+          "Super Contest variants",
+          "Ultra Contest variants",
+          "Master Contest variants",
+          "Ability Ribbon",
+          "Great Ability Ribbon",
+          "Double Ability Ribbon",
+          "Multi Ability Ribbon",
+          "Pair Ability Ribbon",
+          "World Ability Ribbon"
+        ],
+        "ball_properties": ["Apriballs were not available in Gen 4 DPP"],
+        "special": [
+          "Manaphy can be shiny hunted by trading the egg between DPP copies.",
+          "Shaymin and Darkrai can be shiny hunted through BDSP if the relevant events/items were obtained; otherwise old-event/DNS/injection methods are required."
+        ]
+      },
+      "tags": ["bank_transfer", "gen4", "ds", "ribbons", "spin_off"]
+    },
+    {
+      "id": "gen4_hgss",
+      "generation": 4,
+      "games": ["hgss"],
+      "platform": "Nintendo DS",
+      "categories": {
+        "origin_mark": "None",
+        "home_challenges": ["Ho-Oh", "Lugia"],
+        "notable_gifts": [
+          "Level 1 Dialga/Palkia/Giratina through the Sinjoh Ruins Arceus event",
+          "Kanto starter after defeating Red",
+          "Hoenn starter after defeating Red"
+        ],
+        "notable_npc_trades": [
+          "Brock's Rhyhorn",
+          "Lt. Surge's Pikachu",
+          "Steven's Beldum",
+          "Jasmine's Steelix"
+        ],
+        "spin_off_connections": [
+          "Pokémon Battle Revolution can provide PKTOPIA OT Pikachu with Surf and, via codes, PKTOPIA OT Electivire and Magmortar."
+        ],
+        "moves": [
+          "Captivate",
+          "Embargo",
+          "Heal Order",
+          "Lucky Chant",
+          "Magnet Bomb",
+          "Me First",
+          "Miracle Eye",
+          "Mirror Shot",
+          "Natural Gift",
+          "Punishment",
+          "Trump Card",
+          "Wake-Up Slap",
+          "Wring Out"
+        ],
+        "abilities": [],
+        "ribbons": [
+          "Ability Ribbon",
+          "Great Ability Ribbon",
+          "Double Ability Ribbon",
+          "Multi Ability Ribbon",
+          "Pair Ability Ribbon",
+          "World Ability Ribbon",
+          "Legend Ribbon"
+        ],
+        "ball_properties": [
+          "Apriballs return and are retained when transferred"
+        ],
+        "special": [
+          "Celebi requires DNS exploit, injection, or hacking in HGSS because there is no ordinary in-game event equivalent to Crystal's."
+        ]
+      },
+      "tags": ["bank_transfer", "gen4", "ds", "ribbons", "apriballs"]
+    },
+    {
+      "id": "gen4_pokemon_ranch",
+      "generation": 4,
+      "games": ["ranch"],
+      "platform": "Wii",
+      "categories": {
+        "notable_gifts": ["Hayley's Mew", "Hayley's Phione"],
+        "special": [
+          "Phione in a Cherish Ball is specifically identified as a unique preservation target."
+        ]
+      },
+      "tags": ["bank_transfer", "spin_off", "gen4", "wii", "cherish_ball"]
+    },
+    {
+      "id": "gen4_battle_revolution",
+      "generation": 4,
+      "games": ["battle-revolution"],
+      "platform": "Wii",
+      "categories": {
+        "notable_gifts": [
+          "PKTOPIA OT Pikachu with Surf",
+          "PKTOPIA OT Electivire",
+          "PKTOPIA OT Magmortar"
+        ],
+        "special": [
+          "Electivire and Magmortar require codes.",
+          "Pikachu must forget Surf before transferring upward."
+        ]
+      },
+      "tags": ["bank_transfer", "spin_off", "gen4", "wii", "pktopia"]
+    },
+    {
+      "id": "gen4_dream_radar",
+      "generation": 4,
+      "games": ["dream-radar"],
+      "platform": "Nintendo 3DS",
+      "categories": {
+        "notable_gifts": [
+          "Tornadus",
+          "Thundurus",
+          "Landorus",
+          "Dialga",
+          "Palkia",
+          "Giratina",
+          "Ho-Oh",
+          "Lugia"
+        ],
+        "special": [
+          "Dream Radar Pokémon can enter Pokémon Black 2/White 2 at level 5 if transferred before the first badge.",
+          "The required inserted game determines which legendary is available."
+        ]
+      },
+      "tags": ["bank_transfer", "spin_off", "gen4", "3ds", "dream_ball"]
+    },
+    {
+      "id": "gen5_bw",
+      "generation": 5,
+      "games": ["bw"],
+      "platform": "Nintendo DS",
+      "categories": {
+        "origin_mark": "None",
+        "home_challenges": [
+          "Reshiram",
+          "Zekrom",
+          "Shiny Genesect",
+          "Eevee via Poké Transporter",
+          "Litwick via Poké Transporter"
+        ],
+        "notable_shinies": ["Kyurem", "Shiny Genesect"],
+        "notable_gifts": ["Victini via Liberty Pass/event routes"],
+        "moves": [
+          "Chip Away",
+          "Flame Burst",
+          "Heart Stamp",
+          "Sky Drop",
+          "Steamroller",
+          "Synchronoise",
+          "Telekinesis",
+          "V-create"
+        ],
+        "abilities": ["Victory Star"],
+        "ribbons": [],
+        "ball_properties": [
+          "Victini can legitimately have non-Poké Ball/non-Cherish Ball origins when caught through Liberty Pass",
+          "Apriballs were not available"
+        ],
+        "special": [
+          "Victini, Victory Star, and V-create are especially important Bank-era preservation targets.",
+          "Shiny Genesect's original JPN/KOR event is no longer normally obtainable."
+        ]
+      },
+      "tags": ["bank_transfer", "gen5", "ds", "victini", "victory_star"]
+    },
+    {
+      "id": "gen5_bw2",
+      "generation": 5,
+      "games": ["b2w2"],
+      "platform": "Nintendo DS",
+      "categories": {
+        "origin_mark": "None",
+        "home_challenges": [
+          "Reshiram",
+          "Zekrom",
+          "Kyurem",
+          "Shiny Genesect",
+          "Eevee via Poké Transporter",
+          "Litwick via Poké Transporter"
+        ],
+        "notable_gifts": [
+          "N's Pokémon through Memory Link",
+          "Yancy/Curtis in-game trade Pokémon with Hidden Abilities",
+          "Dream Radar legendary transfers"
+        ],
+        "moves": [
+          "Chip Away",
+          "Flame Burst",
+          "Heart Stamp",
+          "Sky Drop",
+          "Steamroller",
+          "Synchronoise",
+          "Telekinesis",
+          "V-create"
+        ],
+        "abilities": ["Victory Star"],
+        "ribbons": [],
+        "ball_properties": ["Apriballs were not available"],
+        "special": [
+          "Dream Radar can provide level 5 legendary Pokémon when transferred before the first badge.",
+          "N's Pokémon preserve N's OT/ID and are unique collector targets."
+        ]
+      },
+      "tags": ["bank_transfer", "gen5", "ds", "memory_link", "dream_radar"]
+    },
+    {
+      "id": "gen6_xy",
+      "generation": 6,
+      "games": ["xy"],
+      "platform": "Nintendo 3DS",
+      "categories": {
+        "origin_mark": "Blue Pentagon",
+        "home_challenges": ["Xerneas", "Yveltal", "Diancie"],
+        "notable_npc_trades": ["Shauna's Pokémon", "Diantha's Ralts"],
+        "moves": [
+          "Celebrate",
+          "Happy Hour",
+          "Hold Back",
+          "Hold Hands",
+          "Ion Deluge",
+          "Mat Block",
+          "Powder",
+          "Rototiller"
+        ],
+        "abilities": [],
+        "ribbons": [
+          "Kalos Champion Ribbon",
+          "Training Ribbon",
+          "Skillful Battler Ribbon",
+          "Expert Battler Ribbon"
+        ],
+        "ball_properties": ["Apriballs were not available"],
+        "special": [
+          "Poké Ball Pattern Vivillon is an important preservation target; Fancy Pattern is available in SV but Poké Ball Pattern is not.",
+          "Hold Back and Hold Hands remain especially notable among event moves."
+        ]
+      },
+      "tags": ["bank_transfer", "gen6", "3ds", "blue_pentagon", "vivillon"]
+    },
+    {
+      "id": "gen6_oras",
+      "generation": 6,
+      "games": ["oras"],
+      "platform": "Nintendo 3DS",
+      "categories": {
+        "origin_mark": "Blue Pentagon",
+        "home_challenges": [
+          "Groudon",
+          "Kyogre",
+          "Rayquaza",
+          "Mudkip",
+          "Marshtomp",
+          "Swampert",
+          "Torchic",
+          "Combusken",
+          "Blaziken",
+          "Treecko",
+          "Grovyle",
+          "Sceptile"
+        ],
+        "notable_gifts": [
+          "Orlando OT Glalie from the Special Demo Version",
+          "Orlando OT Steelix from the Japanese Special Demo Version"
+        ],
+        "moves": [
+          "Celebrate",
+          "Happy Hour",
+          "Hold Back",
+          "Hold Hands",
+          "Ion Deluge",
+          "Mat Block",
+          "Powder",
+          "Rototiller"
+        ],
+        "abilities": [],
+        "ribbons": [
+          "Hoenn Champion Ribbon",
+          "Cool Master Ribbon",
+          "Beauty Master Ribbon",
+          "Cute Master Ribbon",
+          "Smart Master Ribbon",
+          "Tough Master Ribbon",
+          "Contest Star Ribbon"
+        ],
+        "special": [
+          "ORAS is identified as the only generation/game set with an in-game Deoxys event.",
+          "Shiny Beldum was an ORAS event, although the HOME challenge can reportedly be unlocked by Shiny Metagross from other games."
+        ]
+      },
+      "tags": ["bank_transfer", "gen6", "3ds", "blue_pentagon", "deoxys"]
+    },
+    {
+      "id": "gen7_sm",
+      "generation": 7,
+      "games": ["sm"],
+      "platform": "Nintendo 3DS",
+      "categories": {
+        "origin_mark": "Black Clover",
+        "home_challenges": [
+          "Cosmog",
+          "Cosmoem",
+          "Solgaleo",
+          "Lunala",
+          "Necrozma",
+          "Pulverizing Snorlax"
+        ],
+        "notable_shinies": ["Type: Null"],
+        "notable_gifts": [
+          "Battle Bond Greninja from the Special Demo Version",
+          "Magearna via QR code"
+        ],
+        "moves": ["Searing Shot", "Spotlight"],
+        "abilities": ["Battle Bond"],
+        "ribbons": [
+          "Alola Champion Ribbon",
+          "Battle Royal Master Ribbon",
+          "Battle Tree Great Ribbon",
+          "Battle Tree Master Ribbon"
+        ],
+        "ball_properties": ["Apriballs returned"],
+        "special": [
+          "Type: Null can be shiny hunted here.",
+          "The Pulverizing Snorlax Munchlax requires the event Pokémon and Giga Impact to satisfy the HOME challenge."
+        ]
+      },
+      "tags": ["bank_transfer", "gen7", "3ds", "black_clover", "battle_bond"]
+    },
+    {
+      "id": "gen7_usum",
+      "generation": 7,
+      "games": ["usum"],
+      "platform": "Nintendo 3DS",
+      "categories": {
+        "origin_mark": "Black Clover",
+        "home_challenges": [
+          "Cosmog",
+          "Cosmoem",
+          "Solgaleo",
+          "Lunala",
+          "Necrozma",
+          "Partner Cap Pikachu"
+        ],
+        "notable_shinies": ["Partner Cap Pikachu", "Type: Null", "Poipole"],
+        "notable_gifts": [
+          "Magearna via QR code",
+          "Partner Cap Pikachu via QR code",
+          "Surf Pikachu from Mantine Surf high scores"
+        ],
+        "moves": ["Searing Shot", "Spotlight"],
+        "abilities": [],
+        "ribbons": [
+          "Alola Champion Ribbon",
+          "Battle Royal Master Ribbon",
+          "Battle Tree Great Ribbon",
+          "Battle Tree Master Ribbon"
+        ],
+        "ball_properties": ["Apriballs returned"],
+        "special": [
+          "Partner Cap Pikachu can be shiny hunted despite its unchanged visual appearance.",
+          "Type: Null and Poipole can be shiny hunted.",
+          "Rockruff capable of evolving into Dusk Lycanroc originated as an event/breeding target in this generation, although it is now obtainable more easily elsewhere."
+        ]
+      },
+      "tags": [
+        "bank_transfer",
+        "gen7",
+        "3ds",
+        "black_clover",
+        "partner_cap_pikachu",
+        "poipole"
+      ]
+    }
+  ],
+  "global_targets": {
+    "switch_unavailable_or_transfer_critical": [
+      "Spinda",
+      "Partner Cap Pikachu",
+      "Poké Ball Pattern Vivillon",
+      "Ash-Greninja",
+      "Deoxys",
+      "Victini"
+    ],
+    "notable_shiny_preservation_targets": [
+      "Mew",
+      "Celebi",
+      "Deoxys",
+      "Spinda",
+      "Type: Null",
+      "Silvally",
+      "Poipole",
+      "Naganadel",
+      "Partner Cap Pikachu"
+    ],
+    "removed_moves": {
+      "gen2": [
+        "Feint Attack",
+        "Foresight",
+        "Frustration",
+        "Magnitude",
+        "Nightmare",
+        "Pursuit",
+        "Return",
+        "Spider Web"
+      ],
+      "gen3": [
+        "Assist",
+        "Camouflage",
+        "Grass Whistle",
+        "Mud Sport",
+        "Needle Arm",
+        "Odor Sleuth",
+        "Refresh",
+        "Secret Power",
+        "Signal Beam",
+        "Sky Uppercut",
+        "Smelling Salts",
+        "Snatch",
+        "Water Sport"
+      ],
+      "gen4": [
+        "Captivate",
+        "Embargo",
+        "Heal Order",
+        "Lucky Chant",
+        "Magnet Bomb",
+        "Me First",
+        "Miracle Eye",
+        "Mirror Shot",
+        "Natural Gift",
+        "Punishment",
+        "Trump Card",
+        "Wake-Up Slap",
+        "Wring Out"
+      ],
+      "gen5": [
+        "Chip Away",
+        "Flame Burst",
+        "Heart Stamp",
+        "Sky Drop",
+        "Steamroller",
+        "Synchronoise",
+        "Telekinesis"
+      ],
+      "gen6": ["Ion Deluge", "Mat Block", "Powder", "Rototiller"],
+      "gen7": ["Spotlight"],
+      "mythical": ["Psycho Boost", "Searing Shot", "V-create"],
+      "event": ["Celebrate", "Happy Hour", "Hold Back", "Hold Hands"]
+    },
+    "removed_or_bank_critical_abilities": ["Battle Bond", "Victory Star"]
+  }
+}

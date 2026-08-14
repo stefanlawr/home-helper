@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.1",
+  "game_catalog": "home-challenges.json#/games",
+  "description": "Normalized catalog of Pokemon Ribbons, including their origin generation, origin games, acquisition requirements, transfer behavior, and HOME title where applicable.",
+  "source": {
+    "primary": "https://bulbapedia.bulbagarden.net/wiki/List_of_Ribbons_in_the_games",
+    "retrieved": "2026-08-14",
+    "source_total": 115,
+    "note": "The source total includes nine deprecated Ribbon data slots. Ribbons are grouped only when every member shares the same origin and acquisition pattern. The source's stated per-generation subtotals count the gold Contest Memory and Battle Memory visual variants separately, which makes those subtotals add to 117 rather than its stated total of 115."
+  },
+  "scope": {
+    "included": "Core-series Ribbons, transferable GameCube side-series Ribbons, event Ribbons, and deprecated Ribbon data slots listed by Bulbapedia.",
+    "excluded": "Pokemon HOME challenges, Marks, and spin-off-only Ribbons without a documented transfer path to Pokemon HOME.",
+    "memory_conversion": "Generation III and IV Contest and Battle Tower Ribbons are individually retained through Generation V, then collapse into a Contest Memory Ribbon or Battle Memory Ribbon when transferred to Generation VI."
+  },
+  "ribbon_groups": [
+    {
+      "id": "gen3_league",
+      "category": "league",
+      "origin_generation": 3,
+      "origin_games": ["rse", "frlg"],
+      "acquisition": "Enter the Hall of Fame after defeating the Pokemon League.",
+      "transfer_behavior": "preserved",
+      "ribbons": [{"id": "champion_ribbon", "name": "Champion Ribbon", "home_title": "the Champion"}]
+    },
+    {
+      "id": "gen3_hoenn_contests",
+      "category": "contest",
+      "origin_generation": 3,
+      "origin_games": ["rse"],
+      "acquisition": "Win the named Hoenn Pokemon Contest category and rank. Normal, Super, and Hyper rank contests are in Verdanturf, Fallarbor, and Slateport in Ruby/Sapphire; Emerald uses Lilycove for all ranks. Master Rank is in Lilycove.",
+      "transfer_behavior": "converts_to_contest_memory_ribbon_in_generation_6",
+      "ribbons": [
+        {"id": "hoenn_cool_normal", "name": "Cool Ribbon", "rank": "Normal"}, {"id": "hoenn_cool_super", "name": "Cool Ribbon Super", "rank": "Super"}, {"id": "hoenn_cool_hyper", "name": "Cool Ribbon Hyper", "rank": "Hyper"}, {"id": "hoenn_cool_master", "name": "Cool Ribbon Master", "rank": "Master"},
+        {"id": "hoenn_beauty_normal", "name": "Beauty Ribbon", "rank": "Normal"}, {"id": "hoenn_beauty_super", "name": "Beauty Ribbon Super", "rank": "Super"}, {"id": "hoenn_beauty_hyper", "name": "Beauty Ribbon Hyper", "rank": "Hyper"}, {"id": "hoenn_beauty_master", "name": "Beauty Ribbon Master", "rank": "Master"},
+        {"id": "hoenn_cute_normal", "name": "Cute Ribbon", "rank": "Normal"}, {"id": "hoenn_cute_super", "name": "Cute Ribbon Super", "rank": "Super"}, {"id": "hoenn_cute_hyper", "name": "Cute Ribbon Hyper", "rank": "Hyper"}, {"id": "hoenn_cute_master", "name": "Cute Ribbon Master", "rank": "Master"},
+        {"id": "hoenn_smart_normal", "name": "Smart Ribbon", "rank": "Normal"}, {"id": "hoenn_smart_super", "name": "Smart Ribbon Super", "rank": "Super"}, {"id": "hoenn_smart_hyper", "name": "Smart Ribbon Hyper", "rank": "Hyper"}, {"id": "hoenn_smart_master", "name": "Smart Ribbon Master", "rank": "Master"},
+        {"id": "hoenn_tough_normal", "name": "Tough Ribbon", "rank": "Normal"}, {"id": "hoenn_tough_super", "name": "Tough Ribbon Super", "rank": "Super"}, {"id": "hoenn_tough_hyper", "name": "Tough Ribbon Hyper", "rank": "Hyper"}, {"id": "hoenn_tough_master", "name": "Tough Ribbon Master", "rank": "Master"}
+      ]
+    },
+    {
+      "id": "gen3_battle_tower",
+      "category": "battle_tower",
+      "origin_generation": 3,
+      "origin_games": ["rse"],
+      "acquisition": "Win a seven-battle set that extends the relevant Hoenn Battle Tower streak to 56 or more wins.",
+      "transfer_behavior": "converts_to_battle_memory_ribbon_in_generation_6",
+      "ribbons": [
+        {"id": "winning_ribbon", "name": "Winning Ribbon", "requirement": "Lv. 50 challenge in Ruby/Sapphire, or Level 50 challenge in Emerald."},
+        {"id": "victory_ribbon", "name": "Victory Ribbon", "requirement": "Lv. 100 challenge in Ruby/Sapphire, or Open Level challenge in Emerald."}
+      ]
+    },
+    {
+      "id": "gen3_memorial",
+      "category": "memorial",
+      "origin_generation": 3,
+      "origin_games": ["rse"],
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "effort_ribbon", "name": "Effort Ribbon", "requirement": "Reach 510 total effort values."},
+        {"id": "artist_ribbon", "name": "Artist Ribbon", "requirement": "Win a Hoenn Master Rank or Link Contest with a high score and accept the Lilycove Museum portrait offer.", "home_title": "the Model for Paintings"}
+      ]
+    },
+    {
+      "id": "gen3_gamecube_and_festa",
+      "category": "gift",
+      "origin_generation": 3,
+      "origin_games": ["colosseum", "xd", "festa"],
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "national_ribbon", "name": "National Ribbon", "requirement": "Purify a Shadow Pokemon in Pokemon Colosseum or Pokemon XD: Gale of Darkness.", "home_title": "the Triumphant"},
+        {"id": "earth_ribbon", "name": "Earth Ribbon", "requirement": "Win 100 consecutive Mt. Battle matches with the Pokemon in the party.", "home_title": "the 100x Victorious"},
+        {"id": "country_ribbon", "name": "Country Ribbon", "requirement": "Win a Pokemon League tournament at Pokemon Festa 2004, 2005, or 2007.", "availability": "event_ended", "home_title": "the Victor"},
+        {"id": "world_ribbon", "name": "World Ribbon", "requirement": "Win a Pokemon League tournament at Pokemon Festa 2004 or 2005.", "availability": "event_ended", "home_title": "the World Conqueror"}
+      ]
+    },
+    {
+      "id": "gen3_deprecated",
+      "category": "deprecated",
+      "origin_generation": 3,
+      "origin_games": ["event"],
+      "acquisition": "These obsolete data slots were replaced by later Ribbon types and are not independently obtainable in current games.",
+      "transfer_behavior": "replaced_by_later_ribbon_data",
+      "ribbons": [{"id": "marine_ribbon", "name": "Marine Ribbon", "replaced_by": "Battle Champion Ribbon"}, {"id": "land_ribbon", "name": "Land Ribbon", "replaced_by": "Regional Champion Ribbon"}, {"id": "sky_ribbon", "name": "Sky Ribbon", "replaced_by": "National Champion Ribbon"}]
+    },
+    {
+      "id": "gen4_league",
+      "category": "league",
+      "origin_generation": 4,
+      "origin_games": ["dppt", "bdsp"],
+      "acquisition": "Defeat the Sinnoh Champion and enter the Sinnoh Hall of Fame.",
+      "transfer_behavior": "preserved",
+      "ribbons": [{"id": "sinnoh_champion_ribbon", "name": "Sinnoh Champion Ribbon", "home_title": "the Sinnoh Champion"}]
+    },
+    {
+      "id": "gen4_sinnoh_contests",
+      "category": "contest",
+      "origin_generation": 4,
+      "origin_games": ["dppt"],
+      "acquisition": "Win the named category and rank at the Hearthome City Super Contest Hall.",
+      "transfer_behavior": "converts_to_contest_memory_ribbon_in_generation_6",
+      "ribbons": [
+        {"id": "sinnoh_cool_normal", "name": "Cool Ribbon", "rank": "Normal"}, {"id": "sinnoh_cool_great", "name": "Cool Ribbon Great", "rank": "Great"}, {"id": "sinnoh_cool_ultra", "name": "Cool Ribbon Ultra", "rank": "Ultra"}, {"id": "sinnoh_cool_master", "name": "Cool Ribbon Master", "rank": "Master"},
+        {"id": "sinnoh_beauty_normal", "name": "Beauty Ribbon", "rank": "Normal"}, {"id": "sinnoh_beauty_great", "name": "Beauty Ribbon Great", "rank": "Great"}, {"id": "sinnoh_beauty_ultra", "name": "Beauty Ribbon Ultra", "rank": "Ultra"}, {"id": "sinnoh_beauty_master", "name": "Beauty Ribbon Master", "rank": "Master"},
+        {"id": "sinnoh_cute_normal", "name": "Cute Ribbon", "rank": "Normal"}, {"id": "sinnoh_cute_great", "name": "Cute Ribbon Great", "rank": "Great"}, {"id": "sinnoh_cute_ultra", "name": "Cute Ribbon Ultra", "rank": "Ultra"}, {"id": "sinnoh_cute_master", "name": "Cute Ribbon Master", "rank": "Master"},
+        {"id": "sinnoh_smart_normal", "name": "Smart Ribbon", "rank": "Normal"}, {"id": "sinnoh_smart_great", "name": "Smart Ribbon Great", "rank": "Great"}, {"id": "sinnoh_smart_ultra", "name": "Smart Ribbon Ultra", "rank": "Ultra"}, {"id": "sinnoh_smart_master", "name": "Smart Ribbon Master", "rank": "Master"},
+        {"id": "sinnoh_tough_normal", "name": "Tough Ribbon", "rank": "Normal"}, {"id": "sinnoh_tough_great", "name": "Tough Ribbon Great", "rank": "Great"}, {"id": "sinnoh_tough_ultra", "name": "Tough Ribbon Ultra", "rank": "Ultra"}, {"id": "sinnoh_tough_master", "name": "Tough Ribbon Master", "rank": "Master"}
+      ]
+    },
+    {
+      "id": "gen4_battle_tower",
+      "category": "battle_tower",
+      "origin_generation": 4,
+      "origin_games": ["dppt", "hgss"],
+      "transfer_behavior": "converts_to_battle_memory_ribbon_in_generation_6",
+      "ribbons": [
+        {"id": "ability_ribbon", "name": "Ability Ribbon", "requirement": "Defeat Palmer on battle 21 of a Battle Tower Single Battle streak."},
+        {"id": "great_ability_ribbon", "name": "Great Ability Ribbon", "requirement": "Defeat Palmer on battle 49 of a Battle Tower Single Battle streak."},
+        {"id": "double_ability_ribbon", "name": "Double Ability Ribbon", "requirement": "Complete the Battle Tower Double challenge."},
+        {"id": "multi_ability_ribbon", "name": "Multi Ability Ribbon", "requirement": "Complete the Battle Tower Multi challenge with an NPC partner."},
+        {"id": "pair_ability_ribbon", "name": "Pair Ability Ribbon", "requirement": "Complete the Battle Tower Link Multi challenge."},
+        {"id": "world_ability_ribbon", "name": "World Ability Ribbon", "requirement": "Win a qualifying Wi-Fi Room Battle Tower set.", "availability": "officially_unavailable_since_ds_wfc_shutdown"}
+      ]
+    },
+    {
+      "id": "gen4_memorial",
+      "category": "memorial",
+      "origin_generation": 4,
+      "origin_games": ["dppt", "hgss", "bdsp"],
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "alert_ribbon", "name": "Alert Ribbon", "requirement": "Receive on Monday."}, {"id": "shock_ribbon", "name": "Shock Ribbon", "requirement": "Receive on Tuesday."}, {"id": "downcast_ribbon", "name": "Downcast Ribbon", "requirement": "Receive on Wednesday."}, {"id": "careless_ribbon", "name": "Careless Ribbon", "requirement": "Receive on Thursday."}, {"id": "relax_ribbon", "name": "Relax Ribbon", "requirement": "Receive on Friday."}, {"id": "snooze_ribbon", "name": "Snooze Ribbon", "requirement": "Receive on Saturday."}, {"id": "smile_ribbon", "name": "Smile Ribbon", "requirement": "Receive on Sunday."},
+        {"id": "gorgeous_ribbon", "name": "Gorgeous Ribbon", "requirement": "Purchase for 10,000 Poke Dollars."}, {"id": "royal_ribbon", "name": "Royal Ribbon", "requirement": "Purchase for 100,000 Poke Dollars after obtaining the Gorgeous Ribbon."}, {"id": "gorgeous_royal_ribbon", "name": "Gorgeous Royal Ribbon", "requirement": "Purchase for 999,999 Poke Dollars after obtaining the Royal Ribbon."},
+        {"id": "footprint_ribbon", "name": "Footprint Ribbon", "requirement": "Meet Dr. Footstep's eligibility condition; this varies by game.", "home_title": "the Strutter"}, {"id": "record_ribbon", "name": "Record Ribbon", "availability": "never_distributed", "home_title": "the Record Holder"}, {"id": "legend_ribbon", "name": "Legend Ribbon", "requirement": "Defeat Red at Mt. Silver with the Pokemon in the party.", "home_title": "the Living Legend"}
+      ]
+    },
+    {
+      "id": "gen4_event_and_deprecated",
+      "category": "gift_or_deprecated",
+      "origin_generation": 4,
+      "origin_games": ["event"],
+      "transfer_behavior": "preserved_or_replaced_by_later_ribbon_data",
+      "ribbons": [
+        {"id": "classic_ribbon", "name": "Classic Ribbon", "requirement": "Received with eligible event Pokemon."}, {"id": "premier_ribbon", "name": "Premier Ribbon", "requirement": "Received with eligible holiday event Pokemon."},
+        {"id": "history_ribbon", "name": "History Ribbon", "deprecated": true, "replaced_by": "Event Ribbon"}, {"id": "green_ribbon", "name": "Green Ribbon", "deprecated": true, "replaced_by": "Birthday Ribbon"}, {"id": "blue_ribbon", "name": "Blue Ribbon", "deprecated": true, "replaced_by": "Special Ribbon"}, {"id": "festival_ribbon", "name": "Festival Ribbon", "deprecated": true, "replaced_by": "Souvenir Ribbon"}, {"id": "carnival_ribbon", "name": "Carnival Ribbon", "deprecated": true, "replaced_by": "Wishing Ribbon"}, {"id": "red_ribbon", "name": "Red Ribbon", "deprecated": true, "replaced_by": "World Champion Ribbon"}
+      ]
+    },
+    {
+      "id": "gen5_event",
+      "category": "gift",
+      "origin_generation": 5,
+      "origin_games": ["bw", "b2w2", "event"],
+      "acquisition": "Received with an eligible event Pokemon, unless a more specific requirement is given.",
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "event_ribbon", "name": "Event Ribbon", "requirement": "Participate in a special Pokemon event."}, {"id": "birthday_ribbon", "name": "Birthday Ribbon", "requirement": "Receive an eligible birthday event Pokemon."}, {"id": "special_ribbon", "name": "Special Ribbon"}, {"id": "souvenir_ribbon", "name": "Souvenir Ribbon"}, {"id": "wishing_ribbon", "name": "Wishing Ribbon"}, {"id": "battle_champion_ribbon", "name": "Battle Champion Ribbon", "requirement": "Receive from an eligible battle-competition champion distribution."}, {"id": "regional_champion_ribbon", "name": "Regional Champion Ribbon", "availability": "never_officially_distributed"}, {"id": "national_champion_ribbon", "name": "National Champion Ribbon", "availability": "never_officially_distributed"}, {"id": "world_champion_ribbon", "name": "World Champion Ribbon", "requirement": "Receive from an eligible World Championships champion distribution."}
+      ]
+    },
+    {
+      "id": "gen6_league_and_contest",
+      "category": "league_or_contest",
+      "origin_generation": 6,
+      "origin_games": ["xy", "oras"],
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "kalos_champion_ribbon", "name": "Kalos Champion Ribbon", "requirement": "Enter the Kalos Hall of Fame.", "home_title": "the Kalos Champion"}, {"id": "hoenn_champion_ribbon", "name": "Hoenn Champion Ribbon", "requirement": "Enter the Hoenn Hall of Fame in Omega Ruby or Alpha Sapphire.", "home_title": "the Hoenn Champion"},
+        {"id": "coolness_master_ribbon", "name": "Coolness Master Ribbon", "requirement": "Win a Master Rank Coolness Contest Spectacular."}, {"id": "beauty_master_ribbon", "name": "Beauty Master Ribbon", "requirement": "Win a Master Rank Beauty Contest Spectacular."}, {"id": "cuteness_master_ribbon", "name": "Cuteness Master Ribbon", "requirement": "Win a Master Rank Cuteness Contest Spectacular."}, {"id": "cleverness_master_ribbon", "name": "Cleverness Master Ribbon", "requirement": "Win a Master Rank Cleverness Contest Spectacular."}, {"id": "toughness_master_ribbon", "name": "Toughness Master Ribbon", "requirement": "Win a Master Rank Toughness Contest Spectacular."}, {"id": "contest_star_ribbon", "name": "Contest Star Ribbon", "requirement": "Obtain all five Generation VI contest Master Ribbons."}
+      ]
+    },
+    {
+      "id": "gen6_memory_battle_and_memorial",
+      "category": "memory_battle_or_memorial",
+      "origin_generation": 6,
+      "origin_games": ["xy", "oras"],
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "contest_memory_ribbon", "name": "Contest Memory Ribbon", "requirement": "Transfer a Pokemon with one or more Generation III or IV Contest Ribbons through Poke Transporter and Pokemon Bank.", "variants": [{"name": "Gold", "requirement": "Transfer a Pokemon with all 20 Generation III and all 20 Generation IV Contest Ribbons."}]},
+        {"id": "skillful_battler_ribbon", "name": "Skillful Battler Ribbon", "requirement": "Defeat a Battle Chatelaine on battle 20 at the Battle Maison.", "home_title": "the Veteran"}, {"id": "expert_battler_ribbon", "name": "Expert Battler Ribbon", "requirement": "Defeat a Battle Chatelaine on battle 50 of Super Battles at the Battle Maison.", "home_title": "the Master"},
+        {"id": "battle_memory_ribbon", "name": "Battle Memory Ribbon", "requirement": "Transfer a Pokemon with one or more Generation III or IV Battle Tower Ribbons through Poke Transporter and Pokemon Bank.", "variants": [{"name": "Gold", "requirement": "Transfer a Pokemon with all eight pre-Generation VI Battle Tower Ribbons."}]},
+        {"id": "best_friends_ribbon", "name": "Best Friends Ribbon", "requirement": "Show a Pokemon with maximum friendship or affection to the appropriate NPC.", "home_title": "the Great Friend"}, {"id": "training_ribbon", "name": "Training Ribbon", "requirement": "Show a Supremely Trained Pokemon to the appropriate NPC.", "home_title": "the Tried and True"}
+      ]
+    },
+    {
+      "id": "gen7_league_and_battle",
+      "category": "league_or_battle",
+      "origin_generation": 7,
+      "origin_games": ["sm", "usum"],
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "alola_champion_ribbon", "name": "Alola Champion Ribbon", "requirement": "Become Alola Champion and enter the Hall of Fame.", "home_title": "the Alola Champion"}, {"id": "battle_royal_master_ribbon", "name": "Battle Royal Master Ribbon", "requirement": "Win a Master Rank Battle Royal.", "home_title": "the Royal Master"}, {"id": "battle_tree_great_ribbon", "name": "Battle Tree Great Ribbon", "requirement": "Defeat a Battle Legend at the Battle Tree.", "home_title": "the Tree Victor"}, {"id": "battle_tree_master_ribbon", "name": "Battle Tree Master Ribbon", "requirement": "Defeat a Battle Legend in Battle Tree Super Battles.", "home_title": "the Tree Master"}
+      ]
+    },
+    {
+      "id": "gen8_ribbons",
+      "category": "league_contest_battle_or_memorial",
+      "origin_generation": 8,
+      "origin_games": ["swsh", "bdsp", "pla"],
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "galar_champion_ribbon", "name": "Galar Champion Ribbon", "requirement": "Become Galar Champion and enter the Hall of Fame.", "home_title": "the Galar Champion"}, {"id": "twinkling_star_ribbon", "name": "Twinkling Star Ribbon", "requirement": "Win a Master Rank Brilliant or Shining Contest after obtaining the Contest Star Ribbon.", "home_title": "the Twinkling Star"}, {"id": "tower_master_ribbon", "name": "Tower Master Ribbon", "requirement": "Defeat Leon at MAX Rank in Sword/Shield or Palmer at Master Class Rank 10 in Brilliant Diamond/Shining Pearl.", "home_title": "the Tower Master"}, {"id": "master_rank_ribbon", "name": "Master Rank Ribbon", "requirement": "Win a Ranked Battle while in Master Ball Tier after reaching MAX Rank in the season.", "home_title": "the Rank Master"}, {"id": "hisui_ribbon", "name": "Hisui Ribbon", "requirement": "Prepare the Pokemon at Dagero's photo studio in Jubilife Village.", "home_title": "of the Distant Past"}
+      ]
+    },
+    {
+      "id": "gen9_ribbons",
+      "category": "league_or_memorial",
+      "origin_generation": 9,
+      "origin_games": ["sv"],
+      "transfer_behavior": "preserved",
+      "ribbons": [
+        {"id": "paldea_champion_ribbon", "name": "Paldea Champion Ribbon", "requirement": "Become a Paldea Champion or win the Academy Ace Tournament.", "home_title": "the Paldea Champion"}, {"id": "once_in_a_lifetime_ribbon", "name": "Once-in-a-Lifetime Ribbon", "requirement": "Intended to be found very rarely on a Pokemon received in Surprise Trade.", "availability": "unverified_legitimate_obtainment", "home_title": "the One-in-a-Million"}, {"id": "partner_ribbon", "name": "Partner Ribbon", "requirement": "Receive an eligible League Club Room special-coach trade Pokemon or certain event Pokemon.", "home_title": "<Trainer>'s"}
+      ]
+    }
+  ],
+  "validation": {
+    "expected_ribbon_count": 115,
+    "count_includes_deprecated": 9,
+    "origin_generation_counts": {"3": 32, "4": 48, "5": 9, "6": 14, "7": 4, "8": 5, "9": 3}
+  }
+}
