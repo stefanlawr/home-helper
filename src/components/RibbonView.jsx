@@ -1,4 +1,4 @@
-export function RibbonView({ groups }) {
+export function RibbonView({ groups, completed, toggle }) {
   return (
     <section class="reference-view">
       <header class="section-heading">
@@ -22,11 +22,20 @@ export function RibbonView({ groups }) {
           <ul>
             {group.ribbons.map((ribbon) => (
               <li key={ribbon.id}>
-                <strong>{ribbon.name}</strong>
-                {ribbon.home_title && (
-                  <span>HOME title: {ribbon.home_title}</span>
-                )}
-                {ribbon.requirement && <span>{ribbon.requirement}</span>}
+                <label class="ribbon-check">
+                  <input
+                    type="checkbox"
+                    checked={completed.has(`ribbon:${group.id}:${ribbon.id}`)}
+                    onChange={() => toggle(`ribbon:${group.id}:${ribbon.id}`)}
+                  />
+                  <span>
+                    <strong>{ribbon.name}</strong>
+                    {ribbon.home_title && (
+                      <span>HOME title: {ribbon.home_title}</span>
+                    )}
+                    {ribbon.requirement && <span>{ribbon.requirement}</span>}
+                  </span>
+                </label>
               </li>
             ))}
           </ul>

@@ -109,6 +109,27 @@ export function App() {
     })),
     [model, query, selectedGames, generation],
   );
+  const progressTasks = useMemo(
+    () => [
+      ...challengeTasks,
+      ...exclusivePokemonTasks.filter(
+        (task) => task.generation >= 1 && task.generation <= 7,
+      ),
+      ...(model?.moveCatalog || []).map((move) => ({
+        id: `move:${move.name}`,
+        category: "move",
+        games: move.games,
+      })),
+      ...(model?.ribbonGroups || [])
+        .filter((group) => group.origin_generation >= 1 && group.origin_generation <= 7)
+        .flatMap((group) => group.ribbons.map((ribbon) => ({
+          id: `ribbon:${group.id}:${ribbon.id}`,
+          category: "ribbon",
+          games: group.origin_games.filter((code) => gameGenerations[code] <= 7),
+        }))),
+    ],
+    [challengeTasks, exclusivePokemonTasks, model],
+  );
   const countdown = useCountdown(SHUTDOWN_TIME);
   if (error)
     return (
@@ -180,6 +201,8 @@ export function App() {
       {view === "ribbons" && (
         <RibbonView
           groups={model.ribbonGroups}
+          completed={completed}
+          toggle={toggle}
         />
       )}
       {view === "moves" && (
@@ -193,7 +216,7 @@ export function App() {
       )}
       {view === "progress" && (
         <Progress
-          tasks={model.tasks}
+          tasks={progressTasks}
           completed={completed}
           games={model.games}
         />

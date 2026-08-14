@@ -12,8 +12,8 @@ export function MovesView({ moves, games, completed, toggle, status }) {
       if (
         status === "all" ||
         (status === "done"
-          ? completed.has(`move:${code}:${move.name}`)
-          : !completed.has(`move:${code}:${move.name}`))
+          ? completed.has(`move:${move.name}`)
+          : !completed.has(`move:${move.name}`))
       ) {
         items.push(move);
       }
@@ -98,8 +98,8 @@ export function MovesView({ moves, games, completed, toggle, status }) {
                 >
                   <input
                     type="checkbox"
-                    checked={completed.has(`move:${code}:${move.name}`)}
-                    onChange={() => toggle(`move:${code}:${move.name}`)}
+                    checked={completed.has(`move:${move.name}`)}
+                    onChange={() => toggle(`move:${move.name}`)}
                   />
                 </label>
                 <span class="move-status">

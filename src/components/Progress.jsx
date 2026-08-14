@@ -39,7 +39,9 @@ export function Progress({ tasks, completed, games }) {
   }
   const percentage = (total, done) =>
     total ? Math.round((done / total) * 100) : 0;
-  const byCategory = categories.map((category) => [category, categoryCounts.get(category)]);
+  const byCategory = categories
+    .map((category) => [category, categoryCounts.get(category)])
+    .filter(([, counts]) => counts.total);
   const byGame = Object.entries(games)
     .map(([code, name]) => [code, name, gameCounts.get(code)])
     .filter(([, , counts]) => counts.total);
@@ -60,7 +62,7 @@ export function Progress({ tasks, completed, games }) {
             key={category}
             label={category}
             value={`${percentage(counts.total, counts.done)}%`}
-            detail={`${counts.total} tasks`}
+            detail={`${counts.done} of ${counts.total} tasks`}
           />
         ))}
       </div>

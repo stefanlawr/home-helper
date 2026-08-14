@@ -344,6 +344,22 @@ select:focus {
   border-left: 3px solid var(--emerald);
   padding-left: 8px;
 }
+.ribbon-check {
+  display: flex;
+  gap: 8px;
+}
+.ribbon-check input {
+  accent-color: var(--emerald);
+  flex: 0 0 auto;
+  height: 18px;
+  margin-top: 2px;
+  width: 18px;
+}
+.ribbon-check > span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
 /* ---- Moves table ----------------------------------------------------------- */
 .move-row {
   display: grid;
