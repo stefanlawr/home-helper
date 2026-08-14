@@ -8,6 +8,7 @@ function copyDataAssets() {
     name: 'copy-home-helper-data',
     writeBundle() {
       cpSync(resolve('assets/data'), resolve('dist/assets/data'), { recursive: true })
+      cpSync(resolve('assets/icons'), resolve('dist/assets/icons'), { recursive: true })
     },
   }
 }

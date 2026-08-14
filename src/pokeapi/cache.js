@@ -1,1 +1,1 @@
-export { getAbilityInfo, getMoveInfo, getPokemonSprite } from './client'
+export { getAbilityInfo, getMoveInfo, getMoveLearners, getPokemonSprite } from './client'

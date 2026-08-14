@@ -17,20 +17,32 @@ function isPriority(name, globalTargets) {
     .some((target) => needle.includes(String(target).toLocaleLowerCase()))
 }
 
-const gameGenerations = { rby: 1, gsc: 2, rse: 3, frlg: 3, dppt: 4, hgss: 4, bw: 5, b2w2: 5, xy: 6, oras: 6, sm: 7, usum: 7, lgpe: 7, swsh: 8, bdsp: 8, pla: 8, sv: 9, za: 9 }
+export const gameGenerations = { rby: 1, gsc: 2, rse: 3, frlg: 3, dppt: 4, hgss: 4, bw: 5, b2w2: 5, xy: 6, oras: 6, sm: 7, usum: 7, lgpe: 8, swsh: 8, bdsp: 8, pla: 8, sv: 9, za: 9 }
+const challengeGames = new Set(Object.entries(gameGenerations).filter(([, generation]) => generation <= 7).map(([code]) => code))
+
+function hasPreAndPostGen7Game(challenge) {
+  const generations = (challenge.games || [])
+    .map((code) => gameGenerations[code])
+    .filter((generation) => generation != null)
+
+  return generations.some((generation) => generation < 7) && generations.some((generation) => generation > 7)
+}
 
 export function normalizeData(data) {
   const games = data.challenges.games || {}
-  const tasks = (data.challenges.challenges || []).map((challenge) => ({
-    id: `challenge:${challenge.id}`,
-    source: 'challenge',
-    category: challenge.category || 'pokemon',
-    name: clean(challenge.name),
-    description: challenge.description || '',
-    games: challenge.games || ['any'],
-    generation: challenge.generation || gameGenerations[challenge.games?.[0]] || null,
-    priority: isPriority(challenge.name, data.exclusives.global_targets || {}),
-  }))
+  const tasks = (data.challenges.challenges || [])
+    .filter((challenge) => !hasPreAndPostGen7Game(challenge))
+    .map((challenge) => ({
+      id: `challenge:${challenge.id}`,
+      source: 'challenge',
+      category: challenge.category || 'pokemon',
+      name: clean(challenge.name),
+      description: challenge.description || '',
+      games: (challenge.games || []).filter((code) => challengeGames.has(code)),
+      generation: challenge.generation || gameGenerations[challenge.games?.[0]] || null,
+      priority: isPriority(challenge.name, data.exclusives.global_targets || {}),
+    }))
+    .filter((task) => task.games.length && task.generation <= 7)
 
   const categoryMap = {
     home_challenges: 'pokemon',
@@ -68,10 +80,32 @@ export function normalizeData(data) {
   for (const [generation, names] of Object.entries(removedMoves)) {
     for (const name of names) removedLookup.set(name.toLocaleLowerCase(), generation)
   }
-  const moveCatalog = (data.moves.moves || []).map((move) => ({
-    ...move,
-    removedIn: removedLookup.get(move.name.toLocaleLowerCase()) || null,
-  }))
+  const moveGames = new Map()
+  for (const group of data.exclusives.games || []) {
+    for (const name of group.categories?.moves || []) {
+      const key = name.toLocaleLowerCase()
+      const gamesForMove = moveGames.get(key) || new Set()
+      for (const code of group.games || []) {
+        if (gameGenerations[code] <= 7) gamesForMove.add(code)
+      }
+      moveGames.set(key, gamesForMove)
+    }
+  }
+  const moveCatalog = (data.moves.moves || [])
+    .map((move) => ({
+      ...move,
+      games: [
+        ...(moveGames.get(move.name.toLocaleLowerCase()) || new Set(
+          Object.keys(games).filter(
+            (code) =>
+              gameGenerations[code] <= 7 &&
+              move.generations?.includes(gameGenerations[code]),
+          ),
+        )),
+      ],
+      removedIn: removedLookup.get(move.name.toLocaleLowerCase()) || null,
+    }))
+    .filter((move) => move.removedIn)
 
   const ribbonGroups = (data.ribbons.ribbon_groups || []).map((group) => ({
     ...group,

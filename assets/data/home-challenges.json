@@ -708,7 +708,7 @@
       "id": "register-first-partners-kanto",
       "name": "Register all the first-partner Pokémon that trainers can choose in Kanto!",
       "category": "starter",
-      "games": ["rby", "frlg", "lgpe"]
+      "games": ["rby", "frlg"]
     },
     {
       "id": "register-first-partners-sinnoh",
@@ -750,7 +750,7 @@
       "id": "register-blastoise-kanto",
       "name": "Register Blastoise from the good ol' Kanto Region!",
       "category": "pokemon",
-      "games": ["rby", "frlg", "lgpe"]
+      "games": ["rby"]
     },
     {
       "id": "register-bug-type",
@@ -768,7 +768,7 @@
       "id": "register-charizard-kanto",
       "name": "Register Charizard from the good ol' Kanto Region!",
       "category": "pokemon",
-      "games": ["rby", "frlg", "lgpe"]
+      "games": ["rby"]
     },
     {
       "id": "register-alola-legendary-group",
@@ -912,7 +912,7 @@
       "id": "register-ho-oh-johto",
       "name": "Register Ho-Oh from the good ol' Johto Region",
       "category": "pokemon",
-      "games": ["gsc", "hgss"]
+      "games": ["gsc"]
     },
     {
       "id": "register-ice-type",
@@ -954,7 +954,7 @@
       "id": "register-lugia-johto",
       "name": "Register Lugia from the good ol' Johto Region",
       "category": "pokemon",
-      "games": ["gsc", "hgss"]
+      "games": ["gsc"]
     },
     {
       "id": "register-lunala-usum",
@@ -1032,7 +1032,7 @@
       "id": "register-pikachu-kanto",
       "name": "Register Pikachu from the good ol' Kanto Region!",
       "category": "pokemon",
-      "games": ["rby", "frlg", "lgpe"]
+      "games": ["rby"]
     },
     {
       "id": "register-hat-pikachu",
@@ -1170,7 +1170,7 @@
       "id": "register-suicune-johto",
       "name": "Register Suicune from the good ol' Johto Region",
       "category": "pokemon",
-      "games": ["gsc", "hgss"]
+      "games": ["gsc"]
     },
     {
       "id": "register-summer-deerling",
@@ -1236,7 +1236,7 @@
       "id": "register-venusaur-kanto",
       "name": "Register Venusaur from the good ol' Kanto Region!",
       "category": "pokemon",
-      "games": ["rby", "frlg", "lgpe"]
+      "games": ["rby"]
     },
     {
       "id": "register-paradox-legendary-group",

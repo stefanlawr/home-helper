@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { loadHomeData } from "./data/loadData";
-import { normalizeData } from "./data/normalize";
+import { normalizeData, gameGenerations } from "./data/normalize";
 import {
   getAbilityInfo,
   getMoveInfo,
+  getMoveLearners,
   getPokemonSprite,
 } from "./pokeapi/client";
 import "./app.css";
@@ -18,6 +19,20 @@ const categories = [
   "shiny",
   "special",
 ];
+const gameIcons = {
+  rby: [1, "red.png", "blue.png", "yellow.png"],
+  gsc: [2, "gold.png", "silver.png", "crystal.png"],
+  rse: [3, "emerald.png", "ruby.png", "sapphire.png"],
+  frlg: [3, "firered.png", "leafgreen.png"],
+  dppt: [4, "diamond.png", "pearl.png", "platinum.png"],
+  hgss: [4, "heartgold.png", "soulsilver.png"],
+  bw: [5, "black.png", "white.png"],
+  b2w2: [5, "black2.png", "white2.png"],
+  xy: [6, "x.png", "y.png"],
+  oras: [6, "omega-ruby.png", "alpha-sapphire.png"],
+  sm: [7, "sun.png", "moon.png"],
+  usum: [7, "ultra-sun.png", "ultra-moon.png"],
+};
 
 function usePersistentSet() {
   const [completed, setCompleted] = useState(() => {
@@ -96,12 +111,22 @@ function TaskRow({ task, completed, toggle }) {
       />
       <span class="task-copy">
         <strong>{task.name}</strong>
-        <small>{task.platform || task.description}</small>
       </span>
       <span class="task-meta">
-        <b>{task.category}</b>
-        {task.priority && <em>priority</em>}
-        <Enrichment task={task} />
+        {task.games.flatMap((code) => {
+          const iconData = gameIcons[code];
+          if (!iconData) return [];
+          return iconData.slice(1).map((filename) => (
+            <img
+              key={`${code}-${filename}`}
+              class="game-icon"
+              src={`assets/icons/Generation ${iconData[0]}/${filename}`}
+              alt={filename.replace(".png", "")}
+              width="48"
+              height="48"
+            />
+          ));
+        })}
       </span>
     </label>
   );
@@ -201,7 +226,7 @@ function RibbonView({ groups, tasks, onTaskLink }) {
               class="text-button"
               onClick={() => onTaskLink(group.linkedTaskIds[0])}
             >
-              View linked checklist target ({group.linkedTaskIds.length})
+              View linked challenge target ({group.linkedTaskIds.length})
             </button>
           )}
         </article>
@@ -210,28 +235,46 @@ function RibbonView({ groups, tasks, onTaskLink }) {
   );
 }
 
-function MovesView({ moves }) {
+function MovesView({ moves, games, completed, toggle }) {
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState(null);
   const [details, setDetails] = useState({});
+  const [learners, setLearners] = useState({});
   const visible = moves.filter((move) =>
     move.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
   );
-  const expand = (move) => {
-    setExpanded(expanded === move.name ? null : move.name);
+  const gamesWithMoves = Object.entries(games)
+    .map(([code, name]) => [
+      code,
+      name,
+      visible.filter((move) => move.games.includes(code)),
+    ])
+    .filter(([, , items]) => items.length);
+  const expand = (move, code) => {
+    const key = `${code}:${move.name}`;
+    setExpanded(expanded === key ? null : key);
     if (!details[move.name])
       getMoveInfo(move.name).then((value) =>
         setDetails((current) => ({ ...current, [move.name]: value })),
       );
+    if (!learners[key]) {
+      setLearners((current) => ({ ...current, [key]: { loading: true } }));
+      getMoveLearners(move.name, code).then((value) =>
+        setLearners((current) => ({
+          ...current,
+          [key]: { loading: false, pokemon: value },
+        })),
+      );
+    }
   };
   return (
     <section class="reference-view">
       <header class="section-heading">
         <p class="eyebrow">Reference library</p>
-        <h2>Move availability</h2>
+        <h2>Moves by game</h2>
         <p>
-          Generation legality from the local catalog, with removed moves flagged
-          for preservation.
+          Moves that can no longer be obtained in current games, grouped by
+          their Gen 1–7 source games.
         </p>
         <input
           class="search large"
@@ -240,28 +283,62 @@ function MovesView({ moves }) {
           placeholder="Search moves"
         />
       </header>
-      <div class="move-table">
-        <div class="move-header">
-          <span>Move</span>
-          <span>Generations</span>
-          <span>Status</span>
-        </div>
-        {visible.map((move) => (
-          <button class="move-row" key={move.name} onClick={() => expand(move)}>
-            <span>
-              <strong>{move.name}</strong>
-              {expanded === move.name && details[move.name] && (
-                <small>
-                  {details[move.name].description ||
-                    `${details[move.name].type} · ${details[move.name].damageClass}`}
-                </small>
-              )}
-            </span>
-            <span>{move.generations.join(", ")}</span>
-            <span>
-              {move.removedIn ? `Removed · ${move.removedIn}` : "Available"}
-            </span>
-          </button>
+      <div class="game-view">
+        {gamesWithMoves.map(([code, name, items]) => (
+          <article class="game-group" key={code}>
+            <div class="game-title">
+              <div>
+                <h2>{name}</h2>
+              </div>
+              <span>{items.length} moves</span>
+            </div>
+            {items.map((move) => (
+              <div
+                class="move-row game-move-row"
+                key={move.name}
+              >
+                <button
+                  class="move-trigger"
+                  type="button"
+                  onClick={() => expand(move, code)}
+                >
+                  <strong>{move.name}</strong>
+                  {expanded === `${code}:${move.name}` && details[move.name] && (
+                    <small>
+                      {details[move.name].description ||
+                        `${details[move.name].type} · ${details[move.name].damageClass}`}
+                    </small>
+                  )}
+                </button>
+                <label class="move-check" onClick={(event) => event.stopPropagation()}>
+                  <input
+                    type="checkbox"
+                    checked={completed.has(`move:${code}:${move.name}`)}
+                    onChange={() => toggle(`move:${code}:${move.name}`)}
+                  />
+                </label>
+                <span class="move-status">
+                  {move.removedIn ? `Removed · ${move.removedIn}` : "Available"}
+                </span>
+                {expanded === `${code}:${move.name}` && learners[`${code}:${move.name}`] && (
+                  <div class="move-learners">
+                    <strong>Pokemon that can learn this move</strong>
+                    {learners[`${code}:${move.name}`].loading ? (
+                      <small>Loading Pokemon...</small>
+                    ) : learners[`${code}:${move.name}`].pokemon.length ? (
+                      <div class="learner-list">
+                        {learners[`${code}:${move.name}`].pokemon.map((pokemon) => (
+                          <span key={pokemon}>{pokemon.replace(/(^|-)([a-z])/g, (_, separator, letter) => `${separator}${letter.toUpperCase()}`)}</span>
+                        ))}
+                      </div>
+                    ) : (
+                      <small>No Pokemon found for this game.</small>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </article>
         ))}
       </div>
     </section>
@@ -273,9 +350,8 @@ export function App() {
   const [error, setError] = useState("");
   const [view, setView] = useState("tracker");
   const [query, setQuery] = useState("");
-  const [game, setGame] = useState("all");
+  const [selectedGames, setSelectedGames] = useState([]);
   const [generation, setGeneration] = useState("all");
-  const [category, setCategory] = useState("all");
   const [status, setStatus] = useState("all");
   const [completed, toggle] = usePersistentSet();
 
@@ -284,23 +360,83 @@ export function App() {
       .then((data) => setModel(normalizeData(data)))
       .catch((reason) => setError(reason.message));
   }, []);
+  const toggleGame = (code) =>
+    setSelectedGames((current) =>
+      current.includes(code)
+        ? current.filter((item) => item !== code)
+        : [...current, code],
+    );
+  const challengeTasks = useMemo(
+    () => model?.tasks.filter((task) => task.source === "challenge") || [],
+    [model],
+  );
+  const challengeGameCodes = useMemo(
+    () => new Set(challengeTasks.flatMap((task) => task.games)),
+    [challengeTasks],
+  );
+  const exclusivePokemonTasks = useMemo(
+    () =>
+      model?.tasks.filter(
+        (task) =>
+          task.source === "exclusive" &&
+          (task.category === "pokemon" || task.category === "shiny"),
+      ) || [],
+    [model],
+  );
+  const exclusivePokemonGameCodes = useMemo(
+    () => new Set(exclusivePokemonTasks.flatMap((task) => task.games)),
+    [exclusivePokemonTasks],
+  );
+  const gameOptions = useMemo(
+    () =>
+      Object.entries(model?.games || {}).filter(
+        ([code]) =>
+          (view === "games"
+            ? exclusivePokemonGameCodes.has(code)
+            : challengeGameCodes.has(code)) &&
+          (generation === "all" || String(gameGenerations[code]) === generation),
+      ),
+    [model, challengeGameCodes, exclusivePokemonGameCodes, generation, view],
+  );
+  useEffect(() => {
+    const allowed = new Set(gameOptions.map(([code]) => code));
+    setSelectedGames((current) => current.filter((code) => allowed.has(code)));
+  }, [gameOptions]);
   const visibleTasks = useMemo(
     () =>
-      model?.tasks.filter((task) => {
+      challengeTasks.filter((task) => {
         const text =
           `${task.name} ${task.description} ${task.platform || ""}`.toLocaleLowerCase();
         return (
           (!query || text.includes(query.toLocaleLowerCase())) &&
-          (game === "all" || task.games.includes(game)) &&
+          (selectedGames.length === 0 ||
+            task.games.some((code) => selectedGames.includes(code))) &&
           (generation === "all" || String(task.generation) === generation) &&
-          (category === "all" || task.category === category) &&
           (status === "all" ||
             (status === "done"
               ? completed.has(task.id)
               : !completed.has(task.id)))
         );
-      }) || [],
-    [model, query, game, generation, category, status, completed],
+      }),
+    [challengeTasks, query, selectedGames, generation, status, completed],
+  );
+  const visibleGameTasks = useMemo(
+    () =>
+      exclusivePokemonTasks.filter((task) => {
+        const text =
+          `${task.name} ${task.description} ${task.platform || ""}`.toLocaleLowerCase();
+        return (
+          (!query || text.includes(query.toLocaleLowerCase())) &&
+          (selectedGames.length === 0 ||
+            task.games.some((code) => selectedGames.includes(code))) &&
+          (generation === "all" || String(task.generation) === generation) &&
+          (status === "all" ||
+            (status === "done"
+              ? completed.has(task.id)
+              : !completed.has(task.id)))
+        );
+      }),
+    [exclusivePokemonTasks, query, selectedGames, generation, status, completed],
   );
   const doneCount =
     model?.tasks.filter((task) => completed.has(task.id)).length || 0;
@@ -339,9 +475,9 @@ export function App() {
         </div>
       </header>
       <nav class="tabs" aria-label="Views">
-        {[
-          ["tracker", "Checklist"],
-          ["games", "By game"],
+          {[
+        ["tracker", "Challenges"],
+          ["games", "Pokémon"],
           ["ribbons", "Ribbons"],
           ["moves", "Moves"],
           ["progress", "Progress"],
@@ -367,26 +503,8 @@ export function App() {
             onChange={(event) => setGeneration(event.currentTarget.value)}
           >
             <option value="all">All generations</option>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+            {[1, 2, 3, 4, 5, 6, 7].map((item) => (
               <option value={item}>Generation {item}</option>
-            ))}
-          </select>
-          <select
-            value={game}
-            onChange={(event) => setGame(event.currentTarget.value)}
-          >
-            <option value="all">All source games</option>
-            {Object.entries(model.games).map(([code, name]) => (
-              <option value={code}>{name}</option>
-            ))}
-          </select>
-          <select
-            value={category}
-            onChange={(event) => setCategory(event.currentTarget.value)}
-          >
-            <option value="all">All categories</option>
-            {categories.map((item) => (
-              <option value={item}>{item}</option>
             ))}
           </select>
           <select
@@ -397,19 +515,22 @@ export function App() {
             <option value="todo">To do</option>
             <option value="done">Complete</option>
           </select>
+          <div class="game-filter">
+            {gameOptions.map(([code, name]) => (
+              <button
+                key={code}
+                type="button"
+                class={`tag ${selectedGames.includes(code) ? "active" : ""}`}
+                onClick={() => toggleGame(code)}
+              >
+                {name}
+              </button>
+            ))}
+          </div>
         </section>
       )}
       {view === "tracker" && (
         <section class="task-list">
-          <div class="list-heading">
-            <div>
-              <p class="eyebrow">Unified checklist</p>
-              <h2>What still needs preserving</h2>
-            </div>
-            <span>
-              {visibleTasks.length} shown · {model.tasks.length} total
-            </span>
-          </div>
           {visibleTasks.map((task) => (
             <TaskRow
               key={task.id}
@@ -423,7 +544,7 @@ export function App() {
       {view === "games" && (
         <section class="game-view">
           {Object.entries(model.games).map(([code, name]) => {
-            const items = visibleTasks.filter((task) =>
+            const items = visibleGameTasks.filter((task) =>
               task.games.includes(code),
             );
             if (!items.length) return null;
@@ -431,7 +552,6 @@ export function App() {
               <article class="game-group" key={code}>
                 <div class="game-title">
                   <div>
-                    <span class="tag">{code}</span>
                     <h2>{name}</h2>
                   </div>
                   <span>
@@ -445,6 +565,7 @@ export function App() {
                     task={task}
                     completed={completed.has(task.id)}
                     toggle={toggle}
+                    games={model.games}
                   />
                 ))}
               </article>
@@ -459,7 +580,14 @@ export function App() {
           onTaskLink={linkToTask}
         />
       )}
-      {view === "moves" && <MovesView moves={model.moveCatalog} />}
+      {view === "moves" && (
+        <MovesView
+          moves={model.moveCatalog}
+          games={model.games}
+          completed={completed}
+          toggle={toggle}
+        />
+      )}
       {view === "progress" && (
         <Progress
           tasks={model.tasks}

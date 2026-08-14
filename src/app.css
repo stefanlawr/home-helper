@@ -149,9 +149,28 @@ h3 {
 /* ---- Filters / form controls -------------------------------------------- */
 .filters {
   display: grid;
-  grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(135px, 1fr));
+  grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(135px, 1fr));
   gap: 10px;
   margin-bottom: 34px;
+}
+.game-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  grid-column: 1 / -1;
+}
+.game-filter .tag {
+  cursor: pointer;
+  opacity: 0.55;
+}
+.game-filter .tag:hover {
+  opacity: 0.8;
+}
+.game-filter .tag.active {
+  background: var(--gba-yellow);
+  border-color: var(--gba-navy);
+  color: var(--gba-navy);
+  opacity: 1;
 }
 .search,
 select {
@@ -189,23 +208,8 @@ select:focus {
 }
 
 /* ---- Headings / list rows ------------------------------------------------ */
-.list-heading,
 .section-heading {
   margin-bottom: 20px;
-}
-.list-heading {
-  align-items: end;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.list-heading > span {
-  color: var(--gba-cream);
-  font-size: 12px;
-  background: var(--gray-green-dark);
-  border: 2px solid var(--gba-navy);
-  padding: 4px 8px;
 }
 .task-row {
   align-items: center;
@@ -237,6 +241,12 @@ select:focus {
   font-size: 13px;
   color: var(--gba-navy);
   font-weight: 700;
+}
+.game-icon {
+  display: block;
+  height: 48px;
+  object-fit: contain;
+  width: 48px;
 }
 .task-copy small,
 .ribbon-group p,
@@ -402,6 +412,68 @@ select:focus {
   border-top: 2px solid var(--gba-cream-alt);
   color: var(--gba-navy);
 }
+.game-move-row {
+  align-items: start;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+.move-trigger {
+  background: none;
+  border: 0;
+  color: var(--gba-navy);
+  display: block;
+  font: inherit;
+  grid-column: 2;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+}
+.move-check {
+  align-self: start;
+  grid-column: 1;
+  grid-row: 1;
+  padding: 1px 8px 0 0;
+}
+.move-check input {
+  accent-color: var(--emerald);
+  height: 18px;
+  width: 18px;
+}
+.game-move-row .move-status {
+  color: var(--gba-red);
+  font-size: 12px;
+  font-weight: 700;
+  grid-column: 3;
+  grid-row: 1;
+  text-transform: uppercase;
+}
+.move-learners {
+  border-top: 2px dashed var(--gba-cream-alt);
+  display: grid;
+  gap: 8px;
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  padding-top: 10px;
+}
+.move-learners > strong {
+  color: var(--gba-blue);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.move-learners > small {
+  color: var(--gray-green-dark);
+}
+.learner-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.learner-list span {
+  background: var(--gba-blue-soft);
+  border: 1px solid var(--gba-blue);
+  color: var(--gba-navy);
+  font-size: 12px;
+  padding: 4px 7px;
+}
 .move-row:hover {
   background: var(--gba-blue-soft);
 }
@@ -413,12 +485,6 @@ select:focus {
   color: var(--gray-green-dark);
   font-size: 12px;
   margin-top: 5px;
-}
-.move-row > span:last-child {
-  color: var(--gba-red);
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
 }
 
 /* ---- Progress / stats ------------------------------------------------------ */
@@ -579,6 +645,9 @@ select:focus {
   .move-row {
     grid-template-columns: minmax(130px, 2fr) 70px 70px;
     padding-inline: 10px;
+  }
+  .game-move-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
   .progress-line {
     grid-template-columns: 1fr 80px 38px;
