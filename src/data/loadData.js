@@ -4,6 +4,7 @@ const DATA_FILES = {
   ribbons: 'assets/data/home-ribbons.json',
   moves: 'assets/data/home-moves.json',
   abilities: 'assets/data/home-abilities.json',
+  trades: 'assets/data/home-trades.json',
 }
 
 async function loadJson(path, optional = false) {
@@ -18,13 +19,14 @@ async function loadJson(path, optional = false) {
 }
 
 export async function loadHomeData() {
-  const [challenges, exclusives, ribbons, moves, abilities] = await Promise.all([
+  const [challenges, exclusives, ribbons, moves, abilities, trades] = await Promise.all([
     loadJson(DATA_FILES.challenges),
     loadJson(DATA_FILES.exclusives),
     loadJson(DATA_FILES.ribbons),
     loadJson(DATA_FILES.moves),
     loadJson(DATA_FILES.abilities, true),
+    loadJson(DATA_FILES.trades, true),
   ])
 
-  return { challenges, exclusives, ribbons, moves, abilities }
+  return { challenges, exclusives, ribbons, moves, abilities, trades }
 }

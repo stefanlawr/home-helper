@@ -23,6 +23,10 @@ export function TaskRow({ task, completed, toggle }) {
       />
       <span class="task-copy">
         <strong>{task.name}</strong>
+        {task.description &&
+          task.description.split("\n").map((line, index) => (
+            <small key={index}>{line}</small>
+          ))}
       </span>
       <span class="task-meta">
         {task.games.flatMap((code) => {
