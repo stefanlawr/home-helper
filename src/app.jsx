@@ -34,6 +34,22 @@ const gameIcons = {
   usum: [7, "ultra-sun.png", "ultra-moon.png"],
 };
 
+const SHUTDOWN_TIME = new Date("2027-02-25T19:00:00-08:00").getTime();
+
+function useCountdown(targetTime) {
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const remaining = Math.max(0, targetTime - now);
+  const days = Math.floor(remaining / 86400000);
+  const hours = Math.floor((remaining % 86400000) / 3600000);
+  const minutes = Math.floor((remaining % 3600000) / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
+  return { remaining, days, hours, minutes, seconds };
+}
+
 function usePersistentSet() {
   const [completed, setCompleted] = useState(() => {
     try {
@@ -235,19 +251,22 @@ function RibbonView({ groups, tasks, onTaskLink }) {
   );
 }
 
-function MovesView({ moves, games, completed, toggle }) {
-  const [query, setQuery] = useState("");
+function MovesView({ moves, games, completed, toggle, status }) {
   const [expanded, setExpanded] = useState(null);
   const [details, setDetails] = useState({});
   const [learners, setLearners] = useState({});
-  const visible = moves.filter((move) =>
-    move.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
-  );
   const gamesWithMoves = Object.entries(games)
     .map(([code, name]) => [
       code,
       name,
-      visible.filter((move) => move.games.includes(code)),
+      moves.filter(
+        (move) =>
+          move.games.includes(code) &&
+          (status === "all" ||
+            (status === "done"
+              ? completed.has(`move:${code}:${move.name}`)
+              : !completed.has(`move:${code}:${move.name}`))),
+      ),
     ])
     .filter(([, , items]) => items.length);
   const expand = (move, code) => {
@@ -276,12 +295,6 @@ function MovesView({ moves, games, completed, toggle }) {
           Moves that can no longer be obtained in current games, grouped by
           their Gen 1–7 source games.
         </p>
-        <input
-          class="search large"
-          value={query}
-          onInput={(event) => setQuery(event.currentTarget.value)}
-          placeholder="Search moves"
-        />
       </header>
       <div class="game-view">
         {gamesWithMoves.map(([code, name, items]) => (
@@ -387,16 +400,22 @@ export function App() {
     () => new Set(exclusivePokemonTasks.flatMap((task) => task.games)),
     [exclusivePokemonTasks],
   );
+  const moveGameCodes = useMemo(
+    () => new Set(model?.moveCatalog.flatMap((move) => move.games) || []),
+    [model],
+  );
   const gameOptions = useMemo(
     () =>
       Object.entries(model?.games || {}).filter(
         ([code]) =>
           (view === "games"
             ? exclusivePokemonGameCodes.has(code)
-            : challengeGameCodes.has(code)) &&
+            : view === "moves"
+              ? moveGameCodes.has(code)
+              : challengeGameCodes.has(code)) &&
           (generation === "all" || String(gameGenerations[code]) === generation),
       ),
-    [model, challengeGameCodes, exclusivePokemonGameCodes, generation, view],
+    [model, challengeGameCodes, exclusivePokemonGameCodes, moveGameCodes, generation, view],
   );
   useEffect(() => {
     const allowed = new Set(gameOptions.map(([code]) => code));
@@ -438,8 +457,20 @@ export function App() {
       }),
     [exclusivePokemonTasks, query, selectedGames, generation, status, completed],
   );
-  const doneCount =
-    model?.tasks.filter((task) => completed.has(task.id)).length || 0;
+  const visibleMoves = useMemo(
+    () =>
+      (model?.moveCatalog || []).filter((move) => {
+        const text = move.name.toLocaleLowerCase();
+        return (
+          (!query || text.includes(query.toLocaleLowerCase())) &&
+          (selectedGames.length === 0 ||
+            move.games.some((code) => selectedGames.includes(code))) &&
+          (generation === "all" || move.generations?.includes(Number(generation)))
+        );
+      }),
+    [model, query, selectedGames, generation],
+  );
+  const countdown = useCountdown(SHUTDOWN_TIME);
   const linkToTask = (id) => {
     setView("tracker");
     setQuery(model.tasks.find((task) => task.id === id)?.name || "");
@@ -470,8 +501,12 @@ export function App() {
           <h1>Home Helper</h1>
         </div>
         <div class="headline-stat">
-          <strong>{doneCount}</strong>
-          <span>targets secured</span>
+          <strong>
+            {countdown.remaining > 0
+              ? `${countdown.days}d ${String(countdown.hours).padStart(2, "0")}:${String(countdown.minutes).padStart(2, "0")}:${String(countdown.seconds).padStart(2, "0")}`
+              : "Bank is closed"}
+          </strong>
+          <span>until Bank shuts down</span>
         </div>
       </header>
       <nav class="tabs" aria-label="Views">
@@ -490,7 +525,7 @@ export function App() {
           </button>
         ))}
       </nav>
-      {(view === "tracker" || view === "games") && (
+      {(view === "tracker" || view === "games" || view === "moves") && (
         <section class="filters">
           <input
             class="search"
@@ -582,10 +617,11 @@ export function App() {
       )}
       {view === "moves" && (
         <MovesView
-          moves={model.moveCatalog}
+          moves={visibleMoves}
           games={model.games}
           completed={completed}
           toggle={toggle}
+          status={status}
         />
       )}
       {view === "progress" && (

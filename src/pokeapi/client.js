@@ -5,21 +5,6 @@ function slug(value) {
   return value.toLocaleLowerCase().replace(/[.'’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
-const moveVersionGroups = {
-  rby: ['red-blue', 'yellow'],
-  gsc: ['gold-silver', 'crystal'],
-  rse: ['ruby-sapphire', 'emerald'],
-  frlg: ['firered-leafgreen'],
-  dppt: ['diamond-pearl', 'platinum'],
-  hgss: ['heartgold-soulsilver'],
-  bw: ['black-white'],
-  b2w2: ['black-2-white-2'],
-  xy: ['x-y'],
-  oras: ['omega-ruby-alpha-sapphire'],
-  sm: ['sun-moon'],
-  usum: ['ultra-sun-ultra-moon'],
-}
-
 async function cached(path) {
   const key = `${prefix}${path}`
   try {
@@ -51,23 +36,13 @@ export function getMoveInfo(name) {
 }
 
 export function getMoveLearners(name, gameCode) {
-  const versionGroups = moveVersionGroups[gameCode] || []
   const moveSlug = slug(name)
   return cached(`move/${moveSlug}`).then((move) => {
     if (!move) return []
-    return Promise.all(
-      (move.learned_by_pokemon || []).map((entry) =>
-        cached(`pokemon/${entry.name}`).then((pokemon) => {
-          const moveEntry = pokemon?.moves?.find(
-            (item) => slug(item.move?.name || '') === moveSlug,
-          )
-          const learnsInGame = moveEntry?.version_group_details?.some((detail) =>
-            versionGroups.includes(detail.version_group?.name),
-          )
-          return learnsInGame ? pokemon.name : null
-        }),
-      ),
-    ).then((learners) => learners.filter(Boolean).sort())
+    return (move.learned_by_pokemon || [])
+      .map((entry) => entry.name)
+      .filter(Boolean)
+      .sort()
   })
 }
 
