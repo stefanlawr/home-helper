@@ -1,0 +1,1719 @@
+{
+  "games": {
+    "home": "Pokémon HOME",
+    "za": "Pokémon Legends: Z-A",
+    "sv": "Pokémon Scarlet & Violet",
+    "swsh": "Pokémon Sword & Shield",
+    "pla": "Pokémon Legends: Arceus",
+    "bdsp": "Pokémon Brilliant Diamond & Shining Pearl",
+    "lgpe": "Pokémon Let's Go, Pikachu! & Let's Go, Eevee!",
+    "usum": "Pokémon Ultra Sun & Ultra Moon",
+    "sm": "Pokémon Sun & Moon",
+    "oras": "Pokémon Omega Ruby & Alpha Sapphire",
+    "xy": "Pokémon X & Y",
+    "b2w2": "Pokémon Black 2 & White 2",
+    "bw": "Pokémon Black & White",
+    "hgss": "Pokémon HeartGold & SoulSilver",
+    "dppt": "Pokémon Diamond, Pearl & Platinum",
+    "rse": "Pokémon Ruby, Sapphire & Emerald",
+    "frlg": "Pokémon FireRed & LeafGreen",
+    "gsc": "Pokémon Gold & Silver",
+    "rby": "Pokémon Red, Blue & Yellow",
+    "go": "Pokémon GO",
+    "bank": "Pokémon Bank",
+    "transporter": "Poké Transporter"
+  },
+
+  "challenges": [
+    {
+      "id": "fill-hyperspace-pokedex",
+      "name": "Fill in your Hyperspace Pokédex in Pokémon Legends: Z-A!",
+      "category": "pokemon",
+      "games": ["za"]
+    },
+    {
+      "id": "fill-lumiose-pokedex",
+      "name": "Fill in your Lumiose Pokédex in Pokémon Legends: Z-A!",
+      "category": "pokemon",
+      "games": ["za"]
+    },
+    {
+      "id": "fill-mega-evolution-pokedex",
+      "name": "Fill in your Mega Evolution Pokédex in Pokémon Legends: Z-A!",
+      "category": "pokemon",
+      "games": ["za"]
+    },
+    {
+      "id": "register-10-furfrou-forms",
+      "name": "Register 10 forms of Furfrou",
+      "category": "pokemon",
+      "games": ["go"]
+    },
+    {
+      "id": "register-darkrai-za",
+      "name": "Register Darkrai from Pokémon Legends: Z-A!",
+      "category": "pokemon",
+      "games": ["za"]
+    },
+    {
+      "id": "register-eternal-flower-floette",
+      "name": "Register Eternal Flower Floette from Pokémon Legends: Z-A!",
+      "category": "pokemon",
+      "games": ["za"]
+    },
+    {
+      "id": "register-zygarde-za",
+      "name": "Register Zygarde from Pokémon Legends: Z-A!",
+      "category": "pokemon",
+      "games": ["za"]
+    },
+
+    {
+      "id": "deposit-bashful",
+      "name": "Deposit 10 Pokémon with a Bashful Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-bold",
+      "name": "Deposit 10 Pokémon with a Bold Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-brave",
+      "name": "Deposit 10 Pokémon with a Brave Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-calm",
+      "name": "Deposit 10 Pokémon with a Calm Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-careful",
+      "name": "Deposit 10 Pokémon with a Careful Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-docile",
+      "name": "Deposit 10 Pokémon with a Docile Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-gentle",
+      "name": "Deposit 10 Pokémon with a Gentle Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-hardy",
+      "name": "Deposit 10 Pokémon with a Hardy Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-hasty",
+      "name": "Deposit 10 Pokémon with a Hasty Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-jolly",
+      "name": "Deposit 10 Pokémon with a Jolly Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-lax",
+      "name": "Deposit 10 Pokémon with a Lax Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-lonely",
+      "name": "Deposit 10 Pokémon with a Lonely Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-mild",
+      "name": "Deposit 10 Pokémon with a Mild Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-modest",
+      "name": "Deposit 10 Pokémon with a Modest Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-naive",
+      "name": "Deposit 10 Pokémon with a Naive Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-naughty",
+      "name": "Deposit 10 Pokémon with a Naughty Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-quiet",
+      "name": "Deposit 10 Pokémon with a Quiet Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-quirky",
+      "name": "Deposit 10 Pokémon with a Quirky Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-rash",
+      "name": "Deposit 10 Pokémon with a Rash Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-relaxed",
+      "name": "Deposit 10 Pokémon with a Relaxed Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-sassy",
+      "name": "Deposit 10 Pokémon with a Sassy Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-serious",
+      "name": "Deposit 10 Pokémon with a Serious Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-timid",
+      "name": "Deposit 10 Pokémon with a Timid Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-adamant",
+      "name": "Deposit 10 Pokémon with an Adamant Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-impish",
+      "name": "Deposit 10 Pokémon with an Impish Nature!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+
+    {
+      "id": "deposit-30-ditto",
+      "name": "Deposit 30 Ditto",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-30-pikachu",
+      "name": "Deposit 30 Pikachu",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-mightiest-mark",
+      "name": "Deposit a Pokémon that has the Mightiest Mark",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "deposit-roaming-gimmighoul",
+      "name": "Deposit a Roaming Form Gimmighoul that was caught in Pokémon GO!",
+      "category": "pokemon",
+      "games": ["go"]
+    },
+    {
+      "id": "deposit-pokemon",
+      "name": "Deposit Pokémon",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+
+    {
+      "id": "deposit-beast-ball",
+      "name": "Deposit Pokémon in a Beast Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-cherish-ball",
+      "name": "Deposit Pokémon in a Cherish Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-dive-ball",
+      "name": "Deposit Pokémon in a Dive Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-dream-ball",
+      "name": "Deposit Pokémon in a Dream Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-dusk-ball",
+      "name": "Deposit Pokémon in a Dusk Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-fast-ball",
+      "name": "Deposit Pokémon in a Fast Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-feather-ball",
+      "name": "Deposit Pokémon in a Feather Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+    {
+      "id": "deposit-friend-ball",
+      "name": "Deposit Pokémon in a Friend Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-gigaton-ball",
+      "name": "Deposit Pokémon in a Gigaton Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+    {
+      "id": "deposit-great-ball-hisui",
+      "name": "Deposit Pokémon in a Great Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+    {
+      "id": "deposit-great-ball",
+      "name": "Deposit Pokémon in a Great Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-heal-ball",
+      "name": "Deposit Pokémon in a Heal Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-heavy-ball-hisui",
+      "name": "Deposit Pokémon in a Heavy Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+    {
+      "id": "deposit-heavy-ball",
+      "name": "Deposit Pokémon in a Heavy Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-jet-ball",
+      "name": "Deposit Pokémon in a Jet Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+    {
+      "id": "deposit-leaden-ball",
+      "name": "Deposit Pokémon in a Leaden Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+    {
+      "id": "deposit-level-ball",
+      "name": "Deposit Pokémon in a Level Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-love-ball",
+      "name": "Deposit Pokémon in a Love Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-lure-ball",
+      "name": "Deposit Pokémon in a Lure Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-luxury-ball",
+      "name": "Deposit Pokémon in a Luxury Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-master-ball",
+      "name": "Deposit Pokémon in a Master Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-moon-ball",
+      "name": "Deposit Pokémon in a Moon Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-nest-ball",
+      "name": "Deposit Pokémon in a Nest Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-net-ball",
+      "name": "Deposit Pokémon in a Net Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-hisui-poke-ball",
+      "name": "Deposit Pokémon in a Poké Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+    {
+      "id": "deposit-poke-ball",
+      "name": "Deposit Pokémon in a Poké Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-premier-ball",
+      "name": "Deposit Pokémon in a Premier Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-quick-ball",
+      "name": "Deposit Pokémon in a Quick Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-repeat-ball",
+      "name": "Deposit Pokémon in a Repeat Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-safari-ball",
+      "name": "Deposit Pokémon in a Safari Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-sport-ball",
+      "name": "Deposit Pokémon in a Sport Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-timer-ball",
+      "name": "Deposit Pokémon in a Timer Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-hisui-ultra-ball",
+      "name": "Deposit Pokémon in an Ultra Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+    {
+      "id": "deposit-ultra-ball",
+      "name": "Deposit Pokémon in an Ultra Ball!",
+      "category": "ball",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-wing-ball",
+      "name": "Deposit Pokémon in a Wing Ball crafted in the Hisui Region!",
+      "category": "ball",
+      "games": ["pla"]
+    },
+
+    {
+      "id": "deposit-beauty",
+      "name": "Deposit Pokémon that embody the ultimate in beauty!",
+      "category": "contest",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-cleverness",
+      "name": "Deposit Pokémon that embody the ultimate in cleverness!",
+      "category": "contest",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-coolness",
+      "name": "Deposit Pokémon that embody the ultimate in coolness!",
+      "category": "contest",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-cuteness",
+      "name": "Deposit Pokémon that embody the ultimate in cuteness!",
+      "category": "contest",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-toughness",
+      "name": "Deposit Pokémon that embody the ultimate in toughness!",
+      "category": "contest",
+      "games": ["any"]
+    },
+    {
+      "id": "deposit-jumbo-mini-mark",
+      "name": "Deposit Pokémon that have the Jumbo Mark and the Mini Mark",
+      "category": "mark",
+      "games": ["sv"]
+    },
+    {
+      "id": "deposit-ultimate-sheen",
+      "name": "Deposit Pokémon that show off the ultimate sheen!!",
+      "category": "contest",
+      "games": ["bdsp"]
+    },
+    {
+      "id": "deposit-shiny",
+      "name": "Deposit Shiny Pokémon",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+
+    {
+      "id": "fill-blueberry-pokedex",
+      "name": "Fill in your Blueberry Pokédex in Pokémon Scarlet or Pokémon Violet!",
+      "category": "pokedex",
+      "games": ["sv"]
+    },
+    {
+      "id": "fill-crown-tundra-pokedex",
+      "name": "Fill in your Crown Tundra Pokédex in Pokémon Sword & Shield!",
+      "category": "pokedex",
+      "games": ["swsh"]
+    },
+    {
+      "id": "fill-galar-pokedex",
+      "name": "Fill in your Galar Pokédex in Pokémon Sword & Shield!",
+      "category": "pokedex",
+      "games": ["swsh"]
+    },
+    {
+      "id": "fill-hisui-pokedex",
+      "name": "Fill in your Hisui Pokédex in Pokémon Legends: Arceus!",
+      "category": "pokedex",
+      "games": ["pla"]
+    },
+    {
+      "id": "fill-isle-of-armor-pokedex",
+      "name": "Fill in your Isle of Armor Tundra Pokédex in Pokémon Sword & Shield!",
+      "category": "pokedex",
+      "games": ["swsh"]
+    },
+    {
+      "id": "fill-kanto-lgpe-pokedex",
+      "name": "Fill in your Kanto Pokédex in Pokémon Let's Go, Pikachu! or Pokémon: Let's Go, Eevee!",
+      "category": "pokedex",
+      "games": ["lgpe"]
+    },
+    {
+      "id": "fill-kitakami-pokedex",
+      "name": "Fill in your Kitakami Pokédex in Pokémon Scarlet or Pokémon Violet!",
+      "category": "pokedex",
+      "games": ["sv"]
+    },
+    {
+      "id": "fill-paldea-pokedex",
+      "name": "Fill in your Paldea region Pokédex in Pokémon Scarlet or Pokémon Violet!",
+      "category": "pokedex",
+      "games": ["sv"]
+    },
+    {
+      "id": "fill-sinnoh-pokedex",
+      "name": "Fill in your Sinnoh Pokédex in Pokémon Brilliant Diamond & Shining Pearl!",
+      "category": "pokedex",
+      "games": ["bdsp"]
+    },
+
+    {
+      "id": "register-alola-100",
+      "name": "Register 100 different species of Pokémon that live in the Alola Region",
+      "category": "regional",
+      "games": ["sm", "usum"]
+    },
+    {
+      "id": "register-vivillon-18",
+      "name": "Register 18 patterns of Vivillon",
+      "category": "forms",
+      "games": ["xy", "oras", "sm", "usum", "sv"]
+    },
+    {
+      "id": "register-dudunsparce-2",
+      "name": "Register 2 forms of Dudunsparce!",
+      "category": "forms",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-maushold-2",
+      "name": "Register 2 forms of Maushold!",
+      "category": "forms",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-fossil-20",
+      "name": "Register 20 species of Pokémon that were restored from Fossils!",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "register-unown-28",
+      "name": "Register 28 patterns of Unown",
+      "category": "forms",
+      "games": ["dppt", "hgss", "pla"]
+    },
+    {
+      "id": "register-pal-dean-tauros-3",
+      "name": "Register 3 varieties of Paldean Tauros!",
+      "category": "forms",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-tatsugiri-3",
+      "name": "Register 3 varieties of Tatsugiri!",
+      "category": "forms",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-squawkabilly-4",
+      "name": "Register 4 colors of Squawkabilly!",
+      "category": "forms",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-ruinous-4",
+      "name": "Register 4 different Ruinous Pokémon!",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-oricorio-4",
+      "name": "Register 4 forms of Oricorio!",
+      "category": "forms",
+      "games": ["sm", "usum", "sv"]
+    },
+    {
+      "id": "register-ultra-beast-5",
+      "name": "Register 5 different species of Ultra Beast",
+      "category": "pokemon",
+      "games": ["sm", "usum"]
+    },
+    {
+      "id": "register-rotom-6",
+      "name": "Register 6 forms of Rotom!",
+      "category": "forms",
+      "games": ["dppt", "platinum", "bdsp"]
+    },
+    {
+      "id": "register-minior-7",
+      "name": "Register 7 colors of Minior",
+      "category": "forms",
+      "games": ["sm", "usum"]
+    },
+    {
+      "id": "register-abilities",
+      "name": "Register Abilities!",
+      "category": "ability",
+      "games": ["any"]
+    },
+    {
+      "id": "register-alcremie",
+      "name": "Register Alcremie's Forms",
+      "category": "forms",
+      "games": ["swsh"]
+    },
+    {
+      "id": "register-first-partners-alola",
+      "name": "Register all the first-partner Pokémon that trainers can choose in Alola!",
+      "category": "starter",
+      "games": ["sm", "usum"]
+    },
+    {
+      "id": "register-first-partners-galar",
+      "name": "Register all the first-partner Pokémon that trainers can choose in Galar!",
+      "category": "starter",
+      "games": ["swsh"]
+    },
+    {
+      "id": "register-first-partners-hoenn",
+      "name": "Register all the first-partner Pokémon that trainers can choose in Hoenn!",
+      "category": "starter",
+      "games": ["rse", "oras"]
+    },
+    {
+      "id": "register-first-partners-johto",
+      "name": "Register all the first-partner Pokémon that trainers can choose in Johto!",
+      "category": "starter",
+      "games": ["gsc", "hgss"]
+    },
+    {
+      "id": "register-first-partners-kalos",
+      "name": "Register all the first-partner Pokémon that trainers can choose in Kalos!",
+      "category": "starter",
+      "games": ["xy"]
+    },
+    {
+      "id": "register-first-partners-kanto",
+      "name": "Register all the first-partner Pokémon that trainers can choose in Kanto!",
+      "category": "starter",
+      "games": ["rby", "frlg", "lgpe"]
+    },
+    {
+      "id": "register-first-partners-sinnoh",
+      "name": "Register all the first-partner Pokémon that trainers can choose in Sinnoh!",
+      "category": "starter",
+      "games": ["dppt", "bdsp"]
+    },
+    {
+      "id": "register-first-partners-unova",
+      "name": "Register all the first-partner Pokémon that trainers can choose in Unova!",
+      "category": "starter",
+      "games": ["bw", "b2w2"]
+    },
+    {
+      "id": "register-alpha",
+      "name": "Register Alpha Pokémon",
+      "category": "pokemon",
+      "games": ["pla"]
+    },
+    {
+      "id": "register-applin-evolutions",
+      "name": "Register Applin and its 4 evolutions",
+      "category": "pokemon",
+      "games": ["swsh", "sv"]
+    },
+    {
+      "id": "register-arceus-pla",
+      "name": "Register Arceus from Pokémon Legends: Arceus",
+      "category": "pokemon",
+      "games": ["pla"]
+    },
+    {
+      "id": "register-autumn-deerling",
+      "name": "Register Autumn Form Deerling and Autumn Form Sawsbuck",
+      "category": "forms",
+      "games": ["bw", "b2w2", "sv"]
+    },
+    {
+      "id": "register-blastoise-kanto",
+      "name": "Register Blastoise from the good ol' Kanto Region!",
+      "category": "pokemon",
+      "games": ["rby", "frlg", "lgpe"]
+    },
+    {
+      "id": "register-bug-type",
+      "name": "Register Bug-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-charizard-frlg",
+      "name": "Register Charizard from Pokémon FireRed & LeafGreen",
+      "category": "pokemon",
+      "games": ["frlg"]
+    },
+    {
+      "id": "register-charizard-kanto",
+      "name": "Register Charizard from the good ol' Kanto Region!",
+      "category": "pokemon",
+      "games": ["rby", "frlg", "lgpe"]
+    },
+    {
+      "id": "register-alola-legendary-group",
+      "name": "Register Cosmog, Cosmoem, Solgaleo and Lunala from the Alola Region",
+      "category": "pokemon",
+      "games": ["sm", "usum"]
+    },
+    {
+      "id": "register-dark-type",
+      "name": "Register Dark-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-dialga-bdsp",
+      "name": "Register Dialga from Pokémon Brilliant Diamond or Shining Pearl",
+      "category": "pokemon",
+      "games": ["bdsp"]
+    },
+    {
+      "id": "register-dialga-dppt",
+      "name": "Register Dialga from Pokémon Diamond, Pokémon Pearl, or Pokémon Platinum!",
+      "category": "pokemon",
+      "games": ["dppt"]
+    },
+    {
+      "id": "register-dialga-palkia-giratina",
+      "name": "Register Dialga, Palkia and Giratina from the Pokémon Diamond, Pokémon Pearl, or Pokémon Platinum",
+      "category": "pokemon",
+      "games": ["dppt"]
+    },
+    {
+      "id": "register-dragon-type",
+      "name": "Register Dragon-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-eevee-8-evolutions",
+      "name": "Register Eevee and its 8 Evolutions",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "register-eevee-lgpe",
+      "name": "Register Eevee from Pokémon Let's Go, Pikachu! Or Let's Go, Eevee!",
+      "category": "pokemon",
+      "games": ["lgpe"]
+    },
+    {
+      "id": "register-electric-type",
+      "name": "Register Electric-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-fairy-type",
+      "name": "Register Fairy-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-fighting-type",
+      "name": "Register Fighting-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-fire-type",
+      "name": "Register Fire-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-flying-type",
+      "name": "Register Flying-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-galarian-birds",
+      "name": "Register Galarian Articuno, Galarian Zapdos and Galarian Moltres",
+      "category": "pokemon",
+      "games": ["swsh"]
+    },
+    {
+      "id": "register-ghost-type",
+      "name": "Register Ghost-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-giratina-dppt",
+      "name": "Register Giratina from Pokémon Diamond, Pokémon Pearl, or Pokémon Platinum!",
+      "category": "pokemon",
+      "games": ["dppt"]
+    },
+    {
+      "id": "register-grass-type",
+      "name": "Register Grass-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-groudon-kyogre-oras",
+      "name": "Register Groudon and Kyogre from Pokémon Omega Ruby or Pokémon Alpha Sapphire",
+      "category": "pokemon",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-groudon-oras",
+      "name": "Register Groudon from Pokémon Omega Ruby or Pokémon Alpha Sapphire",
+      "category": "pokemon",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-groudon-rse",
+      "name": "Register Groudon from Pokémon Ruby, Pokémon Sapphire, or Pokémon Emerald",
+      "category": "pokemon",
+      "games": ["rse"]
+    },
+    {
+      "id": "register-ground-type",
+      "name": "Register Ground-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-hisuian-starters",
+      "name": "Register Hisuian Decidueye, Hisuian Typhlosion, and Hisuian Samurott",
+      "category": "pokemon",
+      "games": ["pla"]
+    },
+    {
+      "id": "register-ho-oh-hgss",
+      "name": "Register Ho-Oh from Pokémon Heart Gold, or Pokémon SoulSilver!",
+      "category": "pokemon",
+      "games": ["hgss"]
+    },
+    {
+      "id": "register-ho-oh-johto",
+      "name": "Register Ho-Oh from the good ol' Johto Region",
+      "category": "pokemon",
+      "games": ["gsc", "hgss"]
+    },
+    {
+      "id": "register-ice-type",
+      "name": "Register Ice-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-iron-paradox-group",
+      "name": "Register Iron Bundle, Iron Hands, Iron Jugulis, and Iron Thorns!",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-iron-legendary-group",
+      "name": "Register Iron Leaves, Iron Boulder, and Iron Crown!",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-kyogre-oras",
+      "name": "Register Kyogre from Pokémon Omega Ruby or Pokémon Alpha Sapphire",
+      "category": "pokemon",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-kyogre-rse",
+      "name": "Register Kyogre from Pokémon Ruby, Pokémon Sapphire, or Pokémon Emerald",
+      "category": "pokemon",
+      "games": ["rse"]
+    },
+    {
+      "id": "register-lugia-hgss",
+      "name": "Register Lugia from Pokémon HeartGold or Pokémon Soul Silver",
+      "category": "pokemon",
+      "games": ["hgss"]
+    },
+    {
+      "id": "register-lugia-johto",
+      "name": "Register Lugia from the good ol' Johto Region",
+      "category": "pokemon",
+      "games": ["gsc", "hgss"]
+    },
+    {
+      "id": "register-lunala-usum",
+      "name": "Register Lunala and Necrozma Pokémon Ultra Sun or Pokémon Ultra Moon",
+      "category": "pokemon",
+      "games": ["usum"]
+    },
+    {
+      "id": "register-lunala-sm",
+      "name": "Register Lunala from Pokémon Sun or Pokémon Moon",
+      "category": "pokemon",
+      "games": ["sm"]
+    },
+    {
+      "id": "register-meloetta",
+      "name": "Register Meloetta",
+      "category": "pokemon",
+      "games": ["bw", "b2w2", "sv"]
+    },
+    {
+      "id": "register-hoenn-water-starters-oras",
+      "name": "Register Mudkip, Marshtomp and Swampert from Pokémon Omega Ruby or Pokémon Alpha Sapphire!",
+      "category": "starter",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-normal-type",
+      "name": "Register Normal-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-ogerpon",
+      "name": "Register Ogerpon",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-loyal-three",
+      "name": "Register Okidogi, Munkidori, and Fezandipiti!",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-palkia-bdsp",
+      "name": "Register Palkia from Pokémon Brilliant Diamond or Pokémon Shining Pearl",
+      "category": "pokemon",
+      "games": ["bdsp"]
+    },
+    {
+      "id": "register-palkia-dppt",
+      "name": "Register Palkia from Pokémon Diamond, Pokémon Pearl, or Pokémon Platinum",
+      "category": "pokemon",
+      "games": ["dppt"]
+    },
+    {
+      "id": "register-pecharunt",
+      "name": "Register Pecharunt!",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-physical-moves",
+      "name": "Register Physical Moves",
+      "category": "moves",
+      "games": ["any"]
+    },
+    {
+      "id": "register-pikachu-lgpe",
+      "name": "Register Pikachu from Pokémon Let's Go, Pikachu! Or Pokémon Let's Go, Eevee!",
+      "category": "pokemon",
+      "games": ["lgpe"]
+    },
+    {
+      "id": "register-pikachu-kanto",
+      "name": "Register Pikachu from the good ol' Kanto Region!",
+      "category": "pokemon",
+      "games": ["rby", "frlg", "lgpe"]
+    },
+    {
+      "id": "register-hat-pikachu",
+      "name": "Register Pikachu wearing a hat",
+      "category": "pokemon",
+      "games": ["any"]
+    },
+    {
+      "id": "register-poison-type",
+      "name": "Register Poison-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-twinkling-star-ribbon",
+      "name": "Register Pokémon that have the Twinkling Star Ribbon!!",
+      "category": "ribbon",
+      "games": ["bdsp"]
+    },
+    {
+      "id": "register-max-effort-levels",
+      "name": "Register Pokémon with all their effort levels maxed!",
+      "category": "stats",
+      "games": ["pla"]
+    },
+    {
+      "id": "register-psychic-type",
+      "name": "Register Psychic-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-rayquaza-oras",
+      "name": "Register Rayquaza from Pokémon Omega Ruby or Pokémon Alpha Sapphire",
+      "category": "pokemon",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-rayquaza-rse",
+      "name": "Register Rayquaza from Pokémon Ruby, Pokémon Sapphire, or Pokémon Emerald",
+      "category": "pokemon",
+      "games": ["rse"]
+    },
+    {
+      "id": "register-reshiram-b2w2",
+      "name": "Register Reshiram and Kyurem from Pokémon Black 2 or Pokémon White 2",
+      "category": "pokemon",
+      "games": ["b2w2"]
+    },
+    {
+      "id": "register-reshiram-bw",
+      "name": "Register Reshiram from the Pokémon Black or Pokémon White",
+      "category": "pokemon",
+      "games": ["bw"]
+    },
+    {
+      "id": "register-rock-type",
+      "name": "Register Rock-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-great-paradox-group",
+      "name": "Register Scream Tail, Brute Bonnet, Flutter Mane, and Sandy Shocks!",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-shaymin",
+      "name": "Register Shaymin",
+      "category": "pokemon",
+      "games": ["dppt", "pla", "bdsp"]
+    },
+    {
+      "id": "register-shiny-genesect",
+      "name": "Register Shiny Genesect",
+      "category": "pokemon",
+      "games": ["bw", "b2w2"]
+    },
+    {
+      "id": "register-shiny-metagross",
+      "name": "Register Shiny Metagross",
+      "category": "pokemon",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-solgaleo-usum",
+      "name": "Register Solgaleo and Necrozma from Pokémon Ultra Sun or Pokémon Ultra Moon",
+      "category": "pokemon",
+      "games": ["usum"]
+    },
+    {
+      "id": "register-solgaleo-sm",
+      "name": "Register Solgaleo from Pokémon Sun or Pokémon Moon",
+      "category": "pokemon",
+      "games": ["sm"]
+    },
+    {
+      "id": "register-alola-legendaries",
+      "name": "Register Solgaleo, Lunala and Necrozma from the Alola Region",
+      "category": "pokemon",
+      "games": ["sm", "usum"]
+    },
+    {
+      "id": "register-special-moves",
+      "name": "Register Special Moves",
+      "category": "moves",
+      "games": ["any"]
+    },
+    {
+      "id": "register-spring-deerling",
+      "name": "Register Spring Form Deerling and Spring Form Sawsbuck",
+      "category": "forms",
+      "games": ["bw", "b2w2", "sv"]
+    },
+    {
+      "id": "register-bdsp-staraptor-bidoof-bibarel",
+      "name": "Register Staraptor, Bidoof and Bibarel from Pokémon Brilliant Diamond or Pokémon Shining Pearl!",
+      "category": "pokemon",
+      "games": ["bdsp"]
+    },
+    {
+      "id": "register-status-moves",
+      "name": "Register status moves",
+      "category": "moves",
+      "games": ["any"]
+    },
+    {
+      "id": "register-steel-type",
+      "name": "Register Steel-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-suicune-johto",
+      "name": "Register Suicune from the good ol' Johto Region",
+      "category": "pokemon",
+      "games": ["gsc", "hgss"]
+    },
+    {
+      "id": "register-summer-deerling",
+      "name": "Register Summer Form Deerling and Summer Form Sawsbuck",
+      "category": "forms",
+      "games": ["bw", "b2w2", "sv"]
+    },
+    {
+      "id": "register-terapagos",
+      "name": "Register Terapagos",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-alola-guardian-deities",
+      "name": "Register the guardian deities of Alola!",
+      "category": "pokemon",
+      "games": ["sm", "usum"]
+    },
+    {
+      "id": "register-blaziken-oras",
+      "name": "Register Torchic, Combusken and Blaziken from Pokémon Omega Ruby or Pokémon Alpha Sapphire!",
+      "category": "starter",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-sinnoh-starters-bdsp",
+      "name": "Register Torterra, Infernape and Empoleon from Pokémon Brilliant Diamond or Pokémon Shining Pearl!",
+      "category": "starter",
+      "games": ["bdsp"]
+    },
+    {
+      "id": "register-sceptile-oras",
+      "name": "Register Treecko, Grovyle and Sceptile from Pokémon Omega Ruby or Pokémon Alpha Sapphire!",
+      "category": "starter",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-hoenn-starters-oras",
+      "name": "Register Treecko, Torchic, and Mudkip from Pokémon Omega Ruby or Pokémon Alpha Sapphire!",
+      "category": "starter",
+      "games": ["oras"]
+    },
+    {
+      "id": "register-sinnoh-starters-dppt",
+      "name": "Register Turtwig, Chimchar and Piplup from Pokémon Diamond, Pokémon Pearl, or Pokémon Platinum",
+      "category": "starter",
+      "games": ["dppt"]
+    },
+    {
+      "id": "register-ursaluna",
+      "name": "Register Ursaluna and Bloodmoon Ursaluna",
+      "category": "pokemon",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "register-venusaur-frlg",
+      "name": "Register Venusaur from Pokémon FireRed & LeafGreen",
+      "category": "pokemon",
+      "games": ["frlg"]
+    },
+    {
+      "id": "register-venusaur-kanto",
+      "name": "Register Venusaur from the good ol' Kanto Region!",
+      "category": "pokemon",
+      "games": ["rby", "frlg", "lgpe"]
+    },
+    {
+      "id": "register-paradox-legendary-group",
+      "name": "Register Walking Wake, Gouging Fire, and Raging Bolt!",
+      "category": "pokemon",
+      "games": ["sv"]
+    },
+    {
+      "id": "register-water-type",
+      "name": "Register Water-type Pokémon",
+      "category": "type",
+      "games": ["any"]
+    },
+    {
+      "id": "register-winter-deerling",
+      "name": "Register Winter Form Deerling and Winter Form Sawsbuck",
+      "category": "forms",
+      "games": ["bw", "b2w2", "sv"]
+    },
+    {
+      "id": "register-xerneas",
+      "name": "Register Xerneas from Pokémon X or Pokémon Y",
+      "category": "pokemon",
+      "games": ["xy"]
+    },
+    {
+      "id": "register-yveltal",
+      "name": "Register Yveltal from Pokémon X or Pokémon Y",
+      "category": "pokemon",
+      "games": ["xy"]
+    },
+    {
+      "id": "register-zacian",
+      "name": "Register Zacian from Pokémon Sword or Pokémon Shield",
+      "category": "pokemon",
+      "games": ["swsh"]
+    },
+    {
+      "id": "register-zamazenta",
+      "name": "Register Zamazenta from Pokémon Sword or Pokémon Shield",
+      "category": "pokemon",
+      "games": ["swsh"]
+    },
+    {
+      "id": "register-zekrom-kyurem-b2w2",
+      "name": "Register Zekrom and Kyurem from Pokémon Black 2 or Pokémon White 2",
+      "category": "pokemon",
+      "games": ["b2w2"]
+    },
+
+    {
+      "id": "host-room-trade-20",
+      "name": "Host a Room Trade with 20 people in it",
+      "category": "trade",
+      "games": ["home"]
+    },
+    {
+      "id": "host-room-trades",
+      "name": "Host Room Trades",
+      "category": "trade",
+      "games": ["home"]
+    },
+
+    {
+      "id": "trade-arcanine-hisuian",
+      "name": "Trade Arcanine and Hisuian Arcanine",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-armarouge-ceruledge",
+      "name": "Trade Armarouge and Ceruledge!",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-avalugg-hisuian",
+      "name": "Trade Avalugg and Hisuian Avalugg",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-braviary-hisuian",
+      "name": "Trade Braviary and Hisuian Braviary",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-corsola-galarian",
+      "name": "Trade Corsola and Galarian Corsola",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-cranidos-shieldon",
+      "name": "Trade Cranidos and Shieldon",
+      "category": "trade",
+      "games": ["bdsp"]
+    },
+    {
+      "id": "trade-darmanitan-galarian",
+      "name": "Trade Darmanitan and Galarian Darmanitan",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-dugtrio-wugtrio",
+      "name": "Trade Dugtrio and Wugtrio!",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-electivire-mag-mortar",
+      "name": "Trade Electivire and Magmortar",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-electrode-hisuian",
+      "name": "Trade Electrode and Hisuian Electrode",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-farfetchd-galarian",
+      "name": "Trade Farfetch'd and Galarian Farfetch'd",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-gardevoir-gallade",
+      "name": "Trade Gardevoir and Gallade",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-glalie-froslass",
+      "name": "Trade Glalie and Froslass",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-goodra-hisuian",
+      "name": "Trade Goodra and Hisuian Goodra",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-great-tusk-iron-treads",
+      "name": "Trade Great Tusk and Iron Treads!",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-hitmonlee-hitmonchan",
+      "name": "Trade Hitmonlee and Hitmonchan",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-koraidon-miraidon",
+      "name": "Trade Koraidon and Miraidon!",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-latias-latios",
+      "name": "Trade Latias and Latios",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-lilligant-hisuian",
+      "name": "Trade Lilligant and Hisuian Lilligant",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-linoone-galarian",
+      "name": "Trade Linoone and Galarian Linoone",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-lunatone-solrock",
+      "name": "Trade Lunatone & Solrock",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-basculegion-gender",
+      "name": "Trade male Basculegion and female Basculegion",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-meowstic-gender",
+      "name": "Trade male Meowstic and female Meowstic",
+      "category": "trade",
+      "games": ["xy", "oras", "sm", "usum", "swsh", "sv"]
+    },
+    {
+      "id": "trade-meowth-galarian",
+      "name": "Trade Meowth and Galarian Meowth",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-mr-mime-galarian",
+      "name": "Trade Mr. Mime and Galarian Mr. Mime",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-nidoqueen-nidoking",
+      "name": "Trade Nidoqueen and Nidoking",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-nidorino-gengar",
+      "name": "Trade Nidorino and Gengar",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-pikachu-mimikyu",
+      "name": "Trade Pikachu and Mimikyu",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-pinsir-heracross",
+      "name": "Trade Pinsir and Heracross",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-plusle-minun",
+      "name": "Trade Plusle and Minun",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-polteageist-sinistcha",
+      "name": "Trade Polteageist and Sinistcha",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-quagsire-clodsire",
+      "name": "Trade Quagsire and Clodsire!",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-qwilfish-hisuian",
+      "name": "Trade Qwilfish and Hisuian Qwilfish",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-rapidash-galarian",
+      "name": "Trade Rapidash & Galarian Rapidash",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-roaring-moon-iron-valiant",
+      "name": "Trade Roaring Moon and Iron Valiant!",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-scizor-kleavor",
+      "name": "Trade Scizor & Kleavor",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-slither-wing-iron-moth",
+      "name": "Trade Slither Wing and Iron Moth!",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-slowking-galarian",
+      "name": "Trade Slowking and Galarian Slowking",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-staryu-luvdisc",
+      "name": "Trade Staryu & Luvdisc",
+      "category": "trade",
+      "games": ["any"]
+    },
+    {
+      "id": "trade-stunfisk-galarian",
+      "name": "Trade Stunfisk and Galarian Stunfisk",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-tentacruel-toedscruel",
+      "name": "Trade Tentacruel and Toedscruel!",
+      "category": "trade",
+      "games": ["sv"]
+    },
+    {
+      "id": "trade-same-pokemon",
+      "name": "Trade the same Pokémon",
+      "category": "trade",
+      "games": ["home"]
+    },
+    {
+      "id": "trade-throh-sawk",
+      "name": "Trade Throh and Sawk",
+      "category": "trade",
+      "games": ["bw", "b2w2"]
+    },
+    {
+      "id": "trade-room-trade",
+      "name": "Trade using a Room Trade",
+      "category": "trade",
+      "games": ["home"]
+    },
+    {
+      "id": "trade-gts",
+      "name": "Trade using the GTS",
+      "category": "trade",
+      "games": ["home"]
+    },
+    {
+      "id": "trade-wonder-box",
+      "name": "Trade using the Wonder Box",
+      "category": "trade",
+      "games": ["home"]
+    },
+    {
+      "id": "trade-voltorb-foongus",
+      "name": "Trade Voltorb and Foongus",
+      "category": "trade",
+      "games": ["bw", "b2w2"]
+    },
+    {
+      "id": "trade-vulpix-alolan",
+      "name": "Trade Vulpix and Alolan Vulpix",
+      "category": "trade",
+      "games": ["sm", "usum"]
+    },
+    {
+      "id": "trade-weavile-sneasler",
+      "name": "Trade Weavile and Sneasler",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+    {
+      "id": "trade-weezing-galarian",
+      "name": "Trade Weezing and Galarian Weezing",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-west-east-gastrodon",
+      "name": "Trade West Sea Gastrodon and East Sea Gastrodon",
+      "category": "trade",
+      "games": ["dppt", "bdsp", "sv"]
+    },
+    {
+      "id": "trade-yamask-galarian",
+      "name": "Trade Yamask and Galarian Yamask",
+      "category": "trade",
+      "games": ["swsh"]
+    },
+    {
+      "id": "trade-zangoose-seviper",
+      "name": "Trade Zangoose and Seviper",
+      "category": "trade",
+      "games": ["rse", "oras", "bw", "b2w2", "sv"]
+    },
+    {
+      "id": "trade-zoroark-hisuian",
+      "name": "Trade Zoroark and Hisuian Zoroark",
+      "category": "trade",
+      "games": ["pla", "sv"]
+    },
+
+    {
+      "id": "change-user-icon",
+      "name": "Change your user icon 10 times",
+      "category": "home",
+      "games": ["home"]
+    },
+    {
+      "id": "check-news",
+      "name": "Check the news",
+      "category": "home",
+      "games": ["home"]
+    },
+    {
+      "id": "create-labels",
+      "name": "Create Labels",
+      "category": "home",
+      "games": ["home"]
+    },
+    {
+      "id": "gather-stickers",
+      "name": "Gather Stickers!!",
+      "category": "home",
+      "games": ["home"]
+    },
+    {
+      "id": "move-bdsp-to-pla",
+      "name": "Move Pokémon from Pokémon Brilliant Diamond or Pokémon Shining Pearl to Pokémon Legends: Arceus!",
+      "category": "transfer",
+      "games": ["bdsp", "pla"]
+    },
+    {
+      "id": "move-pla-to-bdsp",
+      "name": "Move Pokémon from Pokémon Legends: Arceus to Pokémon Brilliant Diamond or Pokémon Shining Pearl!",
+      "category": "transfer",
+      "games": ["pla", "bdsp"]
+    },
+    {
+      "id": "receive-mystery-gift",
+      "name": "Receive presents through Mystery Gift",
+      "category": "home",
+      "games": ["home"]
+    },
+    {
+      "id": "save-home-points",
+      "name": "Save up 100 Pokémon HOME Points",
+      "category": "home",
+      "games": ["home"]
+    },
+    {
+      "id": "home-days-passed",
+      "name": "Start using Pokémon HOME - Days Passed",
+      "category": "home",
+      "games": ["home"]
+    },
+    {
+      "id": "speech-recognition",
+      "name": "Use speech Recognition",
+      "category": "home",
+      "games": ["home"]
+    },
+    {
+      "id": "withdraw-butterfree",
+      "name": "Withdraw Butterfree from Pokémon HOME",
+      "category": "home",
+      "games": ["home"]
+    },
+
+    {
+      "id": "legacy-move-bank",
+      "name": "Move Pokémon from Pokémon Bank!",
+      "category": "legacy",
+      "games": ["bank", "home"]
+    },
+    {
+      "id": "legacy-diance-xy",
+      "name": "Register Diancie from Pokémon X or Pokémon Y!",
+      "category": "legacy",
+      "games": ["xy"]
+    },
+    {
+      "id": "legacy-eevee-transporter",
+      "name": "Register Eevee brought over using Poké Transporter!",
+      "category": "legacy",
+      "games": ["transporter", "home"]
+    },
+    {
+      "id": "legacy-litwick-transporter",
+      "name": "Register Litwick brought over using Poké Transporter!",
+      "category": "legacy",
+      "games": ["transporter", "home"]
+    },
+    {
+      "id": "legacy-pulverizing-snorlax",
+      "name": "Register Pulverizing Snorlax",
+      "category": "legacy",
+      "games": ["home"]
+    },
+    {
+      "id": "legacy-wonder-box-10",
+      "name": "Deposit 10 Pokemon at once in the Wonder Box",
+      "category": "legacy",
+      "games": ["home"]
+    }
+  ]
+}

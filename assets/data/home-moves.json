@@ -1,0 +1,3740 @@
+{
+  "moves": [
+    {
+      "name": "10,000,000 Volt Thunderbolt",
+      "generations": [7]
+    },
+    {
+      "name": "Absorb",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Accelerock",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Acid",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Acid Armor",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Acid Downpour",
+      "generations": [7]
+    },
+    {
+      "name": "Acid Spray",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Acrobatics",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Acupressure",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Aerial Ace",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Aeroblast",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "After You",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Agility",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Air Cutter",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Air Slash",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "All-Out Pummeling",
+      "generations": [7]
+    },
+    {
+      "name": "Alluring Voice",
+      "generations": [9]
+    },
+    {
+      "name": "Ally Switch",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Amnesia",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Anchor Shot",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Ancient Power",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Apple Acid",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Aqua Cutter",
+      "generations": [9]
+    },
+    {
+      "name": "Aqua Jet",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Aqua Ring",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Aqua Step",
+      "generations": [9]
+    },
+    {
+      "name": "Aqua Tail",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Arm Thrust",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Armor Cannon",
+      "generations": [9]
+    },
+    {
+      "name": "Aromatherapy",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Aromatic Mist",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Assist",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Assurance",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Astonish",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Astral Barrage",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Attack Order",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Attract",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Aura Sphere",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Aura Wheel",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Aurora Beam",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Aurora Veil",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Autotomize",
+      "generations": [5, 6, 7, 8]
+    },
+    {
+      "name": "Avalanche",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Axe Kick",
+      "generations": [9]
+    },
+    {
+      "name": "Baby-Doll Eyes",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Baddy Bad",
+      "generations": [7]
+    },
+    {
+      "name": "Baneful Bunker",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Barb Barrage",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Barrage",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Barrier",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Baton Pass",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Beak Blast",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Beat Up",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Behemoth Bash",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Behemoth Blade",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Belch",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Belly Drum",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bestow",
+      "generations": [5, 6, 7]
+    },
+    {
+      "name": "Bide",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Bind",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bite",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bitter Blade",
+      "generations": [9]
+    },
+    {
+      "name": "Bitter Malice",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Black Hole Eclipse",
+      "generations": [7]
+    },
+    {
+      "name": "Blast Burn",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Blaze Kick",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Blazing Torque",
+      "generations": [9]
+    },
+    {
+      "name": "Bleakwind Storm",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Blizzard",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Block",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Blood Moon",
+      "generations": [9]
+    },
+    {
+      "name": "Bloom Doom",
+      "generations": [7]
+    },
+    {
+      "name": "Blue Flare",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Body Press",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Body Slam",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bolt Beak",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Bolt Strike",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bone Club",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Bone Rush",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bonemerang",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Boomburst",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Bounce",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bouncy Bubble",
+      "generations": [7]
+    },
+    {
+      "name": "Branch Poke",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Brave Bird",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Breaking Swipe",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Breakneck Blitz",
+      "generations": [7]
+    },
+    {
+      "name": "Brick Break",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Brine",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Brutal Swing",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Bubble",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Bubble Beam",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bug Bite",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bug Buzz",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bulk Up",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bulldoze",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bullet Punch",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Bullet Seed",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Burn Up",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Burning Bulwark",
+      "generations": [9]
+    },
+    {
+      "name": "Burning Jealousy",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Buzzy Buzz",
+      "generations": [7]
+    },
+    {
+      "name": "Calm Mind",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Camouflage",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Captivate",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Catastropika",
+      "generations": [7]
+    },
+    {
+      "name": "Ceaseless Edge",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Celebrate",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Charge",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Charge Beam",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Charm",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Chatter",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Chilling Water",
+      "generations": [9]
+    },
+    {
+      "name": "Chilly Reception",
+      "generations": [9]
+    },
+    {
+      "name": "Chip Away",
+      "generations": [5, 6, 7]
+    },
+    {
+      "name": "Chloroblast",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Circle Throw",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Clamp",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Clanging Scales",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Clangorous Soul",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Clangorous Soulblaze",
+      "generations": [7]
+    },
+    {
+      "name": "Clear Smog",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Close Combat",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Coaching",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Coil",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Collision Course",
+      "generations": [9]
+    },
+    {
+      "name": "Combat Torque",
+      "generations": [9]
+    },
+    {
+      "name": "Comet Punch",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Comeuppance",
+      "generations": [9]
+    },
+    {
+      "name": "Confide",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Confuse Ray",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Confusion",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Constrict",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Continental Crush",
+      "generations": [7]
+    },
+    {
+      "name": "Conversion",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Conversion 2",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Copycat",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Core Enforcer",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Corkscrew Crash",
+      "generations": [7]
+    },
+    {
+      "name": "Corrosive Gas",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Cosmic Power",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Cotton Guard",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Cotton Spore",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Counter",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Court Change",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Covet",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Crabhammer",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Crafty Shield",
+      "generations": [6, 7, 8]
+    },
+    {
+      "name": "Cross Chop",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Cross Poison",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Crunch",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Crush Claw",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Crush Grip",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Curse",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Cut",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dark Pulse",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dark Void",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Darkest Lariat",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Dazzling Gleam",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Decorate",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Defend Order",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Defense Curl",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Defog",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Destiny Bond",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Detect",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Devastating Drake",
+      "generations": [7]
+    },
+    {
+      "name": "Diamond Storm",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Dig",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dire Claw",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Disable",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Disarming Voice",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Discharge",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dive",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dizzy Punch",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Doodle",
+      "generations": [9]
+    },
+    {
+      "name": "Doom Desire",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Double Hit",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Double Iron Bash",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Double Kick",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Double Shock",
+      "generations": [9]
+    },
+    {
+      "name": "Double Slap",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Double Team",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Double-Edge",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Draco Meteor",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dragon Ascent",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Dragon Breath",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dragon Cheer",
+      "generations": [9]
+    },
+    {
+      "name": "Dragon Claw",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dragon Dance",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dragon Darts",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Dragon Energy",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Dragon Hammer",
+      "generations": [7, 8]
+    },
+    {
+      "name": "Dragon Pulse",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dragon Rage",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Dragon Rush",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Dragon Tail",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Drain Punch",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Draining Kiss",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Dream Eater",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Drill Peck",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Drill Run",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Drum Beating",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Dual Chop",
+      "generations": [5, 6, 7, 8]
+    },
+    {
+      "name": "Dual Wingbeat",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Dynamax Cannon",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Dynamic Punch",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Earth Power",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Earthquake",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Echoed Voice",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Eerie Impulse",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Eerie Spell",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Egg Bomb",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Electric Terrain",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Electrify",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Electro Ball",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Electro Drift",
+      "generations": [9]
+    },
+    {
+      "name": "Electro Shot",
+      "generations": [9]
+    },
+    {
+      "name": "Electroweb",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Embargo",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Ember",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Encore",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Endeavor",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Endure",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Energy Ball",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Entrainment",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Eruption",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Esper Wing",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Eternabeam",
+      "generations": [8]
+    },
+    {
+      "name": "Expanding Force",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Explosion",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Extrasensory",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Extreme Evoboost",
+      "generations": [7]
+    },
+    {
+      "name": "Extreme Speed",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Facade",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fairy Lock",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Fairy Wind",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Fake Out",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fake Tears",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "False Surrender",
+      "generations": [8, 9]
+    },
+    {
+      "name": "False Swipe",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Feather Dance",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Feint",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Feint Attack",
+      "generations": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Fell Stinger",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Fickle Beam",
+      "generations": [9]
+    },
+    {
+      "name": "Fiery Dance",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fiery Wrath",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Fillet Away",
+      "generations": [9]
+    },
+    {
+      "name": "Final Gambit",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fire Blast",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fire Fang",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fire Lash",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Fire Pledge",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fire Punch",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fire Spin",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "First Impression",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Fishious Rend",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Fissure",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flail",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flame Burst",
+      "generations": [5, 6, 7]
+    },
+    {
+      "name": "Flame Charge",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flame Wheel",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flamethrower",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flare Blitz",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flash",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Flash Cannon",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flatter",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fleur Cannon",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Fling",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flip Turn",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Floaty Fall",
+      "generations": [7]
+    },
+    {
+      "name": "Floral Healing",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Flower Shield",
+      "generations": [6, 7, 8]
+    },
+    {
+      "name": "Flower Trick",
+      "generations": [9]
+    },
+    {
+      "name": "Fly",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Flying Press",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Focus Blast",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Focus Energy",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Focus Punch",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Follow Me",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Force Palm",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Foresight",
+      "generations": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Forest's Curse",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Foul Play",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Freeze Shock",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Freeze-Dry",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Freezing Glare",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Freezy Frost",
+      "generations": [7]
+    },
+    {
+      "name": "Frenzy Plant",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Frost Breath",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Frustration",
+      "generations": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Fury Attack",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fury Cutter",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fury Swipes",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fusion Bolt",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Fusion Flare",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Future Sight",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "G-Max Befuddle",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Cannonade",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Centiferno",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Chi Strike",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Cuddle",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Depletion",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Drum Solo",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Finale",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Fireball",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Foam Burst",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Gold Rush",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Gravitas",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Hydrosnipe",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Malodor",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Meltdown",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max One Blow",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Rapid Flow",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Replenish",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Resonance",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Sandblast",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Smite",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Snooze",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Steelsurge",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Stonesurge",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Stun Shock",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Sweetness",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Tartness",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Terror",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Vine Lash",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Volcalith",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Volt Crash",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Wildfire",
+      "generations": [8]
+    },
+    {
+      "name": "G-Max Wind Rage",
+      "generations": [8]
+    },
+    {
+      "name": "Gastro Acid",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Gear Grind",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Gear Up",
+      "generations": [7, 8]
+    },
+    {
+      "name": "Genesis Supernova",
+      "generations": [7]
+    },
+    {
+      "name": "Geomancy",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Giga Drain",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Giga Impact",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Gigaton Hammer",
+      "generations": [9]
+    },
+    {
+      "name": "Gigavolt Havoc",
+      "generations": [7]
+    },
+    {
+      "name": "Glacial Lance",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Glaciate",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Glaive Rush",
+      "generations": [9]
+    },
+    {
+      "name": "Glare",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Glitzy Glow",
+      "generations": [7]
+    },
+    {
+      "name": "Grass Knot",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Grass Pledge",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Grass Whistle",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Grassy Glide",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Grassy Terrain",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Grav Apple",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Gravity",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Growl",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Growth",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Grudge",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Guard Split",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Guard Swap",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Guardian of Alola",
+      "generations": [7]
+    },
+    {
+      "name": "Guillotine",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Gunk Shot",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Gust",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Gyro Ball",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hail",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Hammer Arm",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Happy Hour",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Hard Press",
+      "generations": [9]
+    },
+    {
+      "name": "Harden",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Haze",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Head Charge",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Head Smash",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Headbutt",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Headlong Rush",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Heal Bell",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Heal Block",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Heal Order",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Heal Pulse",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Healing Wish",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Heart Stamp",
+      "generations": [5, 6, 7]
+    },
+    {
+      "name": "Heart Swap",
+      "generations": [4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Heat Crash",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Heat Wave",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Heavy Slam",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Helping Hand",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hex",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hidden Power",
+      "generations": [2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "High Horsepower",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "High Jump Kick",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hold Back",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Hold Hands",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Hone Claws",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Horn Attack",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Horn Drill",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Horn Leech",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Howl",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hurricane",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hydro Cannon",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hydro Pump",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hydro Steam",
+      "generations": [9]
+    },
+    {
+      "name": "Hydro Vortex",
+      "generations": [7]
+    },
+    {
+      "name": "Hyper Beam",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hyper Drill",
+      "generations": [9]
+    },
+    {
+      "name": "Hyper Fang",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Hyper Voice",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Hyperspace Fury",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Hyperspace Hole",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Hypnosis",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Ice Ball",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Ice Beam",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Ice Burn",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Ice Fang",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Ice Hammer",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Ice Punch",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Ice Shard",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Ice Spinner",
+      "generations": [9]
+    },
+    {
+      "name": "Icicle Crash",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Icicle Spear",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Icy Wind",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Imprison",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Incinerate",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Infernal Parade",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Inferno",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Inferno Overdrive",
+      "generations": [7]
+    },
+    {
+      "name": "Infestation",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Ingrain",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Instruct",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Ion Deluge",
+      "generations": [6, 7]
+    },
+    {
+      "name": "Iron Defense",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Iron Head",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Iron Tail",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Ivy Cudgel",
+      "generations": [9]
+    },
+    {
+      "name": "Jaw Lock",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Jet Punch",
+      "generations": [9]
+    },
+    {
+      "name": "Judgment",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Jump Kick",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Jungle Healing",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Karate Chop",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Kinesis",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "King's Shield",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Knock Off",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Kowtow Cleave",
+      "generations": [9]
+    },
+    {
+      "name": "Land's Wrath",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Laser Focus",
+      "generations": [7, 8]
+    },
+    {
+      "name": "Lash Out",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Last Resort",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Last Respects",
+      "generations": [9]
+    },
+    {
+      "name": "Lava Plume",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Leaf Blade",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Leaf Storm",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Leaf Tornado",
+      "generations": [5, 6, 7, 8]
+    },
+    {
+      "name": "Leafage",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Leech Life",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Leech Seed",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Leer",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Let's Snuggle Forever",
+      "generations": [7]
+    },
+    {
+      "name": "Lick",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Life Dew",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Light of Ruin",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Light Screen",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Light That Burns the Sky",
+      "generations": [7]
+    },
+    {
+      "name": "Liquidation",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Lock-On",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Lovely Kiss",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Low Kick",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Low Sweep",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Lucky Chant",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Lumina Crash",
+      "generations": [9]
+    },
+    {
+      "name": "Lunar Blessing",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Lunar Dance",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Lunge",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Luster Purge",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mach Punch",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Magic Coat",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Magic Powder",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Magic Room",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Magical Leaf",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Magical Torque",
+      "generations": [9]
+    },
+    {
+      "name": "Magma Storm",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Magnet Bomb",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Magnet Rise",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Magnetic Flux",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Magnitude",
+      "generations": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Make It Rain",
+      "generations": [9]
+    },
+    {
+      "name": "Malicious Moonsault",
+      "generations": [7]
+    },
+    {
+      "name": "Malignant Chain",
+      "generations": [9]
+    },
+    {
+      "name": "Mat Block",
+      "generations": [6, 7, 8]
+    },
+    {
+      "name": "Matcha Gotcha",
+      "generations": [9]
+    },
+    {
+      "name": "Max Airstream",
+      "generations": [8]
+    },
+    {
+      "name": "Max Darkness",
+      "generations": [8]
+    },
+    {
+      "name": "Max Flare",
+      "generations": [8]
+    },
+    {
+      "name": "Max Flutterby",
+      "generations": [8]
+    },
+    {
+      "name": "Max Geyser",
+      "generations": [8]
+    },
+    {
+      "name": "Max Guard",
+      "generations": [8]
+    },
+    {
+      "name": "Max Hailstorm",
+      "generations": [8]
+    },
+    {
+      "name": "Max Knuckle",
+      "generations": [8]
+    },
+    {
+      "name": "Max Lightning",
+      "generations": [8]
+    },
+    {
+      "name": "Max Mindstorm",
+      "generations": [8]
+    },
+    {
+      "name": "Max Ooze",
+      "generations": [8]
+    },
+    {
+      "name": "Max Overgrowth",
+      "generations": [8]
+    },
+    {
+      "name": "Max Phantasm",
+      "generations": [8]
+    },
+    {
+      "name": "Max Quake",
+      "generations": [8]
+    },
+    {
+      "name": "Max Rockfall",
+      "generations": [8]
+    },
+    {
+      "name": "Max Starfall",
+      "generations": [8]
+    },
+    {
+      "name": "Max Steelspike",
+      "generations": [8]
+    },
+    {
+      "name": "Max Strike",
+      "generations": [8]
+    },
+    {
+      "name": "Max Wyrmwind",
+      "generations": [8]
+    },
+    {
+      "name": "Me First",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Mean Look",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Meditate",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Mega Drain",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mega Kick",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mega Punch",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Megahorn",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Memento",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Menacing Moonraze Maelstrom",
+      "generations": [7]
+    },
+    {
+      "name": "Metal Burst",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Metal Claw",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Metal Sound",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Meteor Assault",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Meteor Beam",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Meteor Mash",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Metronome",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mighty Cleave",
+      "generations": [9]
+    },
+    {
+      "name": "Milk Drink",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mimic",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mind Blown",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Mind Reader",
+      "generations": [2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Minimize",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Miracle Eye",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Mirror Coat",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mirror Move",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Mirror Shot",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Mist",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mist Ball",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Misty Explosion",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Misty Terrain",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Moonblast",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Moongeist Beam",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Moonlight",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Morning Sun",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mortal Spin",
+      "generations": [9]
+    },
+    {
+      "name": "Mountain Gale",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Mud Bomb",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Mud Shot",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Mud Sport",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Mud-Slap",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Muddy Water",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Multi-Attack",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Mystical Fire",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Mystical Power",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Nasty Plot",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Natural Gift",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Nature Power",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Nature's Madness",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Needle Arm",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Never-Ending Nightmare",
+      "generations": [7]
+    },
+    {
+      "name": "Night Daze",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Night Shade",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Night Slash",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Nightmare",
+      "generations": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "No Retreat",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Noble Roar",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Noxious Torque",
+      "generations": [9]
+    },
+    {
+      "name": "Nuzzle",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Oblivion Wing",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Obstruct",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Oceanic Operetta",
+      "generations": [7]
+    },
+    {
+      "name": "Octazooka",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Octolock",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Odor Sleuth",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Ominous Wind",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Order Up",
+      "generations": [9]
+    },
+    {
+      "name": "Origin Pulse",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Outrage",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Overdrive",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Overheat",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Pain Split",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Parabolic Charge",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Parting Shot",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Pay Day",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Payback",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Peck",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Perish Song",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Petal Blizzard",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Petal Dance",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Phantom Force",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Photon Geyser",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Pika Papow",
+      "generations": [7]
+    },
+    {
+      "name": "Pin Missile",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Plasma Fists",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Play Nice",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Play Rough",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Pluck",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Poison Fang",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Poison Gas",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Poison Jab",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Poison Powder",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Poison Sting",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Poison Tail",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Pollen Puff",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Poltergeist",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Population Bomb",
+      "generations": [9]
+    },
+    {
+      "name": "Pounce",
+      "generations": [9]
+    },
+    {
+      "name": "Pound",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Powder",
+      "generations": [6, 7, 8]
+    },
+    {
+      "name": "Powder Snow",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Power Gem",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Power Shift",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Power Split",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Power Swap",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Power Trick",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Power Trip",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Power Whip",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Power-Up Punch",
+      "generations": [6, 7, 8]
+    },
+    {
+      "name": "Precipice Blades",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Present",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Prismatic Laser",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Protect",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Psybeam",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Psyblade",
+      "generations": [9]
+    },
+    {
+      "name": "Psych Up",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Psychic",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Psychic Fangs",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Psychic Noise",
+      "generations": [9]
+    },
+    {
+      "name": "Psychic Terrain",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Psycho Boost",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Psycho Cut",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Psycho Shift",
+      "generations": [4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Psyshield Bash",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Psyshock",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Psystrike",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Psywave",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Pulverizing Pancake",
+      "generations": [7]
+    },
+    {
+      "name": "Punishment",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Purify",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Pursuit",
+      "generations": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Pyro Ball",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Quash",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Quick Attack",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Quick Guard",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Quiver Dance",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rage",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Rage Fist",
+      "generations": [9]
+    },
+    {
+      "name": "Rage Powder",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Raging Bull",
+      "generations": [9]
+    },
+    {
+      "name": "Raging Fury",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Rain Dance",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rapid Spin",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Razor Leaf",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Razor Shell",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Razor Wind",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Recover",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Recycle",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Reflect",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Reflect Type",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Refresh",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Relic Song",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rest",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Retaliate",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Return",
+      "generations": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Revelation Dance",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Revenge",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Reversal",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Revival Blessing",
+      "generations": [9]
+    },
+    {
+      "name": "Rising Voltage",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Roar",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Roar of Time",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rock Blast",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rock Climb",
+      "generations": [4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Rock Polish",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rock Slide",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rock Smash",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rock Throw",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rock Tomb",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rock Wrecker",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Role Play",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rolling Kick",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Rollout",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Roost",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Rototiller",
+      "generations": [6, 7]
+    },
+    {
+      "name": "Round",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Ruination",
+      "generations": [9]
+    },
+    {
+      "name": "Sacred Fire",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sacred Sword",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Safeguard",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Salt Cure",
+      "generations": [9]
+    },
+    {
+      "name": "Sand Attack",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sand Tomb",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sandsear Storm",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Sandstorm",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sappy Seed",
+      "generations": [7]
+    },
+    {
+      "name": "Savage Spin-Out",
+      "generations": [7]
+    },
+    {
+      "name": "Scald",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Scale Shot",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Scary Face",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Scorching Sands",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Scratch",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Screech",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Searing Shot",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Searing Sunraze Smash",
+      "generations": [7]
+    },
+    {
+      "name": "Secret Power",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Secret Sword",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Seed Bomb",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Seed Flare",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Seismic Toss",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Self-Destruct",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shadow Ball",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shadow Bone",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Shadow Claw",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shadow Force",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shadow Punch",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shadow Sneak",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sharpen",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Shattered Psyche",
+      "generations": [7]
+    },
+    {
+      "name": "Shed Tail",
+      "generations": [9]
+    },
+    {
+      "name": "Sheer Cold",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shell Side Arm",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Shell Smash",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shell Trap",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Shelter",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Shift Gear",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shock Wave",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Shore Up",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Signal Beam",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Silk Trap",
+      "generations": [9]
+    },
+    {
+      "name": "Silver Wind",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Simple Beam",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sing",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sinister Arrow Raid",
+      "generations": [7]
+    },
+    {
+      "name": "Sizzly Slide",
+      "generations": [7]
+    },
+    {
+      "name": "Sketch",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Skill Swap",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Skitter Smack",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Skull Bash",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Sky Attack",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sky Drop",
+      "generations": [5, 6, 7]
+    },
+    {
+      "name": "Sky Uppercut",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Slack Off",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Slam",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Slash",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sleep Powder",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sleep Talk",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sludge",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sludge Bomb",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sludge Wave",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Smack Down",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Smart Strike",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Smelling Salts",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Smog",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Smokescreen",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Snap Trap",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Snarl",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Snatch",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Snipe Shot",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Snore",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Snowscape",
+      "generations": [9]
+    },
+    {
+      "name": "Soak",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Soft-Boiled",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Solar Beam",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Solar Blade",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Sonic Boom",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Soul-Stealing 7-Star Strike",
+      "generations": [7]
+    },
+    {
+      "name": "Spacial Rend",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Spark",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sparkling Aria",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Sparkly Swirl",
+      "generations": [7]
+    },
+    {
+      "name": "Spectral Thief",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Speed Swap",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Spicy Extract",
+      "generations": [9]
+    },
+    {
+      "name": "Spider Web",
+      "generations": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Spike Cannon",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Spikes",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Spiky Shield",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Spin Out",
+      "generations": [9]
+    },
+    {
+      "name": "Spirit Break",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Spirit Shackle",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Spit Up",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Spite",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Splash",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Splintered Stormshards",
+      "generations": [7]
+    },
+    {
+      "name": "Splishy Splash",
+      "generations": [7]
+    },
+    {
+      "name": "Spore",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Spotlight",
+      "generations": [7]
+    },
+    {
+      "name": "Springtide Storm",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Stealth Rock",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Steam Eruption",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Steamroller",
+      "generations": [5, 6, 7]
+    },
+    {
+      "name": "Steel Beam",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Steel Roller",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Steel Wing",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sticky Web",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Stockpile",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Stoked Sparksurfer",
+      "generations": [7]
+    },
+    {
+      "name": "Stomp",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Stomping Tantrum",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Stone Axe",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Stone Edge",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Stored Power",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Storm Throw",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Strange Steam",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Strength",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Strength Sap",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "String Shot",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Struggle",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Struggle Bug",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Stuff Cheeks",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Stun Spore",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Submission",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Substitute",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Subzero Slammer",
+      "generations": [7]
+    },
+    {
+      "name": "Sucker Punch",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sunny Day",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sunsteel Strike",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Super Fang",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Supercell Slam",
+      "generations": [9]
+    },
+    {
+      "name": "Superpower",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Supersonic",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Supersonic Skystrike",
+      "generations": [7]
+    },
+    {
+      "name": "Surf",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Surging Strikes",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Swagger",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Swallow",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sweet Kiss",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Sweet Scent",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Swift",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Switcheroo",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Swords Dance",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Synchronoise",
+      "generations": [5, 6, 7]
+    },
+    {
+      "name": "Synthesis",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Syrup Bomb",
+      "generations": [9]
+    },
+    {
+      "name": "Tachyon Cutter",
+      "generations": [9]
+    },
+    {
+      "name": "Tackle",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Tail Glow",
+      "generations": [3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Tail Slap",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Tail Whip",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Tailwind",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Take Down",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Take Heart",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Tar Shot",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Taunt",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Tearful Look",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Teatime",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Techno Blast",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Tectonic Rage",
+      "generations": [7]
+    },
+    {
+      "name": "Teeter Dance",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Telekinesis",
+      "generations": [5, 6, 7]
+    },
+    {
+      "name": "Teleport",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Temper Flare",
+      "generations": [9]
+    },
+    {
+      "name": "Tera Blast",
+      "generations": [9]
+    },
+    {
+      "name": "Tera Starstorm",
+      "generations": [9]
+    },
+    {
+      "name": "Terrain Pulse",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Thief",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Thousand Arrows",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Thousand Waves",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Thrash",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Throat Chop",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Thunder",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Thunder Cage",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Thunder Fang",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Thunder Punch",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Thunder Shock",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Thunder Wave",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Thunderbolt",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Thunderclap",
+      "generations": [9]
+    },
+    {
+      "name": "Thunderous Kick",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Tickle",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Tidy Up",
+      "generations": [9]
+    },
+    {
+      "name": "Topsy-Turvy",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Torch Song",
+      "generations": [9]
+    },
+    {
+      "name": "Torment",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Toxic",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Toxic Spikes",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Toxic Thread",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Trailblaze",
+      "generations": [9]
+    },
+    {
+      "name": "Transform",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Tri Attack",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Trick",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Trick Room",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Trick-or-Treat",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Triple Arrows",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Triple Axel",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Triple Dive",
+      "generations": [9]
+    },
+    {
+      "name": "Triple Kick",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Trop Kick",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Trump Card",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Twin Beam",
+      "generations": [9]
+    },
+    {
+      "name": "Twineedle",
+      "generations": [1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Twinkle Tackle",
+      "generations": [7]
+    },
+    {
+      "name": "Twister",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "U-turn",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Upper Hand",
+      "generations": [9]
+    },
+    {
+      "name": "Uproar",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "V-create",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Vacuum Wave",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Veevee Volley",
+      "generations": [7]
+    },
+    {
+      "name": "Venom Drench",
+      "generations": [6, 7, 8]
+    },
+    {
+      "name": "Venoshock",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Victory Dance",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Vine Whip",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Vise Grip",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Vital Throw",
+      "generations": [2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "Volt Switch",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Volt Tackle",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wake-Up Slap",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "Water Gun",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Water Pledge",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Water Pulse",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Water Shuriken",
+      "generations": [6, 7, 8, 9]
+    },
+    {
+      "name": "Water Sport",
+      "generations": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "Water Spout",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Waterfall",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wave Crash",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Weather Ball",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Whirlpool",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Whirlwind",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wicked Blow",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Wicked Torque",
+      "generations": [9]
+    },
+    {
+      "name": "Wide Guard",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wild Charge",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wildbolt Storm",
+      "generations": [8, 9]
+    },
+    {
+      "name": "Will-O-Wisp",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wing Attack",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wish",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Withdraw",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wonder Room",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wood Hammer",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Work Up",
+      "generations": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Worry Seed",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wrap",
+      "generations": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Wring Out",
+      "generations": [4, 5, 6, 7]
+    },
+    {
+      "name": "X-Scissor",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Yawn",
+      "generations": [3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Zap Cannon",
+      "generations": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Zen Headbutt",
+      "generations": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "Zing Zap",
+      "generations": [7, 8, 9]
+    },
+    {
+      "name": "Zippy Zap",
+      "generations": [7]
+    }
+  ]
+}
