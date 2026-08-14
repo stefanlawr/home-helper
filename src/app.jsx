@@ -1,104 +1,91 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useEffect, useMemo, useState } from 'preact/hooks'
+import { loadHomeData } from './data/loadData'
+import { normalizeData } from './data/normalize'
+import { getAbilityInfo, getMoveInfo, getPokemonSprite } from './pokeapi/client'
 import './app.css'
 
+const STORAGE_KEY = 'home-helper:completed'
+const categories = ['pokemon', 'move', 'ability', 'ribbon', 'gift', 'shiny', 'special']
+
+function usePersistentSet() {
+  const [completed, setCompleted] = useState(() => {
+    try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')) } catch { return new Set() }
+  })
+  useEffect(() => localStorage.setItem(STORAGE_KEY, JSON.stringify([...completed])), [completed])
+  return [completed, (id) => setCompleted((current) => {
+    const next = new Set(current)
+    next.has(id) ? next.delete(id) : next.add(id)
+    return next
+  })]
+}
+
+function Stat({ label, value, detail }) {
+  return <div class="stat"><strong>{value}</strong><span>{label}</span>{detail && <small>{detail}</small>}</div>
+}
+
+function Enrichment({ task }) {
+  const [asset, setAsset] = useState(null)
+  useEffect(() => {
+    if (task.category === 'pokemon' || task.category === 'shiny') getPokemonSprite(task.name).then(setAsset)
+    if (task.category === 'move') getMoveInfo(task.name).then(setAsset)
+    if (task.category === 'ability') getAbilityInfo(task.name).then(setAsset)
+  }, [task.id])
+  if (asset && typeof asset === 'string') return <img class="sprite" src={asset} alt="" />
+  if (asset) return <small class="enrichment">{asset.type || asset.description || asset.damageClass}</small>
+  return null
+}
+
+function TaskRow({ task, completed, toggle }) {
+  return <label class={`task-row ${completed ? 'is-done' : ''}`}>
+    <input type="checkbox" checked={completed} onChange={() => toggle(task.id)} />
+    <span class="task-copy"><strong>{task.name}</strong><small>{task.platform || task.description}</small></span>
+    <span class="task-meta"><b>{task.category}</b>{task.priority && <em>priority</em>}<Enrichment task={task} /></span>
+  </label>
+}
+
+function Progress({ tasks, completed, games }) {
+  const percentage = (items) => items.length ? Math.round(items.filter((task) => completed.has(task.id)).length / items.length * 100) : 0
+  const byCategory = categories.map((category) => [category, tasks.filter((task) => task.category === category)])
+  const byGame = Object.entries(games).map(([code, name]) => [code, name, tasks.filter((task) => task.games.includes(code))]).filter(([, , items]) => items.length)
+  return <section class="progress-view"><header class="section-heading"><p class="eyebrow">Progress report</p><h2>Preservation at a glance</h2></header>
+    <div class="progress-grid"><Stat label="overall complete" value={`${percentage(tasks)}%`} detail={`${tasks.filter((task) => completed.has(task.id)).length} of ${tasks.length} tasks`} />{byCategory.map(([category, items]) => <Stat key={category} label={category} value={`${percentage(items)}%`} detail={`${items.length} tasks`} />)}</div>
+    <div class="progress-list"><h3>By source game</h3>{byGame.map(([code, name, items]) => <div class="progress-line" key={code}><span>{name}</span><div><i style={{ width: `${percentage(items)}%` }} /></div><b>{percentage(items)}%</b></div>)}</div>
+  </section>
+}
+
+function RibbonView({ groups, tasks, onTaskLink }) {
+  return <section class="reference-view"><header class="section-heading"><p class="eyebrow">Reference library</p><h2>Ribbon atlas</h2><p>Acquisition routes, transfer behavior, and the preservation targets connected to them.</p></header>{groups.map((group) => <article class="ribbon-group" key={group.id}><div><span class="tag">Gen {group.origin_generation} · {group.category}</span><h3>{group.id.replaceAll('_', ' ')}</h3><p>{group.acquisition}</p><small>{group.transfer_behavior.replaceAll('_', ' ')}</small></div><ul>{group.ribbons.map((ribbon) => <li key={ribbon.id}><strong>{ribbon.name}</strong>{ribbon.home_title && <span>HOME title: {ribbon.home_title}</span>}{ribbon.requirement && <span>{ribbon.requirement}</span>}</li>)}</ul>{group.linkedTaskIds.length > 0 && <button class="text-button" onClick={() => onTaskLink(group.linkedTaskIds[0])}>View linked checklist target ({group.linkedTaskIds.length})</button>}</article>)}</section>
+}
+
+function MovesView({ moves }) {
+  const [query, setQuery] = useState('')
+  const [expanded, setExpanded] = useState(null)
+  const [details, setDetails] = useState({})
+  const visible = moves.filter((move) => move.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+  const expand = (move) => { setExpanded(expanded === move.name ? null : move.name); if (!details[move.name]) getMoveInfo(move.name).then((value) => setDetails((current) => ({ ...current, [move.name]: value }))) }
+  return <section class="reference-view"><header class="section-heading"><p class="eyebrow">Reference library</p><h2>Move availability</h2><p>Generation legality from the local catalog, with removed moves flagged for preservation.</p><input class="search large" value={query} onInput={(event) => setQuery(event.currentTarget.value)} placeholder="Search moves" /></header><div class="move-table"><div class="move-header"><span>Move</span><span>Generations</span><span>Status</span></div>{visible.map((move) => <button class="move-row" key={move.name} onClick={() => expand(move)}><span><strong>{move.name}</strong>{expanded === move.name && details[move.name] && <small>{details[move.name].description || `${details[move.name].type} · ${details[move.name].damageClass}`}</small>}</span><span>{move.generations.join(', ')}</span><span>{move.removedIn ? `Removed · ${move.removedIn}` : 'Available'}</span></button>)}</div></section>
+}
+
 export function App() {
-  const [count, setCount] = useState(0)
+  const [model, setModel] = useState(null)
+  const [error, setError] = useState('')
+  const [view, setView] = useState('tracker')
+  const [query, setQuery] = useState('')
+  const [game, setGame] = useState('all')
+  const [generation, setGeneration] = useState('all')
+  const [category, setCategory] = useState('all')
+  const [status, setStatus] = useState('all')
+  const [completed, toggle] = usePersistentSet()
 
-  return (
-    <>
-      <section id="center">
-        <div class="hero">
-          <img src={heroImg} class="base" width="170" height="179" alt="" />
-          <img src={preactLogo} class="framework" alt="Preact logo" />
-          <img src={viteLogo} class="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/app.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          class="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+  useEffect(() => { loadHomeData().then((data) => setModel(normalizeData(data))).catch((reason) => setError(reason.message)) }, [])
+  const visibleTasks = useMemo(() => model?.tasks.filter((task) => {
+    const text = `${task.name} ${task.description} ${task.platform || ''}`.toLocaleLowerCase()
+    return (!query || text.includes(query.toLocaleLowerCase())) && (game === 'all' || task.games.includes(game)) && (generation === 'all' || String(task.generation) === generation) && (category === 'all' || task.category === category) && (status === 'all' || (status === 'done' ? completed.has(task.id) : !completed.has(task.id)))
+  }) || [], [model, query, game, generation, category, status, completed])
+  const doneCount = model?.tasks.filter((task) => completed.has(task.id)).length || 0
+  const linkToTask = (id) => { setView('tracker'); setQuery(model.tasks.find((task) => task.id === id)?.name || '') }
 
-      <div class="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg class="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img class="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://preactjs.com/" target="_blank">
-                <img class="button-icon" src={preactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg class="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg class="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg class="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg class="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg class="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div class="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+  if (error) return <main class="shell"><div class="error"><h1>Home Helper could not load its catalog.</h1><p>{error}</p><button onClick={() => location.reload()}>Try again</button></div></main>
+  if (!model) return <main class="shell loading"><span class="loader" /><p>Loading the preservation catalog...</p></main>
+  return <main class="shell"><header class="topbar"><div><p class="eyebrow">Pokémon HOME · Bank sunset planner</p><h1>Home Helper</h1></div><div class="headline-stat"><strong>{doneCount}</strong><span>targets secured</span></div></header><nav class="tabs" aria-label="Views">{[['tracker', 'Checklist'], ['games', 'By game'], ['ribbons', 'Ribbons'], ['moves', 'Moves'], ['progress', 'Progress']].map(([key, label]) => <button class={view === key ? 'active' : ''} onClick={() => setView(key)}>{label}</button>)}</nav>{(view === 'tracker' || view === 'games') && <section class="filters"><input class="search" value={query} onInput={(event) => setQuery(event.currentTarget.value)} placeholder="Search names, descriptions, moves..." /><select value={generation} onChange={(event) => setGeneration(event.currentTarget.value)}><option value="all">All generations</option>{[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => <option value={item}>Generation {item}</option>)}</select><select value={game} onChange={(event) => setGame(event.currentTarget.value)}><option value="all">All source games</option>{Object.entries(model.games).map(([code, name]) => <option value={code}>{name}</option>)}</select><select value={category} onChange={(event) => setCategory(event.currentTarget.value)}><option value="all">All categories</option>{categories.map((item) => <option value={item}>{item}</option>)}</select><select value={status} onChange={(event) => setStatus(event.currentTarget.value)}><option value="all">All status</option><option value="todo">To do</option><option value="done">Complete</option></select></section>}{view === 'tracker' && <section class="task-list"><div class="list-heading"><div><p class="eyebrow">Unified checklist</p><h2>What still needs preserving</h2></div><span>{visibleTasks.length} shown · {model.tasks.length} total</span></div>{visibleTasks.map((task) => <TaskRow key={task.id} task={task} completed={completed.has(task.id)} toggle={toggle} />)}</section>}{view === 'games' && <section class="game-view">{Object.entries(model.games).map(([code, name]) => { const items = visibleTasks.filter((task) => task.games.includes(code)); if (!items.length) return null; return <article class="game-group" key={code}><div class="game-title"><div><span class="tag">{code}</span><h2>{name}</h2></div><span>{items.filter((task) => completed.has(task.id)).length}/{items.length}</span></div>{items.map((task) => <TaskRow key={task.id} task={task} completed={completed.has(task.id)} toggle={toggle} />)}</article>})}</section>}{view === 'ribbons' && <RibbonView groups={model.ribbonGroups} tasks={model.tasks} onTaskLink={linkToTask} />}{view === 'moves' && <MovesView moves={model.moveCatalog} />}{view === 'progress' && <Progress tasks={model.tasks} completed={completed} games={model.games} />}</main>
 }
