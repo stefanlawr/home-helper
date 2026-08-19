@@ -52,6 +52,20 @@ const tradeGameMap = {
   "My Pokémon Ranch\n↓\nDPPl": ["ranch"],
 };
 
+function normalizeTradeCategory(value) {
+  const text = String(value || "").trim();
+  if (!text) {
+    return "Other";
+  }
+
+  return text
+    .replace(/\s+/g, " ")
+    .replace(/\bpokemon\b/gi, "Pokémon")
+    .replace(/(^|\s)([a-z])/g, (match, prefix, letter) =>
+      `${prefix}${letter.toUpperCase()}`,
+    );
+}
+
 function describeTrade(record) {
   const parts = [];
   if (
@@ -251,7 +265,7 @@ export function normalizeData(data) {
     .map((record) => ({
       id: `trade:${record.id}`,
       source: "trade",
-      category: record.category || "Trade",
+      category: normalizeTradeCategory(record.category || "Trade"),
       name: clean(record.pokemon),
       description: describeTrade(record),
       games: tradeGameMap[record.game] || [],

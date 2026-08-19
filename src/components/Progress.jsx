@@ -9,21 +9,43 @@ function Stat({ label, value, detail }) {
 }
 
 export function Progress({ tasks, completed, games }) {
+  const normalizeCategoryKey = (category) =>
+    String(category || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+
+  const categoryCounts = new Map();
+  const categoryLabels = new Map();
+  for (const task of tasks) {
+    const key = normalizeCategoryKey(task.category);
+    if (!categoryCounts.has(key)) {
+      categoryCounts.set(key, {
+        total: 0,
+        done: 0,
+        label: task.category || "Other",
+      });
+      categoryLabels.set(key, task.category || "Other");
+    }
+    const count = categoryCounts.get(key);
+    count.total += 1;
+    if (completed.has(task.id)) {
+      count.done += 1;
+    }
+  }
+
   const categories = [
-    ...new Set([
-      "pokemon",
-      "move",
-      "ability",
-      "ribbon",
-      ...tasks
-        .filter((task) => task.source === "trade")
-        .map((task) => task.category)
-        .filter(Boolean),
-    ]),
+    "pokemon",
+    "move",
+    "ability",
+    "ribbon",
+    ...tasks
+      .filter((task) => task.source === "trade")
+      .map((task) => normalizeCategoryKey(task.category))
+      .filter(Boolean),
   ];
-  const categoryCounts = new Map(
-    categories.map((category) => [category, { total: 0, done: 0 }]),
-  );
+  const categoryOrder = [...new Set(categories)];
   const gameCounts = new Map(
     Object.keys(games).map((code) => [code, { total: 0, done: 0 }]),
   );
@@ -32,13 +54,6 @@ export function Progress({ tasks, completed, games }) {
     const done = completed.has(task.id);
     if (done) {
       completedCount += 1;
-    }
-    const category = categoryCounts.get(task.category);
-    if (category) {
-      category.total += 1;
-      if (done) {
-        category.done += 1;
-      }
     }
     for (const code of task.games) {
       const game = gameCounts.get(code);
@@ -53,8 +68,15 @@ export function Progress({ tasks, completed, games }) {
   }
   const percentage = (total, done) =>
     total ? Math.round((done / total) * 100) : 0;
-  const byCategory = categories
-    .map((category) => [category, categoryCounts.get(category)])
+  const byCategory = categoryOrder
+    .map((key) => {
+      const counts = categoryCounts.get(key) || {
+        total: 0,
+        done: 0,
+        label: categoryLabels.get(key) || key,
+      };
+      return [key, counts];
+    })
     .filter(([, counts]) => counts.total);
   const byGame = Object.entries(games)
     .map(([code, name]) => [code, name, gameCounts.get(code)])
@@ -74,7 +96,7 @@ export function Progress({ tasks, completed, games }) {
         {byCategory.map(([category, counts]) => (
           <Stat
             key={category}
-            label={category}
+            label={counts.label || category}
             value={`${percentage(counts.total, counts.done)}%`}
             detail={`${counts.done} of ${counts.total} tasks`}
           />

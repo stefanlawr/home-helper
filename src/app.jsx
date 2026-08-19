@@ -230,7 +230,12 @@ export function App() {
       ...tradeTasks,
       ...(model?.moveCatalog || []).map((move) => ({
         id: `move:${move.name}`,
+        source: "move",
         category: "move",
+        name: move.name,
+        description: "",
+        generation: move.generations?.[0] || null,
+        generations: move.generations || [],
         games: move.games,
       })),
       ...(model?.ribbonGroups || [])
@@ -241,7 +246,11 @@ export function App() {
         .flatMap((group) =>
           group.ribbons.map((ribbon) => ({
             id: `ribbon:${group.id}:${ribbon.id}`,
+            source: "ribbon",
             category: "ribbon",
+            name: ribbon.name,
+            description: group.name,
+            generation: group.origin_generation,
             games: group.origin_games.filter(
               (code) => gameGenerations[code] <= 7,
             ),
@@ -249,6 +258,34 @@ export function App() {
         ),
     ],
     [challengeTasks, exclusivePokemonTasks, tradeTasks, model],
+  );
+  const visibleProgressTasks = useMemo(
+    () =>
+      progressTasks.filter((task) => {
+        const queryText =
+          `${task.name || ""} ${task.description || ""} ${task.platform || ""}`.toLocaleLowerCase();
+        const matchesQuery =
+          !query || queryText.includes(query.toLocaleLowerCase());
+        const matchesGames =
+          selectedGames.length === 0 ||
+          task.games.some((code) => selectedGames.includes(code));
+        const matchesGeneration =
+          generation === "all" ||
+          (Array.isArray(task.generations)
+            ? task.generations.includes(Number(generation))
+            : String(task.generation) === generation);
+        const matchesStatus =
+          status === "all"
+            ? true
+            : status === "done"
+              ? completed.has(task.id)
+              : !completed.has(task.id);
+
+        return (
+          matchesQuery && matchesGames && matchesGeneration && matchesStatus
+        );
+      }),
+    [progressTasks, query, selectedGames, generation, status, completed],
   );
   const countdown = useCountdown(SHUTDOWN_TIME);
   if (error) {
@@ -366,7 +403,7 @@ export function App() {
       )}
       {view === "progress" && (
         <Progress
-          tasks={progressTasks}
+          tasks={visibleProgressTasks}
           completed={completed}
           games={model.games}
         />
