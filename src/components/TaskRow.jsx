@@ -26,9 +26,9 @@ export function TaskRow({ task, completed, toggle }) {
       <span class="task-copy">
         <strong>{task.name}</strong>
         {task.description &&
-          task.description.split("\n").map((line, index) => (
-            <small key={index}>{line}</small>
-          ))}
+          task.description
+            .split("\n")
+            .map((line, index) => <small key={index}>{line}</small>)}
         {task.linkedChallenge && (
           <small>Challenge: {task.linkedChallenge}</small>
         )}
@@ -36,17 +36,21 @@ export function TaskRow({ task, completed, toggle }) {
       <span class="task-meta">
         {task.games.flatMap((code) => {
           const iconData = gameIcons[code];
-          if (!iconData) return [];
-          return iconData.slice(1).map((filename) => (
-            <img
-              key={`${code}-${filename}`}
-              class="game-icon"
-              src={`assets/icons/Generation ${iconData[0]}/${filename}`}
-              alt={filename.replace(".png", "")}
-              width="48"
-              height="48"
-            />
-          ));
+          if (!iconData) {
+            return [];
+          }
+          return iconData
+            .slice(1)
+            .map((filename) => (
+              <img
+                key={`${code}-${filename}`}
+                class="game-icon"
+                src={`assets/icons/Generation ${iconData[0]}/${filename}`}
+                alt={filename.replace(".png", "")}
+                width="48"
+                height="48"
+              />
+            ));
         })}
       </span>
     </label>

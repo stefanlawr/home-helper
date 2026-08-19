@@ -1,20 +1,24 @@
-import { defineConfig } from 'vite'
-import preact from '@preact/preset-vite'
-import { cpSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { defineConfig } from "vite";
+import preact from "@preact/preset-vite";
+import { cpSync } from "node:fs";
+import { resolve } from "node:path";
 
 function copyDataAssets() {
   return {
-    name: 'copy-home-helper-data',
+    name: "copy-home-helper-data",
     writeBundle() {
-      cpSync(resolve('assets/data'), resolve('dist/assets/data'), { recursive: true })
-      cpSync(resolve('assets/icons'), resolve('dist/assets/icons'), { recursive: true })
+      cpSync(resolve("assets/data"), resolve("dist/assets/data"), {
+        recursive: true,
+      });
+      cpSync(resolve("assets/icons"), resolve("dist/assets/icons"), {
+        recursive: true,
+      });
     },
-  }
+  };
 }
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
-  base: command === 'build' ? './' : '/',
+  base: command === "build" ? "./" : "/",
   plugins: [preact(), copyDataAssets()],
-}))
+}));

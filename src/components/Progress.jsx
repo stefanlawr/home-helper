@@ -21,22 +21,34 @@ export function Progress({ tasks, completed, games }) {
         .filter(Boolean),
     ]),
   ];
-  const categoryCounts = new Map(categories.map((category) => [category, { total: 0, done: 0 }]));
-  const gameCounts = new Map(Object.keys(games).map((code) => [code, { total: 0, done: 0 }]));
+  const categoryCounts = new Map(
+    categories.map((category) => [category, { total: 0, done: 0 }]),
+  );
+  const gameCounts = new Map(
+    Object.keys(games).map((code) => [code, { total: 0, done: 0 }]),
+  );
   let completedCount = 0;
   for (const task of tasks) {
     const done = completed.has(task.id);
-    if (done) completedCount += 1;
+    if (done) {
+      completedCount += 1;
+    }
     const category = categoryCounts.get(task.category);
     if (category) {
       category.total += 1;
-      if (done) category.done += 1;
+      if (done) {
+        category.done += 1;
+      }
     }
     for (const code of task.games) {
       const game = gameCounts.get(code);
-      if (!game) continue;
+      if (!game) {
+        continue;
+      }
       game.total += 1;
-      if (done) game.done += 1;
+      if (done) {
+        game.done += 1;
+      }
     }
   }
   const percentage = (total, done) =>
@@ -74,7 +86,9 @@ export function Progress({ tasks, completed, games }) {
           <div class="progress-line" key={code}>
             <span>{name}</span>
             <div>
-              <i style={{ width: `${percentage(counts.total, counts.done)}%` }} />
+              <i
+                style={{ width: `${percentage(counts.total, counts.done)}%` }}
+              />
             </div>
             <b>{percentage(counts.total, counts.done)}%</b>
           </div>

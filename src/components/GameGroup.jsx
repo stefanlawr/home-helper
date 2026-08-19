@@ -1,7 +1,9 @@
 import { TaskRow } from "./TaskRow";
 
 export function GameGroup({ name, tasks, completed, toggle }) {
-  if (!tasks.length) return null;
+  if (!tasks.length) {
+    return null;
+  }
   return (
     <article class="game-group">
       <div class="game-title">

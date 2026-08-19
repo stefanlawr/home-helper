@@ -40,8 +40,7 @@ export function App() {
   const exclusivePokemonTasks = useMemo(
     () =>
       (model?.taskIndex.bySource.exclusive || []).filter(
-        (task) =>
-          (task.category === "pokemon" || task.category === "shiny"),
+        (task) => task.category === "pokemon" || task.category === "shiny",
       ) || [],
     [model],
   );
@@ -57,14 +56,23 @@ export function App() {
     () => model?.taskIndex.bySource.trade || [],
     [model],
   );
-  const normalizeCategoryKey = (category) => String(category || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const normalizeCategoryKey = (category) =>
+    String(category || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
   const tradeCategories = useMemo(() => {
     const categories = new Map();
     for (const task of tradeTasks) {
       const category = String(task.category || "").trim();
-      if (!category) continue;
+      if (!category) {
+        continue;
+      }
       const key = normalizeCategoryKey(category);
-      if (!categories.has(key)) categories.set(key, category);
+      if (!categories.has(key)) {
+        categories.set(key, category);
+      }
     }
     return [...categories.values()];
   }, [tradeTasks]);
@@ -73,11 +81,17 @@ export function App() {
     [tradeTasks],
   );
   const activeTradeCategory = useMemo(
-    () => tradeCategories.find((category) => view === `trade:${normalizeCategoryKey(category)}`) || null,
+    () =>
+      tradeCategories.find(
+        (category) => view === `trade:${normalizeCategoryKey(category)}`,
+      ) || null,
     [tradeCategories, view],
   );
   const activeTradeTasks = useMemo(
-    () => (activeTradeCategory ? tradeTasks.filter((task) => task.category === activeTradeCategory) : tradeTasks),
+    () =>
+      activeTradeCategory
+        ? tradeTasks.filter((task) => task.category === activeTradeCategory)
+        : tradeTasks,
     [activeTradeCategory, tradeTasks],
   );
   const activeTradeGameCodes = useMemo(
@@ -93,35 +107,61 @@ export function App() {
             : view === "moves"
               ? moveGameCodes.has(code)
               : view === "trades" || view.startsWith("trade:")
-                ? (view === "trades" ? tradeGameCodes : activeTradeGameCodes).has(code)
+                ? (view === "trades"
+                    ? tradeGameCodes
+                    : activeTradeGameCodes
+                  ).has(code)
                 : challengeGameCodes.has(code)) &&
-          (generation === "all" || String(gameGenerations[code]) === generation),
+          (generation === "all" ||
+            String(gameGenerations[code]) === generation),
       ),
-    [model, challengeGameCodes, exclusivePokemonGameCodes, moveGameCodes, tradeGameCodes, activeTradeGameCodes, generation, view],
+    [
+      model,
+      challengeGameCodes,
+      exclusivePokemonGameCodes,
+      moveGameCodes,
+      tradeGameCodes,
+      activeTradeGameCodes,
+      generation,
+      view,
+    ],
   );
   useEffect(() => {
     const allowed = new Set(gameOptions.map(([code]) => code));
     setSelectedGames((current) => current.filter((code) => allowed.has(code)));
   }, [gameOptions]);
   const visibleTasks = useMemo(
-    () => challengeTasks.filter((task) => matchesTask(task, {
-      query,
-      selectedGames,
-      generation,
-      status,
-      completed,
-    })),
+    () =>
+      challengeTasks.filter((task) =>
+        matchesTask(task, {
+          query,
+          selectedGames,
+          generation,
+          status,
+          completed,
+        }),
+      ),
     [challengeTasks, query, selectedGames, generation, status, completed],
   );
   const visibleGameTasks = useMemo(
-    () => exclusivePokemonTasks.filter((task) => matchesTask(task, {
+    () =>
+      exclusivePokemonTasks.filter((task) =>
+        matchesTask(task, {
+          query,
+          selectedGames,
+          generation,
+          status,
+          completed,
+        }),
+      ),
+    [
+      exclusivePokemonTasks,
       query,
       selectedGames,
       generation,
       status,
       completed,
-    })),
-    [exclusivePokemonTasks, query, selectedGames, generation, status, completed],
+    ],
   );
   const visibleGameTasksByCode = useMemo(() => {
     const groups = new Map();
@@ -136,15 +176,28 @@ export function App() {
   }, [visibleGameTasks]);
   const visibleTradeTasks = useMemo(
     () =>
-      (view === "trades" || !view.startsWith("trade:") ? tradeTasks : tradeTasks.filter((task) => task.category === activeTradeCategory))
-        .filter((task) => matchesTask(task, {
+      (view === "trades" || !view.startsWith("trade:")
+        ? tradeTasks
+        : tradeTasks.filter((task) => task.category === activeTradeCategory)
+      ).filter((task) =>
+        matchesTask(task, {
           query,
           selectedGames,
           generation,
           status,
           completed,
-        })),
-    [tradeTasks, activeTradeCategory, view, query, selectedGames, generation, status, completed],
+        }),
+      ),
+    [
+      tradeTasks,
+      activeTradeCategory,
+      view,
+      query,
+      selectedGames,
+      generation,
+      status,
+      completed,
+    ],
   );
   const visibleTradeTasksByCode = useMemo(() => {
     const groups = new Map();
@@ -158,11 +211,14 @@ export function App() {
     return groups;
   }, [visibleTradeTasks]);
   const visibleMoves = useMemo(
-    () => (model?.moveCatalog || []).filter((move) => matchesMove(move, {
-      query,
-      selectedGames,
-      generation,
-    })),
+    () =>
+      (model?.moveCatalog || []).filter((move) =>
+        matchesMove(move, {
+          query,
+          selectedGames,
+          generation,
+        }),
+      ),
     [model, query, selectedGames, generation],
   );
   const progressTasks = useMemo(
@@ -178,17 +234,24 @@ export function App() {
         games: move.games,
       })),
       ...(model?.ribbonGroups || [])
-        .filter((group) => group.origin_generation >= 1 && group.origin_generation <= 7)
-        .flatMap((group) => group.ribbons.map((ribbon) => ({
-          id: `ribbon:${group.id}:${ribbon.id}`,
-          category: "ribbon",
-          games: group.origin_games.filter((code) => gameGenerations[code] <= 7),
-        }))),
+        .filter(
+          (group) =>
+            group.origin_generation >= 1 && group.origin_generation <= 7,
+        )
+        .flatMap((group) =>
+          group.ribbons.map((ribbon) => ({
+            id: `ribbon:${group.id}:${ribbon.id}`,
+            category: "ribbon",
+            games: group.origin_games.filter(
+              (code) => gameGenerations[code] <= 7,
+            ),
+          })),
+        ),
     ],
     [challengeTasks, exclusivePokemonTasks, tradeTasks, model],
   );
   const countdown = useCountdown(SHUTDOWN_TIME);
-  if (error)
+  if (error) {
     return (
       <main class="shell">
         <div class="error">
@@ -198,13 +261,15 @@ export function App() {
         </div>
       </main>
     );
-  if (!model)
+  }
+  if (!model) {
     return (
       <main class="shell loading">
         <span class="loader" />
         <p>Loading the preservation catalog...</p>
       </main>
     );
+  }
   return (
     <main class="shell">
       <header class="topbar">
@@ -222,7 +287,11 @@ export function App() {
         </div>
       </header>
       <Tabs view={view} setView={setView} tradeCategories={tradeCategories} />
-      {(view === "tracker" || view === "games" || view === "trades" || view.startsWith("trade:") || view === "moves") && (
+      {(view === "tracker" ||
+        view === "games" ||
+        view === "trades" ||
+        view.startsWith("trade:") ||
+        view === "moves") && (
         <Filters
           query={query}
           setQuery={setQuery}
@@ -251,7 +320,15 @@ export function App() {
         <section class="game-view">
           {Object.entries(model.games).map(([code, name]) => {
             const items = visibleGameTasksByCode.get(code) || [];
-            return <GameGroup key={code} name={name} tasks={items} completed={completed} toggle={toggle} />;
+            return (
+              <GameGroup
+                key={code}
+                name={name}
+                tasks={items}
+                completed={completed}
+                toggle={toggle}
+              />
+            );
           })}
         </section>
       )}
@@ -259,7 +336,15 @@ export function App() {
         <section class="game-view">
           {Object.entries(model.games).map(([code, name]) => {
             const items = visibleTradeTasksByCode.get(code) || [];
-            return <GameGroup key={code} name={name} tasks={items} completed={completed} toggle={toggle} />;
+            return (
+              <GameGroup
+                key={code}
+                name={name}
+                tasks={items}
+                completed={completed}
+                toggle={toggle}
+              />
+            );
           })}
         </section>
       )}
