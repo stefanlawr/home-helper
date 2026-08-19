@@ -99,6 +99,22 @@ function indexMoves(moves) {
   return { byGame }
 }
 
+function findLinkedChallenge(name, challengeTasks) {
+  const needle = clean(name).toLocaleLowerCase()
+  return challengeTasks
+    .filter((task) => task.name.toLocaleLowerCase().includes(needle))
+    .sort((a, b) => {
+      const score = (value) => {
+        let total = 0
+        if (value.toLocaleLowerCase().includes('register')) total += 4
+        if (value.toLocaleLowerCase().includes('fill')) total += 3
+        if (value.toLocaleLowerCase().includes('deposit')) total += 1
+        return total + value.length
+      }
+      return score(b.name) - score(a.name)
+    })[0]?.name || null
+}
+
 export function normalizeData(data) {
   const games = {
     ...(data.challenges.games || {}),
@@ -132,11 +148,14 @@ export function normalizeData(data) {
     special: 'special',
   }
 
+  const challengeTasksForLinking = tasks.filter((task) => task.source === 'challenge')
+
   for (const group of data.exclusives.games || []) {
     for (const [key, values] of Object.entries(group.categories || {})) {
       if (!categoryMap[key] || !Array.isArray(values)) continue
       for (const value of values) {
         const name = clean(value)
+        const linkedChallenge = findLinkedChallenge(name, challengeTasksForLinking)
         tasks.push({
           id: stableId(`${group.id}:${key}:${name}`),
           source: 'exclusive',
@@ -146,6 +165,7 @@ export function normalizeData(data) {
           games: group.games || [],
           generation: group.generation || null,
           platform: group.platform,
+          linkedChallenge,
           priority: isPriority(name, data.exclusives.global_targets || {}),
         })
       }

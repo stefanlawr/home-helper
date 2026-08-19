@@ -29,6 +29,9 @@ export function TaskRow({ task, completed, toggle }) {
           task.description.split("\n").map((line, index) => (
             <small key={index}>{line}</small>
           ))}
+        {task.linkedChallenge && (
+          <small>Challenge: {task.linkedChallenge}</small>
+        )}
       </span>
       <span class="task-meta">
         {task.games.flatMap((code) => {
