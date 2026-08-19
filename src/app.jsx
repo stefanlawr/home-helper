@@ -57,9 +57,25 @@ export function App() {
     () => model?.taskIndex.bySource.trade || [],
     [model],
   );
+  const tradeCategories = useMemo(
+    () => [...new Set(tradeTasks.map((task) => task.category).filter(Boolean))],
+    [tradeTasks],
+  );
   const tradeGameCodes = useMemo(
     () => new Set(tradeTasks.flatMap((task) => task.games)),
     [tradeTasks],
+  );
+  const activeTradeCategory = useMemo(
+    () => tradeCategories.find((category) => view === `trade:${String(category).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`) || null,
+    [tradeCategories, view],
+  );
+  const activeTradeTasks = useMemo(
+    () => (activeTradeCategory ? tradeTasks.filter((task) => task.category === activeTradeCategory) : tradeTasks),
+    [activeTradeCategory, tradeTasks],
+  );
+  const activeTradeGameCodes = useMemo(
+    () => new Set(activeTradeTasks.flatMap((task) => task.games)),
+    [activeTradeTasks],
   );
   const gameOptions = useMemo(
     () =>
@@ -69,12 +85,12 @@ export function App() {
             ? exclusivePokemonGameCodes.has(code)
             : view === "moves"
               ? moveGameCodes.has(code)
-              : view === "trades"
-                ? tradeGameCodes.has(code)
+              : view === "trades" || view.startsWith("trade:")
+                ? (view === "trades" ? tradeGameCodes : activeTradeGameCodes).has(code)
                 : challengeGameCodes.has(code)) &&
           (generation === "all" || String(gameGenerations[code]) === generation),
       ),
-    [model, challengeGameCodes, exclusivePokemonGameCodes, moveGameCodes, tradeGameCodes, generation, view],
+    [model, challengeGameCodes, exclusivePokemonGameCodes, moveGameCodes, tradeGameCodes, activeTradeGameCodes, generation, view],
   );
   useEffect(() => {
     const allowed = new Set(gameOptions.map(([code]) => code));
@@ -112,14 +128,16 @@ export function App() {
     return groups;
   }, [visibleGameTasks]);
   const visibleTradeTasks = useMemo(
-    () => tradeTasks.filter((task) => matchesTask(task, {
-      query,
-      selectedGames,
-      generation,
-      status,
-      completed,
-    })),
-    [tradeTasks, query, selectedGames, generation, status, completed],
+    () =>
+      (view === "trades" || !view.startsWith("trade:") ? tradeTasks : tradeTasks.filter((task) => task.category === activeTradeCategory))
+        .filter((task) => matchesTask(task, {
+          query,
+          selectedGames,
+          generation,
+          status,
+          completed,
+        })),
+    [tradeTasks, activeTradeCategory, view, query, selectedGames, generation, status, completed],
   );
   const visibleTradeTasksByCode = useMemo(() => {
     const groups = new Map();
@@ -196,8 +214,8 @@ export function App() {
           <span>until Bank shuts down</span>
         </div>
       </header>
-      <Tabs view={view} setView={setView} />
-      {(view === "tracker" || view === "games" || view === "trades" || view === "moves") && (
+      <Tabs view={view} setView={setView} tradeCategories={tradeCategories} />
+      {(view === "tracker" || view === "games" || view === "trades" || view.startsWith("trade:") || view === "moves") && (
         <Filters
           query={query}
           setQuery={setQuery}
@@ -230,7 +248,7 @@ export function App() {
           })}
         </section>
       )}
-      {view === "trades" && (
+      {(view === "trades" || view.startsWith("trade:")) && (
         <section class="game-view">
           {Object.entries(model.games).map(([code, name]) => {
             const items = visibleTradeTasksByCode.get(code) || [];

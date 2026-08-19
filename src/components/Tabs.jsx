@@ -1,4 +1,4 @@
-const tabs = [
+const baseTabs = [
   ["tracker", "Challenges"],
   ["games", "Exclusive Pokémon"],
   ["trades", "Trades & Gifts"],
@@ -7,10 +7,19 @@ const tabs = [
   ["progress", "Progress"],
 ];
 
-export function Tabs({ view, setView }) {
+function tradeViewKey(category) {
+  return `trade:${String(category).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+}
+
+export function Tabs({ view, setView, tradeCategories = [] }) {
+  const categoryTabs = tradeCategories.map((category) => [
+    tradeViewKey(category),
+    category,
+  ]);
+
   return (
     <nav class="tabs" aria-label="Views">
-      {tabs.map(([key, label]) => (
+      {[...baseTabs, ...categoryTabs].map(([key, label]) => (
         <button
           key={key}
           class={view === key ? "active" : ""}
