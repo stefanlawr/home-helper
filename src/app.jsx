@@ -57,16 +57,23 @@ export function App() {
     () => model?.taskIndex.bySource.trade || [],
     [model],
   );
-  const tradeCategories = useMemo(
-    () => [...new Set(tradeTasks.map((task) => task.category).filter(Boolean))],
-    [tradeTasks],
-  );
+  const normalizeCategoryKey = (category) => String(category || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const tradeCategories = useMemo(() => {
+    const categories = new Map();
+    for (const task of tradeTasks) {
+      const category = String(task.category || "").trim();
+      if (!category) continue;
+      const key = normalizeCategoryKey(category);
+      if (!categories.has(key)) categories.set(key, category);
+    }
+    return [...categories.values()];
+  }, [tradeTasks]);
   const tradeGameCodes = useMemo(
     () => new Set(tradeTasks.flatMap((task) => task.games)),
     [tradeTasks],
   );
   const activeTradeCategory = useMemo(
-    () => tradeCategories.find((category) => view === `trade:${String(category).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`) || null,
+    () => tradeCategories.find((category) => view === `trade:${normalizeCategoryKey(category)}`) || null,
     [tradeCategories, view],
   );
   const activeTradeTasks = useMemo(

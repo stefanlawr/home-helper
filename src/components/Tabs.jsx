@@ -1,14 +1,13 @@
 const baseTabs = [
   ["tracker", "Challenges"],
   ["games", "Exclusive Pokémon"],
-  ["trades", "Trades & Gifts"],
   ["ribbons", "Ribbons"],
   ["moves", "Moves"],
   ["progress", "Progress"],
 ];
 
 function tradeViewKey(category) {
-  return `trade:${String(category).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+  return `trade:${String(category || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
 }
 
 export function Tabs({ view, setView, tradeCategories = [] }) {

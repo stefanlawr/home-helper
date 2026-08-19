@@ -1,13 +1,3 @@
-const categories = [
-  "pokemon",
-  "move",
-  "ability",
-  "ribbon",
-  "gift",
-  "shiny",
-  "special",
-];
-
 function Stat({ label, value, detail }) {
   return (
     <div class="stat">
@@ -19,6 +9,18 @@ function Stat({ label, value, detail }) {
 }
 
 export function Progress({ tasks, completed, games }) {
+  const categories = [
+    ...new Set([
+      "pokemon",
+      "move",
+      "ability",
+      "ribbon",
+      ...tasks
+        .filter((task) => task.source === "trade")
+        .map((task) => task.category)
+        .filter(Boolean),
+    ]),
+  ];
   const categoryCounts = new Map(categories.map((category) => [category, { total: 0, done: 0 }]));
   const gameCounts = new Map(Object.keys(games).map((code) => [code, { total: 0, done: 0 }]));
   let completedCount = 0;
