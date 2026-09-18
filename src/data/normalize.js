@@ -145,6 +145,10 @@ function hasPreAndPostGen7Game(challenge) {
   );
 }
 
+export function ribbonGroupTitle(group) {
+  return group.title || group.id.replaceAll("_", " ");
+}
+
 function groupBySource(tasks) {
   const bySource = {};
   for (const task of tasks) {
@@ -308,7 +312,7 @@ export function normalizeData(data) {
           source: "ribbon",
           category: "ribbon",
           name: ribbon.name,
-          description: group.name,
+          description: ribbonGroupTitle(group),
           generation: group.origin_generation,
           games: group.origin_games.filter(
             (code) => gameGenerations[code] <= 7,

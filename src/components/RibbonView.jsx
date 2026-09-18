@@ -1,4 +1,5 @@
 import { ribbonTaskId } from "../data/keys";
+import { ribbonGroupTitle } from "../data/normalize";
 
 export function RibbonView({ groups, completed, toggle }) {
   return (
@@ -17,7 +18,7 @@ export function RibbonView({ groups, completed, toggle }) {
             <span class="tag">
               Gen {group.origin_generation} · {group.category}
             </span>
-            <h3>{group.title || group.id.replaceAll("_", " ")}</h3>
+            <h3>{ribbonGroupTitle(group)}</h3>
             <p>{group.acquisition}</p>
             <small>{group.transfer_behavior.replaceAll("_", " ")}</small>
           </div>
