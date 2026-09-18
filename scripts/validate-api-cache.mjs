@@ -28,6 +28,14 @@ globalThis.fetch = async (url) => {
           ["mew", 151],
           ["chikorita", 152],
           ["pikachu-alola-cap", 10095],
+          ["raichu", 26],
+          ["raichu-alola", 10100],
+          ["deoxys-normal", 386],
+          ["deoxys-attack", 10001],
+          ["venusaur", 3],
+          ["venusaur-mega", 10033],
+          ["meowth-galar", 10161],
+          ["missingno-form", 10999],
         ].map(([name, id]) => ({
           name,
           url: `https://pokeapi.co/api/v2/pokemon/${id}/`,
@@ -68,13 +76,31 @@ assert(
   `Expected one request for move learners, saw ${fetchCount}.`,
 );
 assert(
-  learners.join(",") === "bulbasaur,mew,pikachu",
+  learners.join(",") === "bulbasaur,mew,pikachu,raichu,venusaur",
   `Expected Gen 1 species only, got ${learners.join(",")}.`,
 );
 const gen2Learners = await getMoveLearners("Tackle", "gsc");
 assert(
   gen2Learners.includes("chikorita"),
   "Gen 2 games must include Gen 2 species.",
+);
+const gen3Learners = await getMoveLearners("Tackle", "rse");
+assert(
+  gen3Learners.includes("deoxys-attack") &&
+    !gen3Learners.includes("venusaur-mega"),
+  "Forms count from their species' generation unless introduced later.",
+);
+const gen7Learners = await getMoveLearners("Tackle", "sm");
+assert(
+  ["raichu-alola", "pikachu-alola-cap", "venusaur-mega"].every((name) =>
+    gen7Learners.includes(name),
+  ),
+  "Gen 7 games must include Alolan forms, caps, and Megas.",
+);
+assert(
+  !gen7Learners.includes("meowth-galar") &&
+    !gen7Learners.includes("missingno-form"),
+  "Later regional forms and forms without a known species must be excluded.",
 );
 
 const info = await getMoveInfo("Tackle");

@@ -198,16 +198,21 @@ export function normalizeData(data) {
   };
   const tasks = (data.challenges.challenges || [])
     .filter((challenge) => !hasPreAndPostGen7Game(challenge))
-    .map((challenge) => ({
-      id: `challenge:${challenge.id}`,
-      source: "challenge",
-      category: challenge.category || "pokemon",
-      name: clean(challenge.name),
-      description: challenge.description || "",
-      games: (challenge.games || []).filter((code) => challengeGames.has(code)),
-      generation:
-        challenge.generation || gameGenerations[challenge.games?.[0]] || null,
-    }))
+    .map((challenge) => {
+      const games = (challenge.games || []).filter((code) =>
+        challengeGames.has(code),
+      );
+      return {
+        id: `challenge:${challenge.id}`,
+        source: "challenge",
+        category: challenge.category || "pokemon",
+        name: clean(challenge.name),
+        description: challenge.description || "",
+        games,
+        // Taken from the kept games, since the raw list can start with "any" or "go".
+        generation: challenge.generation || gameGenerations[games[0]] || null,
+      };
+    })
     .filter((task) => task.games.length && task.generation <= 7);
 
   // Only the categories the app shows become tasks; the exclusive move lists feed moveCatalog below.

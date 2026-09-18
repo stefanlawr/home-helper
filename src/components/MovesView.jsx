@@ -37,7 +37,8 @@ function MoveLearners({ learners }) {
     <div class="move-learners">
       <strong>Pokemon that can learn this move</strong>
       <small>
-        In any game, limited to species from this generation or earlier.
+        In any game, limited to Pokémon and forms from this generation or
+        earlier.
       </small>
       {content}
     </div>

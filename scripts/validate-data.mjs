@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { normalizeData, tradeGameMap } from "../src/data/normalize.js";
+import { ribbonTaskId } from "../src/data/keys.js";
 
 const dataPath = (name) => new URL(`../assets/data/${name}`, import.meta.url);
 const load = async (name, optional = false) => {
@@ -57,6 +58,25 @@ assert(
   "Every normalized task must have an ID, name, and game.",
 );
 assert(
+  model.tasks.every((task) => Number.isInteger(task.generation)),
+  "Every normalized task must have a generation, or generation filters hide it.",
+);
+// Checkbox state is keyed by ID, so a duplicate would tick two items at once.
+const checkableIds = [
+  ...model.tasks.map((task) => task.id),
+  ...model.moveCatalog.map((move) => move.id),
+  ...model.ribbonGroups.flatMap((group) =>
+    group.ribbons.map((ribbon) => ribbonTaskId(group.id, ribbon.id)),
+  ),
+];
+const duplicateIds = checkableIds.filter(
+  (id, index) => checkableIds.indexOf(id) !== index,
+);
+assert(
+  duplicateIds.length === 0,
+  `Task IDs must be unique; duplicated: ${JSON.stringify([...new Set(duplicateIds)])}`,
+);
+assert(
   model.progressTasks.every((task) => typeof task.searchText === "string"),
   "Every progress task must be searchable.",
 );
@@ -65,14 +85,12 @@ assert(
   "Every move catalog entry must have removal metadata and games.",
 );
 
-const firstTask = model.tasks[0];
 const secondModel = normalizeData(data);
 assert(
   model.tasks.map((task) => task.id).join("\n") ===
     secondModel.tasks.map((task) => task.id).join("\n"),
   "Task IDs must be stable.",
 );
-assert(firstTask.id === secondModel.tasks[0].id, "Task IDs must be stable.");
 
 console.log(
   `Validated ${model.tasks.length} tasks (${model.tasksBySource.trade?.length || 0} trades), ${model.moveCatalog.length} moves, and ${model.ribbonGroups.length} ribbon groups.`,

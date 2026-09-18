@@ -16,21 +16,43 @@ export function useCountdown(targetTime) {
   return { remaining, days, hours, minutes, seconds };
 }
 
+function parseSet(value) {
+  try {
+    return new Set(JSON.parse(value || "[]"));
+  } catch {
+    return new Set();
+  }
+}
+
 export function usePersistentSet() {
   const [completed, setCompleted] = useState(() => {
     try {
-      return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"));
+      return parseSet(localStorage.getItem(STORAGE_KEY));
     } catch {
       return new Set();
     }
   });
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify([...completed]));
+      const value = JSON.stringify([...completed]);
+      // Skip no-op writes so a change received from another tab isn't echoed back.
+      if (localStorage.getItem(STORAGE_KEY) !== value) {
+        localStorage.setItem(STORAGE_KEY, value);
+      }
     } catch {
       // Storage may be full or unavailable; progress stays in memory for this session.
     }
   }, [completed]);
+  // Adopt changes saved by other open tabs, so the last tab to save doesn't erase them.
+  useEffect(() => {
+    const onStorage = (event) => {
+      if (event.key === STORAGE_KEY) {
+        setCompleted(parseSet(event.newValue));
+      }
+    };
+    addEventListener("storage", onStorage);
+    return () => removeEventListener("storage", onStorage);
+  }, []);
   return [
     completed,
     (id) =>

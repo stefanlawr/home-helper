@@ -4,16 +4,17 @@ const TTL = 1000 * 60 * 60 * 24 * 30;
 const prefix = "home-helper:pokeapi:v2:";
 const legacyPrefix = "home-helper:pokeapi:";
 const pending = new Map();
-// Highest National Dex number introduced by each generation.
-const generationDexLimits = {
-  1: 151,
-  2: 251,
-  3: 386,
-  4: 493,
-  5: 649,
-  6: 721,
-  7: 809,
-};
+// Highest National Dex number introduced by each generation, in order.
+const generationDexLimits = [151, 251, 386, 493, 649, 721, 809];
+// PokeAPI numbers alternate forms (Alolan, Mega, ...) from here instead of by species.
+const FORM_ID_START = 10000;
+// Forms introduced after their base species; any other form counts from its species' generation.
+const laterForms = [
+  [/-(mega|primal)(-|$)|-(cosplay|rock-star|belle|pop-star|phd|libre)$/, 6],
+  [/-(alola|totem)(-|$)|-cap$|-(ash|battle-bond)$/, 7],
+  [/-(galar|gmax)(-|$)|-hisui(-|$)/, 8],
+  [/-paldea(-|$)/, 9],
+];
 
 function slug(value) {
   return value
@@ -122,15 +123,57 @@ export function getMoveInfo(name) {
   }));
 }
 
+function dexGeneration(number) {
+  const index = generationDexLimits.findIndex((limit) => number <= limit);
+  return index === -1 ? Infinity : index + 1;
+}
+
+// Generation a learner first appeared in; forms resolve through the longest learner name
+// they extend ("raticate-totem-alola" -> "raticate"), and are excluded when none matches.
+function learnerGeneration(name, number, speciesDex) {
+  if (number < FORM_ID_START) {
+    return dexGeneration(number);
+  }
+  const parts = name.split("-");
+  for (let length = parts.length - 1; length > 0; length -= 1) {
+    const speciesNumber = speciesDex.get(parts.slice(0, length).join("-"));
+    if (speciesNumber) {
+      const formGeneration =
+        laterForms.find(([pattern]) => pattern.test(name))?.[1] || 0;
+      return Math.max(dexGeneration(speciesNumber), formGeneration);
+    }
+  }
+  return Infinity;
+}
+
 // PokeAPI only lists learners per version group on each Pokémon's record, which is too heavy to fetch
 // for every learner. Instead, list every Pokémon that learns the move in any game, limited to species
-// that existed by the game's generation.
+// and forms that existed by the game's generation.
 export function getMoveLearners(name, gameCode) {
-  const dexLimit = generationDexLimits[gameGenerations[gameCode]] || Infinity;
-  return getMove(name).then(({ learners }) =>
-    learners
-      .filter(([, number]) => number && number <= dexLimit)
+  const generation = gameGenerations[gameCode] || Infinity;
+  return getMove(name).then(({ learners }) => {
+    // Index each species under its name and shorter prefixes, since some default forms carry a
+    // suffix too ("deoxys-normal" must resolve "deoxys-attack").
+    const speciesDex = new Map();
+    for (const [pokemon, number] of learners) {
+      if (!number || number >= FORM_ID_START) {
+        continue;
+      }
+      const parts = pokemon.split("-");
+      for (let length = parts.length; length > 0; length -= 1) {
+        const key = parts.slice(0, length).join("-");
+        if (!speciesDex.has(key)) {
+          speciesDex.set(key, number);
+        }
+      }
+    }
+    return learners
+      .filter(
+        ([pokemon, number]) =>
+          number &&
+          learnerGeneration(pokemon, number, speciesDex) <= generation,
+      )
       .map(([pokemon]) => pokemon)
-      .sort(),
-  );
+      .sort();
+  });
 }
