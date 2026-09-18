@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prebuild": "npm run check:data",
+    "prebuild": "npm run check:data && npm run check:api",
     "preview": "vite preview",
     "check:data": "node scripts/validate-data.mjs",
     "check:api": "node scripts/validate-api-cache.mjs"

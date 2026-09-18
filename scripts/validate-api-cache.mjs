@@ -28,10 +28,15 @@ globalThis.fetch = async (url) => {
           ["mew", 151],
           ["chikorita", 152],
           ["pikachu-alola-cap", 10095],
-        ].map(([name, id]) => ({ name, url: `https://pokeapi.co/api/v2/pokemon/${id}/` })),
+        ].map(([name, id]) => ({
+          name,
+          url: `https://pokeapi.co/api/v2/pokemon/${id}/`,
+        })),
         type: { name: "normal" },
         damage_class: { name: "physical" },
-        flavor_text_entries: [{ language: { name: "en" }, flavor_text: "A\nphysical attack." }],
+        flavor_text_entries: [
+          { language: { name: "en" }, flavor_text: "A\nphysical attack." },
+        ],
         unused_large_field: "x".repeat(10000),
       }),
     };
@@ -42,36 +47,69 @@ globalThis.fetch = async (url) => {
   throw new Error(`Unexpected API path: ${path}`);
 };
 
-const { getMoveInfo, getMoveLearners } = await import("../src/pokeapi/client.js");
+const { getMoveInfo, getMoveLearners } =
+  await import("../src/pokeapi/client.js");
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 
-assert(!storage.has("home-helper:pokeapi:pokemon/pikachu"), "Legacy raw cache entries must be pruned.");
-assert(storage.has("home-helper:completed"), "Pruning must not touch saved progress.");
+assert(
+  !storage.has("home-helper:pokeapi:pokemon/pikachu"),
+  "Legacy raw cache entries must be pruned.",
+);
+assert(
+  storage.has("home-helper:completed"),
+  "Pruning must not touch saved progress.",
+);
 
 const learners = await getMoveLearners("Tackle", "rby");
-assert(fetchCount === 1, `Expected one request for move learners, saw ${fetchCount}.`);
+assert(
+  fetchCount === 1,
+  `Expected one request for move learners, saw ${fetchCount}.`,
+);
 assert(
   learners.join(",") === "bulbasaur,mew,pikachu",
   `Expected Gen 1 species only, got ${learners.join(",")}.`,
 );
 const gen2Learners = await getMoveLearners("Tackle", "gsc");
-assert(gen2Learners.includes("chikorita"), "Gen 2 games must include Gen 2 species.");
+assert(
+  gen2Learners.includes("chikorita"),
+  "Gen 2 games must include Gen 2 species.",
+);
 
 const info = await getMoveInfo("Tackle");
 assert(fetchCount === 1, "Move details must reuse the cached move.");
-assert(info.description === "A physical attack.", "Expected normalized English flavor text.");
+assert(
+  info.description === "A physical attack.",
+  "Expected normalized English flavor text.",
+);
 
 const cachedEntry = storage.get("home-helper:pokeapi:v2:move/tackle");
-assert(cachedEntry && !cachedEntry.includes("unused_large_field"), "Only derived move data may be cached.");
+assert(
+  cachedEntry && !cachedEntry.includes("unused_large_field"),
+  "Only derived move data may be cached.",
+);
 
 const beforeConcurrentInfo = fetchCount;
 await Promise.all([getMoveInfo("Growl"), getMoveInfo("Growl")]);
-assert(fetchCount === beforeConcurrentInfo + 1, "Concurrent move detail requests should share one fetch.");
+assert(
+  fetchCount === beforeConcurrentInfo + 1,
+  "Concurrent move detail requests should share one fetch.",
+);
 
-const failure = await getMoveInfo("Missing").then(() => null, (error) => error);
-assert(failure instanceof Error, "Failed requests must reject so the UI can show an error.");
-assert(!storage.has("home-helper:pokeapi:v2:move/missing"), "Failed requests must not be cached.");
+const failure = await getMoveInfo("Missing").then(
+  () => null,
+  (error) => error,
+);
+assert(
+  failure instanceof Error,
+  "Failed requests must reject so the UI can show an error.",
+);
+assert(
+  !storage.has("home-helper:pokeapi:v2:move/missing"),
+  "Failed requests must not be cached.",
+);
 
-console.log("Validated single-request learners, derived-only caching, legacy pruning, deduplication, and error propagation.");
+console.log(
+  "Validated single-request learners, derived-only caching, legacy pruning, deduplication, and error propagation.",
+);

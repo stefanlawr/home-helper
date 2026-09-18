@@ -6,19 +6,10 @@ const baseTabs = [
   ["progress", "Progress"],
 ];
 
-function tradeViewKey(category) {
-  return `trade:${String(category || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
-}
-
-export function Tabs({ view, setView, tradeCategories = [] }) {
-  const categoryTabs = tradeCategories.map((category) => [
-    tradeViewKey(category),
-    category,
-  ]);
-
+export function Tabs({ view, setView, extraTabs = [] }) {
   return (
     <nav class="tabs" aria-label="Views">
-      {[...baseTabs, ...categoryTabs].map(([key, label]) => (
+      {[...baseTabs, ...extraTabs].map(([key, label]) => (
         <button
           key={key}
           class={view === key ? "active" : ""}

@@ -1,3 +1,5 @@
+import { categoryKey } from "../data/keys";
+
 function Stat({ label, value, detail }) {
   return (
     <div class="stat">
@@ -11,16 +13,9 @@ function Stat({ label, value, detail }) {
 const PREFERRED_CATEGORIES = ["pokemon", "shiny", "move", "ribbon"];
 
 export function Progress({ tasks, completed, games }) {
-  const normalizeCategoryKey = (category) =>
-    String(category || "")
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
-
   const categoryCounts = new Map();
   for (const task of tasks) {
-    const key = normalizeCategoryKey(task.category);
+    const key = categoryKey(task.category);
     if (!categoryCounts.has(key)) {
       categoryCounts.set(key, {
         total: 0,

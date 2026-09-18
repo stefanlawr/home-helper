@@ -1,28 +1,82 @@
 import { useState } from "preact/hooks";
 import { getMoveInfo, getMoveLearners } from "../pokeapi/client";
 
-export function MovesView({ moves, games, completed, toggle, status }) {
+function formatPokemonName(name) {
+  return name.replace(
+    /(^|-)([a-z])/g,
+    (_, separator, letter) => `${separator}${letter.toUpperCase()}`,
+  );
+}
+
+function describeMove(details) {
+  if (details.error) {
+    return details.error;
+  }
+  const { description, type, damageClass } = details.value;
+  return description || `${type} · ${damageClass}`;
+}
+
+function MoveLearners({ learners }) {
+  let content;
+  if (learners.loading) {
+    content = <small>Loading Pokemon...</small>;
+  } else if (learners.error) {
+    content = <small>{learners.error}</small>;
+  } else if (learners.pokemon.length) {
+    content = (
+      <div class="learner-list">
+        {learners.pokemon.map((pokemon) => (
+          <span key={pokemon}>{formatPokemonName(pokemon)}</span>
+        ))}
+      </div>
+    );
+  } else {
+    content = <small>No Pokemon found for this game.</small>;
+  }
+  return (
+    <div class="move-learners">
+      <strong>Pokemon that can learn this move</strong>
+      <small>
+        In any game, limited to species from this generation or earlier.
+      </small>
+      {content}
+    </div>
+  );
+}
+
+function MoveRow({
+  move,
+  expanded,
+  details,
+  learners,
+  onExpand,
+  done,
+  toggle,
+}) {
+  return (
+    <div class="move-row game-move-row">
+      <button class="move-trigger" type="button" onClick={onExpand}>
+        <strong>{move.name}</strong>
+        {expanded && details && <small>{describeMove(details)}</small>}
+      </button>
+      <label class="move-check">
+        <input
+          type="checkbox"
+          checked={done}
+          onChange={() => toggle(move.id)}
+        />
+      </label>
+      <span class="move-status">Removed · {move.removedIn}</span>
+      {expanded && learners && <MoveLearners learners={learners} />}
+    </div>
+  );
+}
+
+export function MovesView({ games, movesByGame, completed, toggle }) {
   const [expanded, setExpanded] = useState(null);
   const [details, setDetails] = useState({});
   const [learners, setLearners] = useState({});
-  const movesByGame = new Map();
-  for (const move of moves) {
-    for (const code of move.games) {
-      const items = movesByGame.get(code) || [];
-      if (
-        status === "all" ||
-        (status === "done"
-          ? completed.has(`move:${move.name}`)
-          : !completed.has(`move:${move.name}`))
-      ) {
-        items.push(move);
-      }
-      movesByGame.set(code, items);
-    }
-  }
-  const gamesWithMoves = games
-    .map(([code, name]) => [code, name, movesByGame.get(code) || []])
-    .filter(([, , items]) => items.length);
+
   const expand = (move, code) => {
     const key = `${code}:${move.name}`;
     if (expanded === key) {
@@ -66,6 +120,7 @@ export function MovesView({ moves, games, completed, toggle, status }) {
         );
     }
   };
+
   return (
     <section class="reference-view">
       <header class="section-heading">
@@ -77,71 +132,37 @@ export function MovesView({ moves, games, completed, toggle, status }) {
         </p>
       </header>
       <div class="game-view">
-        {gamesWithMoves.map(([code, name, items]) => (
-          <article class="game-group" key={code}>
-            <div class="game-title">
-              <div>
-                <h2>{name}</h2>
+        {games.map(([code, name]) => {
+          const moves = movesByGame.get(code);
+          if (!moves) {
+            return null;
+          }
+          return (
+            <article class="game-group" key={code}>
+              <div class="game-title">
+                <div>
+                  <h2>{name}</h2>
+                </div>
+                <span>{moves.length} moves</span>
               </div>
-              <span>{items.length} moves</span>
-            </div>
-            {items.map((move) => (
-              <div class="move-row game-move-row" key={move.name}>
-                <button
-                  class="move-trigger"
-                  type="button"
-                  onClick={() => expand(move, code)}
-                >
-                  <strong>{move.name}</strong>
-                  {expanded === `${code}:${move.name}` && details[move.name] && (
-                    <small>
-                      {details[move.name].error ||
-                        details[move.name].value?.description ||
-                        `${details[move.name].value?.type} · ${details[move.name].value?.damageClass}`}
-                    </small>
-                  )}
-                </button>
-                <label
-                  class="move-check"
-                  onClick={(event) => event.stopPropagation()}
-                >
-                  <input
-                    type="checkbox"
-                    checked={completed.has(`move:${move.name}`)}
-                    onChange={() => toggle(`move:${move.name}`)}
+              {moves.map((move) => {
+                const key = `${code}:${move.name}`;
+                return (
+                  <MoveRow
+                    key={move.name}
+                    move={move}
+                    expanded={expanded === key}
+                    details={details[move.name]}
+                    learners={learners[key]}
+                    onExpand={() => expand(move, code)}
+                    done={completed.has(move.id)}
+                    toggle={toggle}
                   />
-                </label>
-                <span class="move-status">
-                  {move.removedIn ? `Removed · ${move.removedIn}` : "Available"}
-                </span>
-                {expanded === `${code}:${move.name}` && learners[`${code}:${move.name}`] && (
-                  <div class="move-learners">
-                    <strong>Pokemon that can learn this move</strong>
-                    <small>In any game, limited to species from this generation or earlier.</small>
-                    {learners[`${code}:${move.name}`].loading ? (
-                      <small>Loading Pokemon...</small>
-                    ) : learners[`${code}:${move.name}`].error ? (
-                      <small>{learners[`${code}:${move.name}`].error}</small>
-                    ) : learners[`${code}:${move.name}`].pokemon.length ? (
-                      <div class="learner-list">
-                        {learners[`${code}:${move.name}`].pokemon.map((pokemon) => (
-                          <span key={pokemon}>
-                            {pokemon.replace(
-                              /(^|-)([a-z])/g,
-                              (_, separator, letter) => `${separator}${letter.toUpperCase()}`,
-                            )}
-                          </span>
-                        ))}
-                      </div>
-                    ) : (
-                      <small>No Pokemon found for this game.</small>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </article>
-        ))}
+                );
+              })}
+            </article>
+          );
+        })}
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import { moveTaskId, ribbonTaskId } from "./keys.js";
+
 function stableId(value) {
   let hash = 2166136261;
   for (const character of value) {
@@ -11,12 +13,13 @@ function clean(value) {
   return String(value).trim();
 }
 
-function isPriority(name, globalTargets) {
-  const needle = name.toLocaleLowerCase();
-  return [
-    ...(globalTargets.switch_unavailable_or_transfer_critical || []),
-    ...(globalTargets.notable_shiny_preservation_targets || []),
-  ].some((target) => needle.includes(String(target).toLocaleLowerCase()));
+// Precomputes the lower-cased text the search box matches against.
+function withSearchText(task) {
+  return {
+    ...task,
+    searchText:
+      `${task.name} ${task.description || ""} ${task.platform || ""}`.toLocaleLowerCase(),
+  };
 }
 
 // Maps the trades sheet's "game" label (including GameCube/Wii/3DS demo transfer chains) to catalog game codes.
@@ -61,8 +64,9 @@ function normalizeTradeCategory(value) {
   return text
     .replace(/\s+/g, " ")
     .replace(/\bpokemon\b/gi, "Pokémon")
-    .replace(/(^|\s)([a-z])/g, (match, prefix, letter) =>
-      `${prefix}${letter.toUpperCase()}`,
+    .replace(
+      /(^|\s)([a-z])/g,
+      (match, prefix, letter) => `${prefix}${letter.toUpperCase()}`,
     );
 }
 
@@ -141,32 +145,12 @@ function hasPreAndPostGen7Game(challenge) {
   );
 }
 
-function indexTasks(tasks) {
+function groupBySource(tasks) {
   const bySource = {};
-  const byGame = {};
   for (const task of tasks) {
-    const sourceTasks = bySource[task.source] || [];
-    sourceTasks.push(task);
-    bySource[task.source] = sourceTasks;
-    for (const code of task.games) {
-      const gameTasks = byGame[code] || [];
-      gameTasks.push(task);
-      byGame[code] = gameTasks;
-    }
+    (bySource[task.source] ||= []).push(task);
   }
-  return { bySource, byGame };
-}
-
-function indexMoves(moves) {
-  const byGame = {};
-  for (const move of moves) {
-    for (const code of move.games) {
-      const gameMoves = byGame[code] || [];
-      gameMoves.push(move);
-      byGame[code] = gameMoves;
-    }
-  }
-  return { byGame };
+  return bySource;
 }
 
 // Links an exclusive to a challenge in one of its own games that names it as a whole word,
@@ -219,10 +203,6 @@ export function normalizeData(data) {
       games: (challenge.games || []).filter((code) => challengeGames.has(code)),
       generation:
         challenge.generation || gameGenerations[challenge.games?.[0]] || null,
-      priority: isPriority(
-        challenge.name,
-        data.exclusives.global_targets || {},
-      ),
     }))
     .filter((task) => task.games.length && task.generation <= 7);
 
@@ -255,7 +235,6 @@ export function normalizeData(data) {
           generation: group.generation || null,
           platform: group.platform,
           linkedChallenge,
-          priority: isPriority(name, data.exclusives.global_targets || {}),
         });
       }
     }
@@ -270,7 +249,6 @@ export function normalizeData(data) {
       description: describeTrade(record),
       games: tradeGameMap[record.game] || [],
       generation: Number(String(record.generation).match(/\d+/)?.[0]) || null,
-      priority: false,
     }))
     .filter((task) => task.games.length && task.generation <= 7);
   tasks.push(...tradeTasks);
@@ -296,33 +274,67 @@ export function normalizeData(data) {
     }
   }
   const moveCatalog = (data.moves.moves || [])
-    .map((move) => ({
-      ...move,
-      games: [
-        ...(moveGames.get(move.name.toLocaleLowerCase()) ||
-          new Set(
+    .filter((move) => removedLookup.has(move.name.toLocaleLowerCase()))
+    .map((move) =>
+      withSearchText({
+        ...move,
+        id: moveTaskId(move.name),
+        source: "move",
+        category: "move",
+        description: "",
+        generation: move.generations?.[0] || null,
+        generations: move.generations || [],
+        games: [
+          ...(moveGames.get(move.name.toLocaleLowerCase()) ||
             Object.keys(games).filter(
               (code) =>
                 gameGenerations[code] <= 7 &&
                 move.generations?.includes(gameGenerations[code]),
-            ),
-          )),
-      ],
-      removedIn: removedLookup.get(move.name.toLocaleLowerCase()) || null,
-    }))
-    .filter((move) => move.removedIn);
+            )),
+        ],
+        removedIn: removedLookup.get(move.name.toLocaleLowerCase()),
+      }),
+    );
 
   const ribbonGroups = data.ribbons.ribbon_groups || [];
-  const taskIndex = indexTasks(tasks);
-  const moveIndex = indexMoves(moveCatalog);
+  const ribbonTasks = ribbonGroups
+    .filter(
+      (group) => group.origin_generation >= 1 && group.origin_generation <= 7,
+    )
+    .flatMap((group) =>
+      group.ribbons.map((ribbon) =>
+        withSearchText({
+          id: ribbonTaskId(group.id, ribbon.id),
+          source: "ribbon",
+          category: "ribbon",
+          name: ribbon.name,
+          description: group.name,
+          generation: group.origin_generation,
+          games: group.origin_games.filter(
+            (code) => gameGenerations[code] <= 7,
+          ),
+        }),
+      ),
+    );
+
+  const searchableTasks = tasks.map(withSearchText);
+  const tasksBySource = groupBySource(searchableTasks);
+  const progressTasks = [
+    ...(tasksBySource.challenge || []),
+    ...(tasksBySource.exclusive || []).filter(
+      (task) => task.generation >= 1 && task.generation <= 7,
+    ),
+    ...(tasksBySource.trade || []),
+    ...moveCatalog,
+    ...ribbonTasks,
+  ];
 
   return {
     games,
-    tasks,
+    tasks: searchableTasks,
+    tasksBySource,
     moveCatalog,
-    taskIndex,
-    moveIndex,
     ribbonGroups,
-    globalTargets: data.exclusives.global_targets || {},
+    progressTasks,
   };
 }

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
 import { gameGenerations } from "./data/normalize";
 import { useCatalog } from "./data/useCatalog";
-import { matchesMove, matchesTask } from "./data/filters";
+import { createTaskFilter, groupByGame } from "./data/filters";
+import { tradeViewKey } from "./data/keys";
 import { usePersistentSet } from "./hooks";
 import { TaskRow } from "./components/TaskRow";
 import { Progress } from "./components/Progress";
@@ -14,6 +15,7 @@ import { Countdown } from "./components/Countdown";
 import "./app.css";
 
 const SHUTDOWN_TIME = new Date("2027-02-25T19:00:00-08:00").getTime();
+const EMPTY = [];
 
 export function App() {
   const { model, error } = useCatalog();
@@ -30,100 +32,54 @@ export function App() {
         ? current.filter((item) => item !== code)
         : [...current, code],
     );
-  const challengeTasks = useMemo(
-    () => model?.taskIndex.bySource.challenge || [],
-    [model],
-  );
-  const challengeGameCodes = useMemo(
-    () => new Set(challengeTasks.flatMap((task) => task.games)),
-    [challengeTasks],
-  );
-  const exclusivePokemonTasks = useMemo(
-    () => model?.taskIndex.bySource.exclusive || [],
-    [model],
-  );
-  const exclusivePokemonGameCodes = useMemo(
-    () => new Set(exclusivePokemonTasks.flatMap((task) => task.games)),
-    [exclusivePokemonTasks],
-  );
-  const moveGameCodes = useMemo(
-    () => new Set(Object.keys(model?.moveIndex.byGame || {})),
-    [model],
-  );
-  const tradeTasks = useMemo(
-    () => model?.taskIndex.bySource.trade || [],
-    [model],
-  );
-  const normalizeCategoryKey = (category) =>
-    String(category || "")
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
-  const tradeCategories = useMemo(() => {
-    const categories = new Map();
-    for (const task of tradeTasks) {
-      const category = String(task.category || "").trim();
-      if (!category) {
-        continue;
-      }
-      const key = normalizeCategoryKey(category);
-      if (!categories.has(key)) {
-        categories.set(key, category);
+
+  const isTradeView = view.startsWith("trade:");
+  const showFilters =
+    isTradeView || view === "tracker" || view === "games" || view === "moves";
+
+  // One tab per trade category, keyed by view name.
+  const tradeTabs = useMemo(() => {
+    const tabs = new Map();
+    for (const task of model?.tasksBySource.trade || EMPTY) {
+      const key = tradeViewKey(task.category);
+      if (!tabs.has(key)) {
+        tabs.set(key, task.category);
       }
     }
-    return [...categories.values()];
-  }, [tradeTasks]);
-  const tradeGameCodes = useMemo(
-    () => new Set(tradeTasks.flatMap((task) => task.games)),
-    [tradeTasks],
-  );
-  const activeTradeCategory = useMemo(
-    () =>
-      tradeCategories.find(
-        (category) => view === `trade:${normalizeCategoryKey(category)}`,
-      ) || null,
-    [tradeCategories, view],
-  );
-  const activeTradeTasks = useMemo(
-    () =>
-      activeTradeCategory
-        ? tradeTasks.filter((task) => task.category === activeTradeCategory)
-        : tradeTasks,
-    [activeTradeCategory, tradeTasks],
-  );
-  const activeTradeGameCodes = useMemo(
-    () => new Set(activeTradeTasks.flatMap((task) => task.games)),
-    [activeTradeTasks],
-  );
-  const gameOptions = useMemo(
-    () =>
-      Object.entries(model?.games || {}).filter(
-        ([code]) =>
-          (view === "games"
-            ? exclusivePokemonGameCodes.has(code)
-            : view === "moves"
-              ? moveGameCodes.has(code)
-              : view === "trades" || view.startsWith("trade:")
-                ? (view === "trades"
-                    ? tradeGameCodes
-                    : activeTradeGameCodes
-                  ).has(code)
-                : challengeGameCodes.has(code)) &&
-          (generation === "all" ||
-            String(gameGenerations[code]) === generation),
-      ),
-    [
-      model,
-      challengeGameCodes,
-      exclusivePokemonGameCodes,
-      moveGameCodes,
-      tradeGameCodes,
-      activeTradeGameCodes,
-      generation,
-      view,
-    ],
-  );
+    return tabs;
+  }, [model]);
+
+  // The tasks the current view lists; views without their own list fall back to challenges.
+  const viewTasks = useMemo(() => {
+    if (!model) {
+      return EMPTY;
+    }
+    if (view === "games") {
+      return model.tasksBySource.exclusive || EMPTY;
+    }
+    if (view === "moves") {
+      return model.moveCatalog;
+    }
+    if (isTradeView) {
+      return (model.tasksBySource.trade || EMPTY).filter(
+        (task) => tradeViewKey(task.category) === view,
+      );
+    }
+    return model.tasksBySource.challenge || EMPTY;
+  }, [model, view, isTradeView]);
+
+  const gameOptions = useMemo(() => {
+    const codes = new Set(viewTasks.flatMap((task) => task.games));
+    return Object.entries(model?.games || {}).filter(
+      ([code]) =>
+        codes.has(code) &&
+        (generation === "all" || String(gameGenerations[code]) === generation),
+    );
+  }, [model, viewTasks, generation]);
+  useEffect(() => {
+    const allowed = new Set(gameOptions.map(([code]) => code));
+    setSelectedGames((current) => current.filter((code) => allowed.has(code)));
+  }, [gameOptions]);
   const visibleGames = useMemo(
     () =>
       selectedGames.length
@@ -131,167 +87,28 @@ export function App() {
         : gameOptions,
     [gameOptions, selectedGames],
   );
-  useEffect(() => {
-    const allowed = new Set(gameOptions.map(([code]) => code));
-    setSelectedGames((current) => current.filter((code) => allowed.has(code)));
-  }, [gameOptions]);
+
+  const taskFilter = useMemo(
+    () =>
+      createTaskFilter({ query, selectedGames, generation, status, completed }),
+    [query, selectedGames, generation, status, completed],
+  );
   const visibleTasks = useMemo(
-    () =>
-      challengeTasks.filter((task) =>
-        matchesTask(task, {
-          query,
-          selectedGames,
-          generation,
-          status,
-          completed,
-        }),
-      ),
-    [challengeTasks, query, selectedGames, generation, status, completed],
+    () => viewTasks.filter(taskFilter),
+    [viewTasks, taskFilter],
   );
-  const visibleGameTasks = useMemo(
-    () =>
-      exclusivePokemonTasks.filter((task) =>
-        matchesTask(task, {
-          query,
-          selectedGames,
-          generation,
-          status,
-          completed,
-        }),
-      ),
-    [
-      exclusivePokemonTasks,
-      query,
-      selectedGames,
-      generation,
-      status,
-      completed,
-    ],
-  );
-  const visibleGameTasksByCode = useMemo(() => {
-    const groups = new Map();
-    for (const task of visibleGameTasks) {
-      for (const code of task.games) {
-        const items = groups.get(code) || [];
-        items.push(task);
-        groups.set(code, items);
-      }
-    }
-    return groups;
-  }, [visibleGameTasks]);
-  const visibleTradeTasks = useMemo(
-    () =>
-      (view === "trades" || !view.startsWith("trade:")
-        ? tradeTasks
-        : tradeTasks.filter((task) => task.category === activeTradeCategory)
-      ).filter((task) =>
-        matchesTask(task, {
-          query,
-          selectedGames,
-          generation,
-          status,
-          completed,
-        }),
-      ),
-    [
-      tradeTasks,
-      activeTradeCategory,
-      view,
-      query,
-      selectedGames,
-      generation,
-      status,
-      completed,
-    ],
-  );
-  const visibleTradeTasksByCode = useMemo(() => {
-    const groups = new Map();
-    for (const task of visibleTradeTasks) {
-      for (const code of task.games) {
-        const items = groups.get(code) || [];
-        items.push(task);
-        groups.set(code, items);
-      }
-    }
-    return groups;
-  }, [visibleTradeTasks]);
-  const visibleMoves = useMemo(
-    () =>
-      (model?.moveCatalog || []).filter((move) =>
-        matchesMove(move, {
-          query,
-          selectedGames,
-          generation,
-        }),
-      ),
-    [model, query, selectedGames, generation],
-  );
-  const progressTasks = useMemo(
-    () => [
-      ...challengeTasks,
-      ...exclusivePokemonTasks.filter(
-        (task) => task.generation >= 1 && task.generation <= 7,
-      ),
-      ...tradeTasks,
-      ...(model?.moveCatalog || []).map((move) => ({
-        id: `move:${move.name}`,
-        source: "move",
-        category: "move",
-        name: move.name,
-        description: "",
-        generation: move.generations?.[0] || null,
-        generations: move.generations || [],
-        games: move.games,
-      })),
-      ...(model?.ribbonGroups || [])
-        .filter(
-          (group) =>
-            group.origin_generation >= 1 && group.origin_generation <= 7,
-        )
-        .flatMap((group) =>
-          group.ribbons.map((ribbon) => ({
-            id: `ribbon:${group.id}:${ribbon.id}`,
-            source: "ribbon",
-            category: "ribbon",
-            name: ribbon.name,
-            description: group.name,
-            generation: group.origin_generation,
-            games: group.origin_games.filter(
-              (code) => gameGenerations[code] <= 7,
-            ),
-          })),
-        ),
-    ],
-    [challengeTasks, exclusivePokemonTasks, tradeTasks, model],
+  const visibleTasksByGame = useMemo(
+    () => groupByGame(visibleTasks),
+    [visibleTasks],
   );
   const visibleProgressTasks = useMemo(
     () =>
-      progressTasks.filter((task) => {
-        const queryText =
-          `${task.name || ""} ${task.description || ""} ${task.platform || ""}`.toLocaleLowerCase();
-        const matchesQuery =
-          !query || queryText.includes(query.toLocaleLowerCase());
-        const matchesGames =
-          selectedGames.length === 0 ||
-          task.games.some((code) => selectedGames.includes(code));
-        const matchesGeneration =
-          generation === "all" ||
-          (Array.isArray(task.generations)
-            ? task.generations.includes(Number(generation))
-            : String(task.generation) === generation);
-        const matchesStatus =
-          status === "all"
-            ? true
-            : status === "done"
-              ? completed.has(task.id)
-              : !completed.has(task.id);
-
-        return (
-          matchesQuery && matchesGames && matchesGeneration && matchesStatus
-        );
-      }),
-    [progressTasks, query, selectedGames, generation, status, completed],
+      view === "progress" && model
+        ? model.progressTasks.filter(taskFilter)
+        : EMPTY,
+    [view, model, taskFilter],
   );
+
   if (error) {
     return (
       <main class="shell">
@@ -320,12 +137,8 @@ export function App() {
         </div>
         <Countdown targetTime={SHUTDOWN_TIME} />
       </header>
-      <Tabs view={view} setView={setView} tradeCategories={tradeCategories} />
-      {(view === "tracker" ||
-        view === "games" ||
-        view === "trades" ||
-        view.startsWith("trade:") ||
-        view === "moves") && (
+      <Tabs view={view} setView={setView} extraTabs={[...tradeTabs]} />
+      {showFilters && (
         <Filters
           query={query}
           setQuery={setQuery}
@@ -350,36 +163,17 @@ export function App() {
           ))}
         </section>
       )}
-      {view === "games" && (
+      {(view === "games" || isTradeView) && (
         <section class="game-view">
-          {visibleGames.map(([code, name]) => {
-            const items = visibleGameTasksByCode.get(code) || [];
-            return (
-              <GameGroup
-                key={code}
-                name={name}
-                tasks={items}
-                completed={completed}
-                toggle={toggle}
-              />
-            );
-          })}
-        </section>
-      )}
-      {(view === "trades" || view.startsWith("trade:")) && (
-        <section class="game-view">
-          {visibleGames.map(([code, name]) => {
-            const items = visibleTradeTasksByCode.get(code) || [];
-            return (
-              <GameGroup
-                key={code}
-                name={name}
-                tasks={items}
-                completed={completed}
-                toggle={toggle}
-              />
-            );
-          })}
+          {visibleGames.map(([code, name]) => (
+            <GameGroup
+              key={code}
+              name={name}
+              tasks={visibleTasksByGame.get(code) || EMPTY}
+              completed={completed}
+              toggle={toggle}
+            />
+          ))}
         </section>
       )}
       {view === "ribbons" && (
@@ -391,11 +185,10 @@ export function App() {
       )}
       {view === "moves" && (
         <MovesView
-          moves={visibleMoves}
           games={visibleGames}
+          movesByGame={visibleTasksByGame}
           completed={completed}
           toggle={toggle}
-          status={status}
         />
       )}
       {view === "progress" && (

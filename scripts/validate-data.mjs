@@ -15,7 +15,6 @@ const data = {
   exclusives: await load("home-exclusives.json"),
   ribbons: await load("home-ribbons.json"),
   moves: await load("home-moves.json"),
-  abilities: await load("home-abilities.json", true),
   trades: await load("home-trades.json", true),
 };
 const model = normalizeData(data);
@@ -24,7 +23,10 @@ assert(Object.keys(model.games).length > 0, "Expected a game catalog.");
 assert(model.tasks.length > 0, "Expected normalized tasks.");
 assert(model.moveCatalog.length > 0, "Expected normalized removed moves.");
 assert(model.ribbonGroups.length > 0, "Expected ribbon groups.");
-assert(model.taskIndex.bySource.challenge?.length > 0, "Expected challenge task index.");
+assert(
+  model.tasksBySource.challenge?.length > 0,
+  "Expected challenge task index.",
+);
 const unmappedTradeGames = [
   ...new Set(
     (data.trades.records || [])
@@ -37,21 +39,26 @@ assert(
   `Trade game labels missing from tradeGameMap: ${JSON.stringify(unmappedTradeGames)}`,
 );
 assert(
-  !data.trades.records?.length || model.taskIndex.bySource.trade?.length > 0,
+  !data.trades.records?.length || model.tasksBySource.trade?.length > 0,
   "Expected trade tasks when trade records are present.",
 );
-assert(Object.keys(model.moveIndex.byGame).length > 0, "Expected move game index.");
 assert(
   model.tasks.every((task) => task.games.every((code) => model.games[code])),
   "Every task game code must exist in the game catalog.",
 );
 assert(
-  model.moveCatalog.every((move) => move.games.every((code) => model.games[code])),
+  model.moveCatalog.every((move) =>
+    move.games.every((code) => model.games[code]),
+  ),
   "Every move game code must exist in the game catalog.",
 );
 assert(
   model.tasks.every((task) => task.id && task.name && task.games.length),
   "Every normalized task must have an ID, name, and game.",
+);
+assert(
+  model.progressTasks.every((task) => typeof task.searchText === "string"),
+  "Every progress task must be searchable.",
 );
 assert(
   model.moveCatalog.every((move) => move.removedIn && move.games.length),
@@ -66,9 +73,7 @@ assert(
   "Task IDs must be stable.",
 );
 assert(firstTask.id === secondModel.tasks[0].id, "Task IDs must be stable.");
-assert(
-  !data.abilities || typeof data.abilities === "object",
-  "Optional abilities data must be empty or an object.",
-);
 
-console.log(`Validated ${model.tasks.length} tasks (${model.taskIndex.bySource.trade?.length || 0} trades), ${model.moveCatalog.length} moves, and ${model.ribbonGroups.length} ribbon groups.`);
+console.log(
+  `Validated ${model.tasks.length} tasks (${model.tasksBySource.trade?.length || 0} trades), ${model.moveCatalog.length} moves, and ${model.ribbonGroups.length} ribbon groups.`,
+);

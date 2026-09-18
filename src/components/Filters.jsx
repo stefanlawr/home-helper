@@ -1,3 +1,5 @@
+const GENERATIONS = [1, 2, 3, 4, 5, 6, 7];
+
 export function Filters({
   query,
   setQuery,
@@ -22,8 +24,10 @@ export function Filters({
         onChange={(event) => setGeneration(event.currentTarget.value)}
       >
         <option value="all">All generations</option>
-        {[1, 2, 3, 4, 5, 6, 7].map((item) => (
-          <option value={item}>Generation {item}</option>
+        {GENERATIONS.map((item) => (
+          <option key={item} value={item}>
+            Generation {item}
+          </option>
         ))}
       </select>
       <select

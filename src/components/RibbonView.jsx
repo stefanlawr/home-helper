@@ -1,3 +1,5 @@
+import { ribbonTaskId } from "../data/keys";
+
 export function RibbonView({ groups, completed, toggle }) {
   return (
     <section class="reference-view">
@@ -25,8 +27,8 @@ export function RibbonView({ groups, completed, toggle }) {
                 <label class="ribbon-check">
                   <input
                     type="checkbox"
-                    checked={completed.has(`ribbon:${group.id}:${ribbon.id}`)}
-                    onChange={() => toggle(`ribbon:${group.id}:${ribbon.id}`)}
+                    checked={completed.has(ribbonTaskId(group.id, ribbon.id))}
+                    onChange={() => toggle(ribbonTaskId(group.id, ribbon.id))}
                   />
                   <span>
                     <strong>{ribbon.name}</strong>
