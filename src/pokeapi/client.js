@@ -1,127 +1,115 @@
+import { gameGenerations } from '../data/normalize.js'
+
 const TTL = 1000 * 60 * 60 * 24 * 30
-const prefix = 'home-helper:pokeapi:'
+const prefix = 'home-helper:pokeapi:v2:'
+const legacyPrefix = 'home-helper:pokeapi:'
 const pending = new Map()
-const learnerPending = new Map()
-const learnerCache = new Map()
-const LEARNER_CACHE_TTL = 1000 * 60 * 60
-const LEARNER_CONCURRENCY = 4
-const gameVersionGroups = {
-  rby: ['red-blue', 'yellow'],
-  gsc: ['gold-silver', 'crystal'],
-  rse: ['ruby-sapphire', 'emerald'],
-  frlg: ['firered-leafgreen'],
-  dppt: ['diamond-pearl', 'platinum'],
-  hgss: ['heartgold-soulsilver'],
-  bw: ['black-white'],
-  b2w2: ['black-2-white-2'],
-  xy: ['x-y'],
-  oras: ['omega-ruby-alpha-sapphire'],
-  sm: ['sun-moon'],
-  usum: ['ultra-sun-ultra-moon'],
-}
+// Highest National Dex number introduced by each generation.
+const generationDexLimits = { 1: 151, 2: 251, 3: 386, 4: 493, 5: 649, 6: 721, 7: 809 }
 
 function slug(value) {
   return value.toLocaleLowerCase().replace(/[.'’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
-async function cached(path) {
-  const key = `${prefix}${path}`;
+function englishEntry(entries) {
+  return entries?.find((entry) => entry.language?.name === 'en')
+}
+
+function dexNumber(url) {
+  return Number(url?.match(/\/(\d+)\/?$/)?.[1]) || null
+}
+
+// Drops expired entries and the raw responses cached by earlier versions, which could fill the storage quota.
+function pruneStorage() {
   try {
-    const saved = JSON.parse(localStorage.getItem(key) || 'null');
+    for (let index = localStorage.length - 1; index >= 0; index -= 1) {
+      const key = localStorage.key(index)
+      if (!key?.startsWith(legacyPrefix)) {
+        continue
+      }
+      let expired = !key.startsWith(prefix)
+      if (!expired) {
+        try {
+          expired = !(JSON.parse(localStorage.getItem(key))?.expiresAt > Date.now())
+        } catch {
+          expired = true
+        }
+      }
+      if (expired) {
+        localStorage.removeItem(key)
+      }
+    }
+  } catch {
+    // Storage may be unavailable (private mode, blocked cookies).
+  }
+}
+
+pruneStorage()
+
+// Fetches a PokeAPI resource and caches only the value `pick` derives from it.
+// Rejects on failure so callers can show an error and retry.
+function cached(path, pick) {
+  const key = `${prefix}${path}`
+  try {
+    const saved = JSON.parse(localStorage.getItem(key) || 'null')
     if (saved && saved.expiresAt > Date.now()) {
-      return saved.value;
+      return Promise.resolve(saved.value)
     }
   } catch {
     // Ignore malformed cache entries.
   }
 
   if (pending.has(path)) {
-    return pending.get(path);
+    return pending.get(path)
   }
 
   const request = fetch(`https://pokeapi.co/api/v2/${path}`)
     .then(async (response) => {
       if (!response.ok) {
-        return null;
+        throw new Error(`PokeAPI ${path} returned ${response.status}`)
       }
-      const value = await response.json();
+      const value = pick(await response.json())
       try {
-        localStorage.setItem(key, JSON.stringify({ value, expiresAt: Date.now() + TTL }));
+        localStorage.setItem(key, JSON.stringify({ value, expiresAt: Date.now() + TTL }))
       } catch {
         // Ignore storage quota issues.
       }
-      return value;
+      return value
     })
-    .catch(() => null)
-    .finally(() => pending.delete(path));
+    .finally(() => pending.delete(path))
 
-  pending.set(path, request);
-  return request;
+  pending.set(path, request)
+  return request
 }
 
-async function mapWithConcurrency(items, worker, limit) {
-  const results = new Array(items.length);
-  let nextIndex = 0;
-  const run = async () => {
-    while (nextIndex < items.length) {
-      const index = nextIndex++;
-      results[index] = await worker(items[index]);
-    }
-  };
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, run));
-  return results;
+function getMove(name) {
+  return cached(`move/${slug(name)}`, (move) => ({
+    type: move.type?.name,
+    damageClass: move.damage_class?.name,
+    description: englishEntry(move.flavor_text_entries)?.flavor_text?.replace(/\s+/g, ' '),
+    learners: (move.learned_by_pokemon || []).map((entry) => [entry.name, dexNumber(entry.url)]),
+  }))
 }
 
 export function getMoveInfo(name) {
-  return cached(`move/${slug(name)}`).then((move) => move && ({
-    type: move.type?.name,
-    damageClass: move.damage_class?.name,
-    description: move.flavor_text_entries?.find((entry) => entry.language?.name === 'en')?.flavor_text?.replace(/\s+/g, ' '),
-  }));
+  return getMove(name).then(({ type, damageClass, description }) => ({ type, damageClass, description }))
 }
 
+// PokeAPI only lists learners per version group on each Pokémon's record, which is too heavy to fetch
+// for every learner. Instead, list every Pokémon that learns the move in any game, limited to species
+// that existed by the game's generation.
 export function getMoveLearners(name, gameCode) {
-  const moveSlug = slug(name);
-  const learnerKey = `${moveSlug}:${gameCode}`;
-  const saved = learnerCache.get(learnerKey);
-  if (saved && saved.expiresAt > Date.now()) {
-    return Promise.resolve(saved.value);
-  }
-  learnerCache.delete(learnerKey);
-  if (learnerPending.has(learnerKey)) {
-    return learnerPending.get(learnerKey);
-  }
-  const versionGroups = new Set(gameVersionGroups[gameCode] || []);
-  const request = cached(`move/${moveSlug}`).then(async (move) => {
-    if (!move) {
-      return [];
-    }
-    const learners = await mapWithConcurrency(
-      move.learned_by_pokemon || [],
-      async (entry) => {
-        const pokemon = await cached(`pokemon/${entry.name}`);
-        const moveDetails = pokemon?.moves?.find(
-          (candidate) => candidate.move?.name === moveSlug,
-        )?.version_group_details;
-        return moveDetails?.some((detail) =>
-          versionGroups.has(detail.version_group?.name),
-        )
-          ? entry.name
-          : null;
-      },
-      LEARNER_CONCURRENCY,
-    );
-    return learners.filter(Boolean).sort();
-  }).then((value) => {
-    learnerCache.set(learnerKey, { value, expiresAt: Date.now() + LEARNER_CACHE_TTL });
-    return value;
-  }).finally(() => learnerPending.delete(learnerKey));
-  learnerPending.set(learnerKey, request);
-  return request;
+  const dexLimit = generationDexLimits[gameGenerations[gameCode]] || Infinity
+  return getMove(name).then(({ learners }) =>
+    learners
+      .filter(([, number]) => number && number <= dexLimit)
+      .map(([pokemon]) => pokemon)
+      .sort(),
+  )
 }
 
 export function getAbilityInfo(name) {
-  return cached(`ability/${slug(name)}`).then((ability) => ability && ({
-    description: ability.effect_entries?.find((entry) => entry.language?.name === 'en')?.short_effect,
-  }));
+  return cached(`ability/${slug(name)}`, (ability) => ({
+    description: englishEntry(ability.effect_entries)?.short_effect,
+  }))
 }

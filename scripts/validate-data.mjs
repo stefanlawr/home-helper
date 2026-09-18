@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { normalizeData } from "../src/data/normalize.js";
+import { normalizeData, tradeGameMap } from "../src/data/normalize.js";
 
 const dataPath = (name) => new URL(`../assets/data/${name}`, import.meta.url);
 const load = async (name, optional = false) => {
@@ -16,6 +16,7 @@ const data = {
   ribbons: await load("home-ribbons.json"),
   moves: await load("home-moves.json"),
   abilities: await load("home-abilities.json", true),
+  trades: await load("home-trades.json", true),
 };
 const model = normalizeData(data);
 
@@ -24,6 +25,21 @@ assert(model.tasks.length > 0, "Expected normalized tasks.");
 assert(model.moveCatalog.length > 0, "Expected normalized removed moves.");
 assert(model.ribbonGroups.length > 0, "Expected ribbon groups.");
 assert(model.taskIndex.bySource.challenge?.length > 0, "Expected challenge task index.");
+const unmappedTradeGames = [
+  ...new Set(
+    (data.trades.records || [])
+      .map((record) => record.game)
+      .filter((game) => !tradeGameMap[game]),
+  ),
+];
+assert(
+  unmappedTradeGames.length === 0,
+  `Trade game labels missing from tradeGameMap: ${JSON.stringify(unmappedTradeGames)}`,
+);
+assert(
+  !data.trades.records?.length || model.taskIndex.bySource.trade?.length > 0,
+  "Expected trade tasks when trade records are present.",
+);
 assert(Object.keys(model.moveIndex.byGame).length > 0, "Expected move game index.");
 assert(
   model.tasks.every((task) => task.games.every((code) => model.games[code])),
@@ -55,4 +71,4 @@ assert(
   "Optional abilities data must be empty or an object.",
 );
 
-console.log(`Validated ${model.tasks.length} tasks, ${model.moveCatalog.length} moves, and ${model.ribbonGroups.length} ribbon groups.`);
+console.log(`Validated ${model.tasks.length} tasks (${model.taskIndex.bySource.trade?.length || 0} trades), ${model.moveCatalog.length} moves, and ${model.ribbonGroups.length} ribbon groups.`);

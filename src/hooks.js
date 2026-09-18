@@ -24,10 +24,13 @@ export function usePersistentSet() {
       return new Set();
     }
   });
-  useEffect(
-    () => localStorage.setItem(STORAGE_KEY, JSON.stringify([...completed])),
-    [completed],
-  );
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...completed]));
+    } catch {
+      // Storage may be full or unavailable; progress stays in memory for this session.
+    }
+  }, [completed]);
   return [
     completed,
     (id) =>

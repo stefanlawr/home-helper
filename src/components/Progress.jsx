@@ -8,6 +8,8 @@ function Stat({ label, value, detail }) {
   );
 }
 
+const PREFERRED_CATEGORIES = ["pokemon", "shiny", "move", "ribbon"];
+
 export function Progress({ tasks, completed, games }) {
   const normalizeCategoryKey = (category) =>
     String(category || "")
@@ -17,7 +19,6 @@ export function Progress({ tasks, completed, games }) {
       .replace(/^-|-$/g, "");
 
   const categoryCounts = new Map();
-  const categoryLabels = new Map();
   for (const task of tasks) {
     const key = normalizeCategoryKey(task.category);
     if (!categoryCounts.has(key)) {
@@ -26,7 +27,6 @@ export function Progress({ tasks, completed, games }) {
         done: 0,
         label: task.category || "Other",
       });
-      categoryLabels.set(key, task.category || "Other");
     }
     const count = categoryCounts.get(key);
     count.total += 1;
@@ -34,18 +34,10 @@ export function Progress({ tasks, completed, games }) {
       count.done += 1;
     }
   }
-
-  const categories = [
-    "pokemon",
-    "move",
-    "ability",
-    "ribbon",
-    ...tasks
-      .filter((task) => task.source === "trade")
-      .map((task) => normalizeCategoryKey(task.category))
-      .filter(Boolean),
+  // Core categories lead; every other category follows in first-seen order so none is left out.
+  const categoryOrder = [
+    ...new Set([...PREFERRED_CATEGORIES, ...categoryCounts.keys()]),
   ];
-  const categoryOrder = [...new Set(categories)];
   const gameCounts = new Map(
     Object.keys(games).map((code) => [code, { total: 0, done: 0 }]),
   );
@@ -69,15 +61,8 @@ export function Progress({ tasks, completed, games }) {
   const percentage = (total, done) =>
     total ? Math.round((done / total) * 100) : 0;
   const byCategory = categoryOrder
-    .map((key) => {
-      const counts = categoryCounts.get(key) || {
-        total: 0,
-        done: 0,
-        label: categoryLabels.get(key) || key,
-      };
-      return [key, counts];
-    })
-    .filter(([, counts]) => counts.total);
+    .filter((key) => categoryCounts.has(key))
+    .map((key) => [key, categoryCounts.get(key)]);
   const byGame = Object.entries(games)
     .map(([code, name]) => [code, name, gameCounts.get(code)])
     .filter(([, , counts]) => counts.total);

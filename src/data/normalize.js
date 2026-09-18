@@ -20,7 +20,7 @@ function isPriority(name, globalTargets) {
 }
 
 // Maps the trades sheet's "game" label (including GameCube/Wii/3DS demo transfer chains) to catalog game codes.
-const tradeGameMap = {
+export const tradeGameMap = {
   "Red/Blue": ["rby"],
   "Pocket Monsters Blue (JPN)": ["rby"],
   Yellow: ["rby"],
@@ -169,11 +169,18 @@ function indexMoves(moves) {
   return { byGame };
 }
 
-function findLinkedChallenge(name, challengeTasks) {
-  const needle = clean(name).toLocaleLowerCase();
+// Links an exclusive to a challenge in one of its own games that names it as a whole word,
+// so "Mew" never matches "Mewtwo".
+function findLinkedChallenge(name, games, challengeTasks) {
+  const escaped = clean(name).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(`(?<![\\p{L}\\d])${escaped}(?![\\p{L}\\d])`, "iu");
   return (
     challengeTasks
-      .filter((task) => task.name.toLocaleLowerCase().includes(needle))
+      .filter(
+        (task) =>
+          task.games.some((code) => games.includes(code)) &&
+          pattern.test(task.name),
+      )
       .sort((a, b) => {
         const score = (value) => {
           let total = 0;
@@ -219,20 +226,12 @@ export function normalizeData(data) {
     }))
     .filter((task) => task.games.length && task.generation <= 7);
 
+  // Only the categories the app shows become tasks; the exclusive move lists feed moveCatalog below.
   const categoryMap = {
     home_challenges: "pokemon",
     notable_shinies: "shiny",
-    moves: "move",
-    abilities: "ability",
-    ribbons: "ribbon",
-    notable_gifts: "gift",
-    ball_properties: "special",
-    special: "special",
   };
-
-  const challengeTasksForLinking = tasks.filter(
-    (task) => task.source === "challenge",
-  );
+  const challengeTasks = [...tasks];
 
   for (const group of data.exclusives.games || []) {
     for (const [key, values] of Object.entries(group.categories || {})) {
@@ -243,7 +242,8 @@ export function normalizeData(data) {
         const name = clean(value);
         const linkedChallenge = findLinkedChallenge(
           name,
-          challengeTasksForLinking,
+          group.games || [],
+          challengeTasks,
         );
         tasks.push({
           id: stableId(`${group.id}:${key}:${name}`),

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "preact/hooks";
 import { gameGenerations } from "./data/normalize";
 import { useCatalog } from "./data/useCatalog";
 import { matchesMove, matchesTask } from "./data/filters";
-import { useCountdown, usePersistentSet } from "./hooks";
+import { usePersistentSet } from "./hooks";
 import { TaskRow } from "./components/TaskRow";
 import { Progress } from "./components/Progress";
 import { RibbonView } from "./components/RibbonView";
@@ -10,6 +10,7 @@ import { MovesView } from "./components/MovesView";
 import { Filters } from "./components/Filters";
 import { GameGroup } from "./components/GameGroup";
 import { Tabs } from "./components/Tabs";
+import { Countdown } from "./components/Countdown";
 import "./app.css";
 
 const SHUTDOWN_TIME = new Date("2027-02-25T19:00:00-08:00").getTime();
@@ -38,10 +39,7 @@ export function App() {
     [challengeTasks],
   );
   const exclusivePokemonTasks = useMemo(
-    () =>
-      (model?.taskIndex.bySource.exclusive || []).filter(
-        (task) => task.category === "pokemon" || task.category === "shiny",
-      ) || [],
+    () => model?.taskIndex.bySource.exclusive || [],
     [model],
   );
   const exclusivePokemonGameCodes = useMemo(
@@ -125,6 +123,13 @@ export function App() {
       generation,
       view,
     ],
+  );
+  const visibleGames = useMemo(
+    () =>
+      selectedGames.length
+        ? gameOptions.filter(([code]) => selectedGames.includes(code))
+        : gameOptions,
+    [gameOptions, selectedGames],
   );
   useEffect(() => {
     const allowed = new Set(gameOptions.map(([code]) => code));
@@ -287,7 +292,6 @@ export function App() {
       }),
     [progressTasks, query, selectedGames, generation, status, completed],
   );
-  const countdown = useCountdown(SHUTDOWN_TIME);
   if (error) {
     return (
       <main class="shell">
@@ -314,14 +318,7 @@ export function App() {
           <p class="eyebrow">Pokémon HOME · Bank sunset planner</p>
           <h1>Home Helper</h1>
         </div>
-        <div class="headline-stat">
-          <strong>
-            {countdown.remaining > 0
-              ? `${countdown.days}d ${String(countdown.hours).padStart(2, "0")}:${String(countdown.minutes).padStart(2, "0")}:${String(countdown.seconds).padStart(2, "0")}`
-              : "Bank is closed"}
-          </strong>
-          <span>until Bank shuts down</span>
-        </div>
+        <Countdown targetTime={SHUTDOWN_TIME} />
       </header>
       <Tabs view={view} setView={setView} tradeCategories={tradeCategories} />
       {(view === "tracker" ||
@@ -355,7 +352,7 @@ export function App() {
       )}
       {view === "games" && (
         <section class="game-view">
-          {Object.entries(model.games).map(([code, name]) => {
+          {visibleGames.map(([code, name]) => {
             const items = visibleGameTasksByCode.get(code) || [];
             return (
               <GameGroup
@@ -371,7 +368,7 @@ export function App() {
       )}
       {(view === "trades" || view.startsWith("trade:")) && (
         <section class="game-view">
-          {Object.entries(model.games).map(([code, name]) => {
+          {visibleGames.map(([code, name]) => {
             const items = visibleTradeTasksByCode.get(code) || [];
             return (
               <GameGroup
@@ -395,7 +392,7 @@ export function App() {
       {view === "moves" && (
         <MovesView
           moves={visibleMoves}
-          games={model.games}
+          games={visibleGames}
           completed={completed}
           toggle={toggle}
           status={status}

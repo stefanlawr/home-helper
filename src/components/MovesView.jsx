@@ -20,41 +20,50 @@ export function MovesView({ moves, games, completed, toggle, status }) {
       movesByGame.set(code, items);
     }
   }
-  const gamesWithMoves = Object.entries(games)
+  const gamesWithMoves = games
     .map(([code, name]) => [code, name, movesByGame.get(code) || []])
     .filter(([, , items]) => items.length);
   const expand = (move, code) => {
     const key = `${code}:${move.name}`;
-    setExpanded(expanded === key ? null : key);
-    if (!details[move.name])
-      getMoveInfo(move.name).then((value) =>
-        setDetails((current) => ({ ...current, [move.name]: { value } })),
-      ).catch(() =>
-        setDetails((current) => ({
-          ...current,
-          [move.name]: { error: "Unable to load move details." },
-        })),
-      );
+    if (expanded === key) {
+      setExpanded(null);
+      return;
+    }
+    setExpanded(key);
+    if (!details[move.name] || details[move.name].error) {
+      getMoveInfo(move.name)
+        .then((value) =>
+          setDetails((current) => ({ ...current, [move.name]: { value } })),
+        )
+        .catch(() =>
+          setDetails((current) => ({
+            ...current,
+            [move.name]: { error: "Unable to load move details." },
+          })),
+        );
+    }
     if (!learners[key] || learners[key].error) {
       setLearners((current) => ({
         ...current,
         [key]: { loading: true, pokemon: [], error: null },
       }));
-      getMoveLearners(move.name, code).then((value) =>
-        setLearners((current) => ({
-          ...current,
-          [key]: { loading: false, pokemon: value, error: null },
-        })),
-      ).catch(() =>
-        setLearners((current) => ({
-          ...current,
-          [key]: {
-            loading: false,
-            pokemon: [],
-            error: "Unable to load Pokemon learners.",
-          },
-        })),
-      );
+      getMoveLearners(move.name, code)
+        .then((value) =>
+          setLearners((current) => ({
+            ...current,
+            [key]: { loading: false, pokemon: value, error: null },
+          })),
+        )
+        .catch(() =>
+          setLearners((current) => ({
+            ...current,
+            [key]: {
+              loading: false,
+              pokemon: [],
+              error: "Unable to load Pokemon learners.",
+            },
+          })),
+        );
     }
   };
   return (
@@ -108,6 +117,7 @@ export function MovesView({ moves, games, completed, toggle, status }) {
                 {expanded === `${code}:${move.name}` && learners[`${code}:${move.name}`] && (
                   <div class="move-learners">
                     <strong>Pokemon that can learn this move</strong>
+                    <small>In any game, limited to species from this generation or earlier.</small>
                     {learners[`${code}:${move.name}`].loading ? (
                       <small>Loading Pokemon...</small>
                     ) : learners[`${code}:${move.name}`].error ? (
